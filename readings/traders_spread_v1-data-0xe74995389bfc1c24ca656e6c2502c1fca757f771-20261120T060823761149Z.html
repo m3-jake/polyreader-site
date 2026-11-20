@@ -1,0 +1,550 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<title>Trader&#39;s Spread 0xe749…f771</title>
+<script>(function(d){d.documentElement.classList.add('js');function P(b,o){b.setAttribute('aria-pressed',o?'true':'false')}d.addEventListener('click',function(e){var t=e.target;if(!t.closest)return;var b=t.closest('button.flip');if(b){var r=b.getAttribute('data-mode')==='reveal';P(b,b.classList.toggle(r?'is-open':'is-flipped'));return}var a=t.closest('[data-reveal-all]');if(a){d.querySelectorAll('.deal .flip').forEach(function(x){x.classList.add('is-open');P(x,1)});return}var f=t.closest('[data-filter]');if(f){var v=f.getAttribute('data-filter'),n=0;d.querySelectorAll('.gallery>li').forEach(function(li){var s=v==='all'||(' '+li.getAttribute('data-group')+' ').indexOf(' '+v+' ')>=0;li.hidden=!s;if(s)n++});d.querySelectorAll('[data-filter]').forEach(function(x){P(x,x===f)});var c=d.getElementById('shown');if(c)c.textContent=n}})})(document);</script>
+<style>
+/* Polyreader Tarot Market theme: hyper-saturated N64 vaporwave. Local only: no web fonts,
+   no external assets. Dark is the default; the light variant follows the OS setting. */
+:root {
+  --void: #0a0221; --deep: #14063f; --ultra: #2a0fb0; --violet: #8b2cff; --magenta: #ff2bd6;
+  --hot: #ff3f7f; --orange: #ff7a1a; --yellow: #ffe14d; --lime: #b8ff2c; --mint: #3dffb5;
+  --cyan: #00eaff; --ice: #a8f3ff; --chrome: #e8eeff;
+  --bg: var(--void); --bg-2: var(--deep); --fg: #f1ecff; --muted: #b9acec; --line: #4b2fb0;
+  --card: #160847; --card-2: #22105f; --accent: var(--cyan); --accent-2: var(--magenta);
+  --head: var(--chrome); --warn: #ffb020; --ok: var(--lime); --scan: rgba(0, 0, 0, .28);
+  --glow: 0 0 6px rgba(255, 43, 214, .75), 0 0 18px rgba(0, 234, 255, .35);
+  --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --glyph: "Apple Symbols", "Segoe UI Symbol", "Noto Sans Symbols 2", "DejaVu Sans", sans-serif;
+  --bevel: 0 0 0 2px var(--void), 0 0 0 4px var(--magenta), 4px 4px 0 4px var(--cyan);
+  --bevel-sm: 0 0 0 2px var(--void), 0 0 0 3px var(--cyan), 3px 3px 0 3px var(--magenta);
+  --t-mag: var(--magenta); --t-cyan: var(--cyan); --t-orange: var(--orange); --t-lime: var(--lime);
+  --t-yellow: var(--yellow);
+  color-scheme: dark;
+}
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    --bg: #fff1fb; --bg-2: #f2e6ff; --fg: #1a0b4d; --muted: #54437f; --line: #c4b0ff;
+    --card: #ffffff; --card-2: #f6eeff; --accent: #0057a8; --accent-2: #b00090; --head: #2a0fb0;
+    --warn: #8a4f00; --ok: #2c6b00; --scan: rgba(42, 15, 176, .07);
+    --glow: 0 0 0 transparent;
+    --bevel: 0 0 0 2px #fff, 0 0 0 4px #c000a0, 4px 4px 0 4px #00a8c8;
+    --bevel-sm: 0 0 0 2px #fff, 0 0 0 3px #00a8c8, 3px 3px 0 3px #c000a0;
+    --t-mag: #b0008f; --t-cyan: #006a9e; --t-orange: #b04a00; --t-lime: #2c6b00;
+    --t-yellow: #7a5a00;
+    color-scheme: light;
+  }
+}
+:root[data-theme="light"] {
+  --bg: #fff1fb; --bg-2: #f2e6ff; --fg: #1a0b4d; --muted: #54437f; --line: #c4b0ff;
+  --card: #ffffff; --card-2: #f6eeff; --accent: #0057a8; --accent-2: #b00090; --head: #2a0fb0;
+  --warn: #8a4f00; --ok: #2c6b00; --scan: rgba(42, 15, 176, .07); --glow: 0 0 0 transparent;
+  --t-mag: #b0008f; --t-cyan: #006a9e; --t-orange: #b04a00; --t-lime: #2c6b00;
+  --t-yellow: #7a5a00;
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; min-height: 100vh; overflow-x: hidden; color: var(--fg);
+  font: 15px/1.55 system-ui, -apple-system, "Segoe UI", sans-serif;
+  background-color: var(--bg);
+  background-image:
+    radial-gradient(1px 1px at 12% 18%, var(--chrome) 50%, transparent 51%),
+    radial-gradient(1px 1px at 68% 9%, var(--ice) 50%, transparent 51%),
+    radial-gradient(2px 2px at 83% 41%, var(--magenta) 50%, transparent 51%),
+    radial-gradient(1px 1px at 36% 63%, var(--chrome) 50%, transparent 51%),
+    radial-gradient(2px 2px at 91% 82%, var(--cyan) 50%, transparent 51%),
+    radial-gradient(1px 1px at 22% 88%, var(--yellow) 50%, transparent 51%),
+    radial-gradient(ellipse 90% 50% at 50% 0%, rgba(139, 44, 255, .35), transparent 70%),
+    linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
+  background-size: 260px 260px, 260px 260px, 260px 260px, 260px 260px, 260px 260px,
+    260px 260px, 100% 100%, 100% 100%;
+  background-attachment: fixed;
+}
+/* CRT: scanlines plus a slow flicker, and a soft vignette. Pointer-transparent. */
+body::after {
+  content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 90;
+  background: repeating-linear-gradient(180deg, var(--scan) 0 1px, transparent 1px 3px);
+  animation: crt-flicker 7s steps(1) infinite;
+}
+body::before {
+  content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 89;
+  background: radial-gradient(ellipse at center, transparent 60%, rgba(10, 2, 33, .45) 100%);
+}
+@media (prefers-color-scheme: light) { body::before { opacity: .15; } }
+@keyframes crt-flicker { 0%, 100% { opacity: 1; } 47% { opacity: .82; } 48% { opacity: 1; }
+  73% { opacity: .9; } 74% { opacity: 1; } }
+
+a { color: var(--accent); text-decoration-thickness: 2px; text-underline-offset: 3px; }
+a:hover { color: var(--accent-2); }
+:focus-visible { outline: 3px solid var(--lime); outline-offset: 3px; border-radius: 2px; }
+code, .mono { font-family: var(--mono); font-size: .86em; overflow-wrap: anywhere; }
+.skip { position: absolute; left: -999px; top: 0; z-index: 100; background: var(--lime);
+  color: #000; padding: 6px 10px; font-family: var(--mono); }
+.skip:focus { left: 16px; }
+
+/* ---------------------------------------------------------------- top bar + nav */
+.topbar { position: relative; z-index: 5; border-bottom: 3px solid var(--magenta);
+  background: linear-gradient(90deg, rgba(42, 15, 176, .85), rgba(139, 44, 255, .55) 50%,
+  rgba(255, 43, 214, .45)); }
+.topbar-in { max-width: 1120px; margin: 0 auto; padding: 8px 16px; display: flex; flex-wrap: wrap;
+  align-items: center; gap: 8px 18px; }
+.brand { font: 800 1rem/1 var(--mono); letter-spacing: .14em; text-transform: uppercase;
+  color: #fff; text-decoration: none; text-shadow: -2px 0 var(--magenta), 2px 0 var(--cyan); }
+.brand b { color: var(--yellow); }
+nav.main { display: flex; flex-wrap: wrap; gap: 6px; }
+nav.main a { font: 700 .74rem/1 var(--mono); letter-spacing: .12em; text-transform: uppercase;
+  color: #fff; text-decoration: none; padding: 7px 10px; background: rgba(10, 2, 33, .55);
+  border: 2px solid var(--cyan); box-shadow: 2px 2px 0 var(--magenta); }
+nav.main a:hover, nav.main a[aria-current="page"] { background: var(--yellow); color: #14063f;
+  border-color: #fff; box-shadow: 2px 2px 0 var(--violet); }
+
+/* ---------------------------------------------------------------- hero: sun + grid floor */
+.hero { position: relative; overflow: hidden; height: clamp(200px, 34vw, 340px);
+  border-bottom: 4px solid var(--magenta);
+  background: linear-gradient(180deg, #07001a 0%, #1b0870 38%, #6d18c9 55%, #ff2bd6 63%,
+  #ff7a1a 64.5%, #14063f 64.6%, #0a0221 100%); }
+.hero-sky { position: absolute; left: 0; right: 0; top: 0; height: 65%; }
+.hero-sky svg { display: block; width: 100%; height: 100%; }
+.floor { position: absolute; left: 0; right: 0; bottom: 0; height: 36%; overflow: hidden;
+  perspective: 220px; perspective-origin: 50% 0%; }
+.floor-plane { position: absolute; left: -60%; right: -60%; top: 0; height: 260%;
+  transform-origin: 50% 0%; transform: rotateX(66deg);
+  background-image: linear-gradient(var(--magenta) 3px, transparent 3px),
+    linear-gradient(90deg, var(--cyan) 3px, transparent 3px);
+  background-size: 56px 56px; background-position: 0 0;
+  -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 18%);
+  mask-image: linear-gradient(180deg, transparent 0%, #000 18%);
+  animation: floor-run 1.8s linear infinite; filter: drop-shadow(0 0 4px var(--magenta)); }
+@keyframes floor-run { to { background-position: 0 56px; } }
+.hero-text { position: absolute; left: 0; right: 0; top: 0; height: 64%; display: flex;
+  flex-direction: column; justify-content: flex-end; align-items: center; text-align: center;
+  padding: 0 16px 10px; }
+.hero-text .tag { font: 700 .72rem/1.3 var(--mono); letter-spacing: .2em; text-transform: uppercase;
+  color: var(--ice); background: rgba(10, 2, 33, .6); padding: 4px 10px; margin-top: 6px;
+  border: 1px solid var(--cyan); }
+.hero.slim { height: clamp(150px, 22vw, 220px); }
+
+/* ---------------------------------------------------------------- chroma headings */
+.chroma { position: relative; display: inline-block; isolation: isolate; margin: 0;
+  font: 900 clamp(1.5rem, 5.4vw, 3.1rem)/1.05 var(--mono); letter-spacing: .04em;
+  text-transform: uppercase; overflow-wrap: anywhere; color: var(--chrome); }
+.chroma > span { color: transparent; -webkit-background-clip: text; background-clip: text;
+  background-image: linear-gradient(180deg, #ffffff 0%, #c9f6ff 30%, #6ad8ff 47%, #2a0fb0 50%,
+  #ff6af0 53%, #ffd0f6 75%, #ffffff 100%); }
+.chroma::before, .chroma::after { content: attr(data-text); position: absolute; inset: 0;
+  z-index: -1; pointer-events: none; }
+.chroma::before { color: var(--magenta); transform: translate(-3px, 1px); }
+.chroma::after { color: var(--cyan); transform: translate(3px, -1px); mix-blend-mode: screen; }
+main { position: relative; z-index: 2; max-width: 1120px; margin: 0 auto; padding: 18px 16px 48px;
+  overflow-wrap: anywhere; }
+main > h1.page { margin: 10px 0 6px; }
+h2 { font: 800 1.08rem/1.25 var(--mono); letter-spacing: .1em; text-transform: uppercase;
+  color: var(--head); margin: 34px 0 12px; padding: 6px 0 6px 12px;
+  border-left: 6px solid var(--magenta); text-shadow: -1.5px 0 rgba(255, 43, 214, .8),
+  1.5px 0 rgba(0, 234, 255, .8);
+  background: linear-gradient(90deg, rgba(139, 44, 255, .28), transparent 70%); }
+h3 { font: 800 .95rem/1.3 var(--mono); letter-spacing: .08em; text-transform: uppercase;
+  color: var(--accent); margin: 18px 0 8px; }
+@media (prefers-color-scheme: light) {
+  h2 { text-shadow: none; }
+
+}
+
+/* ---------------------------------------------------------------- provenance HUD + footer */
+.meta { display: flex; flex-wrap: wrap; gap: 6px 8px; margin: 10px 0 16px; font: .74rem/1.3 var(--mono);
+  color: var(--muted); }
+.meta span { padding: 4px 8px; background: var(--card); border: 1px solid var(--line);
+  border-left: 4px solid var(--cyan); }
+.meta span:nth-child(2) { border-left-color: var(--magenta); }
+.meta span:nth-child(3) { border-left-color: var(--lime); }
+.meta span:nth-child(4) { border-left-color: var(--orange); }
+footer.honesty { position: relative; z-index: 2; max-width: 1120px; margin: 40px auto 0;
+  padding: 0 16px 36px; }
+footer.honesty p { margin: 0; padding: 14px 16px; font: .86rem/1.5 var(--mono); color: var(--fg);
+  background: repeating-linear-gradient(135deg, var(--card) 0 10px, var(--card-2) 10px 20px);
+  border: 2px solid var(--yellow); box-shadow: 4px 4px 0 var(--magenta); }
+footer.honesty p::before { content: "HONESTY // "; color: var(--t-yellow); font-weight: 800; }
+
+/* ---------------------------------------------------------------- boxes, tables, chips */
+.box { position: relative; background: linear-gradient(180deg, var(--card-2), var(--card));
+  padding: 14px 16px; margin: 18px 6px 18px 4px; box-shadow: var(--bevel); }
+.box p:first-child { margin-top: 0; } .box p:last-child { margin-bottom: 0; }
+.note { font: .82rem/1.45 var(--mono); color: var(--warn); border: 1px dashed var(--warn);
+  padding: 6px 10px; margin: 10px 0; }
+.state { display: inline-block; padding: 4px 12px; font: 800 .86rem/1.3 var(--mono);
+  letter-spacing: .06em; text-transform: uppercase; color: #14063f; background: var(--yellow);
+  border: 2px solid #fff; box-shadow: 3px 3px 0 var(--magenta), var(--glow); }
+.warn { color: var(--warn); }
+.ok { color: var(--ok); }
+.muted { color: var(--muted); }
+.scroll { overflow-x: auto; max-width: 100%; }
+table { border-collapse: collapse; width: 100%; font-size: .86rem; background: var(--card); }
+th, td { border-bottom: 1px solid var(--line); padding: 6px 9px; text-align: left; vertical-align: top;
+  overflow-wrap: anywhere; }
+tr:first-child th { background: linear-gradient(180deg, var(--ultra), #1b0878); color: var(--ice);
+  font: 700 .74rem/1.3 var(--mono); letter-spacing: .08em; text-transform: uppercase;
+  border-bottom: 2px solid var(--magenta); }
+table:not(:has(tr:first-child th + th)) th { color: var(--accent); background: transparent;
+  font: 600 .8rem/1.4 var(--mono); text-transform: none; letter-spacing: 0; border-bottom-width: 1px;
+  border-bottom-color: var(--line); width: 34%; }
+tr:nth-child(even) td { background: rgba(139, 44, 255, .08); }
+td.n, th.n { text-align: right; font-variant-numeric: tabular-nums; font-family: var(--mono); }
+pre { white-space: pre-wrap; overflow-wrap: anywhere; background: var(--card); padding: 12px;
+  font: .82rem/1.5 var(--mono); border: 2px solid var(--line); box-shadow: 4px 4px 0 var(--violet); }
+ul { padding-left: 1.3em; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0; padding: 0; list-style: none; }
+.chip { display: inline-block; font: 700 .7rem/1.2 var(--mono); letter-spacing: .08em;
+  text-transform: uppercase; padding: 4px 8px; border: 2px solid currentColor; }
+.chip.k-symbolic, .chip.m-random { color: var(--t-mag); }
+.chip.k-fact, .chip.m-data, .chip.k-chart, .chip.k-sky { color: var(--t-cyan); }
+.chip.k-forecast, .chip.m-hybrid { color: var(--t-orange); }
+.chip.k-note, .chip.k-label, .chip.k-text { color: var(--t-lime); }
+.chip.k-warn { color: var(--warn); }
+.grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+  gap: 12px 22px; }
+
+/* ---------------------------------------------------------------- tiles (index, readings) */
+.tiles { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
+  gap: 22px; margin: 18px 6px 18px 4px; padding: 0; list-style: none; }
+.tile { position: relative; display: block; color: var(--fg); text-decoration: none;
+  background: linear-gradient(180deg, var(--card-2), var(--card)); box-shadow: var(--bevel-sm);
+  transition: transform .15s ease; }
+.tile:hover { transform: translate(-2px, -2px); color: var(--fg); }
+.tile .band { display: flex; justify-content: space-between; gap: 8px; padding: 5px 10px;
+  font: 800 .7rem/1.2 var(--mono); letter-spacing: .12em; text-transform: uppercase; color: #14063f;
+  background: var(--cyan); }
+.tile.s-traders_spread_v1 .band { background: var(--lime); }
+.tile.s-daily_v1 .band { background: var(--magenta); color: #fff; }
+.tile .body { padding: 10px 12px 12px; }
+.tile .title { font: 800 .98rem/1.3 var(--mono); margin: 0 0 6px; color: var(--head); }
+.tile .sub { font: .75rem/1.4 var(--mono); color: var(--muted); margin: 0 0 10px; }
+.thumbs { display: flex; gap: 6px; align-items: flex-end; }
+.thumbs img, .thumbs .fallback { width: 19%; max-width: 64px; aspect-ratio: 3 / 5; height: auto;
+  display: block; border: 1px solid var(--line); background: var(--void); }
+.thumbs .rev { transform: rotate(180deg); }
+.thumbs .fallback { font-size: .5rem; }
+
+/* ---------------------------------------------------------------- card flip (CSS 3-D) */
+.deal { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(46%, 168px), 1fr));
+  gap: 22px 16px; margin: 18px 0; padding: 0; list-style: none; }
+.deal > li { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.pos { font: 800 .7rem/1.2 var(--mono); letter-spacing: .14em; text-transform: uppercase;
+  color: var(--t-yellow); text-align: center; }
+.flip { display: block; width: 100%; padding: 0; margin: 0; border: 0; background: none;
+  cursor: pointer; perspective: 1100px; aspect-ratio: 3 / 5; color: inherit; font: inherit; }
+.flip-inner { position: relative; display: block; width: 100%; height: 100%;
+  transform-style: preserve-3d; transition: transform .75s cubic-bezier(.2, .9, .25, 1.15); }
+.flip.is-flipped .flip-inner, .js .deal .flip:not(.is-open) .flip-inner { transform: rotateY(180deg); }
+.js .deal .flip.is-open .flip-inner { transform: none; }
+.side { position: absolute; inset: 0; display: block; -webkit-backface-visibility: hidden;
+  backface-visibility: hidden; overflow: hidden; background: var(--void);
+  box-shadow: 0 0 0 2px #fff, 0 0 0 4px var(--magenta), 0 10px 26px rgba(0, 234, 255, .3); }
+.side-b { transform: rotateY(180deg); }
+.side img { display: block; width: 100%; height: 100%; object-fit: contain; }
+.side img.rev { transform: rotate(180deg); }
+.flip:hover .side { box-shadow: 0 0 0 2px #fff, 0 0 0 4px var(--cyan), 0 0 26px var(--magenta); }
+.cap { text-align: center; font: .8rem/1.35 var(--mono); }
+.cap b { display: block; color: var(--head); font-size: .86rem; }
+.rev-tag { color: var(--t-orange); font-weight: 800; margin-left: 6px; }
+.dossier { padding: 10% 9%; height: 100%; display: flex; flex-direction: column; gap: 6px;
+  text-align: left; font: .7rem/1.35 var(--mono); color: var(--fg);
+  background: repeating-linear-gradient(0deg, rgba(0, 234, 255, .07) 0 2px, transparent 2px 4px),
+  linear-gradient(160deg, #2a0fb0, #14063f 60%, #3a0a5c); }
+.dossier b { font-size: .85rem; color: var(--yellow); text-transform: uppercase; }
+.dossier i { font-style: normal; color: var(--cyan); }
+.fallback { display: flex; align-items: center; justify-content: center; height: 100%;
+  padding: 8px; text-align: center; font: 800 .78rem/1.2 var(--mono); color: var(--yellow);
+  text-transform: uppercase; background: linear-gradient(180deg, #2a0fb0, #ff2bd6);
+  border: 3px double var(--cyan); }
+.btn { font: 800 .74rem/1 var(--mono); letter-spacing: .1em; text-transform: uppercase;
+  padding: 9px 12px; color: #14063f; background: var(--cyan); border: 2px solid #fff;
+  box-shadow: 3px 3px 0 var(--magenta); cursor: pointer; }
+.btn:hover, .btn[aria-pressed="true"] { background: var(--yellow); }
+.toolbar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 14px 0; }
+.gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(44%, 150px), 1fr));
+  gap: 20px 14px; margin: 16px 0; padding: 0; list-style: none; }
+.gallery > li { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.gallery > li[hidden] { display: none; }
+
+/* ---------------------------------------------------------------- interpretation */
+.interp section { margin: 0 0 16px; }
+.interp h3 { margin-top: 22px; }
+.interp ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 6px; }
+.interp li { display: grid; grid-template-columns: auto 1fr; gap: 10px; align-items: start;
+  padding: 8px 10px; background: var(--card); border-left: 3px solid var(--line); }
+.interp li.k-symbolic { border-left-color: var(--magenta); }
+.interp li.k-fact { border-left-color: var(--cyan); }
+.interp li.k-forecast { border-left-color: var(--orange); }
+.interp li .chip { margin-top: 1px; }
+.seal { font: .8rem/1.5 var(--mono); }
+.seal dt { color: var(--accent); font-weight: 700; }
+.seal dd { margin: 0 0 8px; overflow-wrap: anywhere; }
+
+/* ---------------------------------------------------------------- orrery */
+.orrery-wrap { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 24px;
+  align-items: start; }
+.orrery { width: 100%; max-width: 680px; height: auto; display: block; margin: 0 auto;
+  filter: drop-shadow(0 0 18px rgba(139, 44, 255, .55)); }
+.orrery .glyph, .glyph-u { font-family: var(--glyph); }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 14px; font: .74rem/1.3 var(--mono); }
+.legend i { display: inline-block; width: 18px; height: 3px; vertical-align: middle; margin-right: 6px; }
+@media (max-width: 820px) { .orrery-wrap { grid-template-columns: minmax(0, 1fr); } }
+
+/* ---------------------------------------------------------------- motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .flip-inner { transition: none; }
+  body::after { animation: none; }
+}
+@media (max-width: 520px) {
+  body { font-size: 14px; }
+  .hero-text .tag { letter-spacing: .1em; }
+  .box { padding: 12px; }
+}
+.chroma.long { font-size: clamp(1.05rem, 3.4vw, 2.05rem); letter-spacing: .02em; }
+.crumbs { font: .78rem/1.3 var(--mono); color: var(--muted); margin: 0 0 6px; }
+.tile .body, .tile .title, .tile .sub { display: block; }
+.arcade { grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); }
+.share { display: block; width: 100%; max-width: 720px; height: auto; margin: 10px 0;
+  box-shadow: var(--bevel); }
+.fallback.back { color: #fff; background:
+  repeating-conic-gradient(from 45deg, #2a0fb0 0 25%, #14063f 0 50%) 0 0 / 28px 28px;
+  border-color: var(--magenta); text-shadow: -2px 0 var(--magenta), 2px 0 var(--cyan); }
+.hero-text .chroma { filter: drop-shadow(3px 3px 0 #0a0221) drop-shadow(-1px -1px 0 #0a0221)
+  drop-shadow(0 0 14px rgba(10, 2, 33, .95)); }
+svg.sig { display: inline-block; vertical-align: -4px; overflow: visible; }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="topbar"><div class="topbar-in">
+<a class="brand" href="../index.html">Poly<b>reader</b> &#9670; Tarot Market</a>
+<nav class="main" aria-label="Site">
+<a href="../index.html">Home</a><a href="../readings/index.html" aria-current="page">Readings</a><a href="../deck/index.html">Deck</a><a href="../sky/index.html">Sky</a><a href="../coverage.html">Coverage</a></nav>
+</div></div>
+<header class="hero slim">
+<div class="hero-sky"><svg viewBox="0 0 800 260" preserveAspectRatio="xMidYMax slice" aria-hidden="true" focusable="false"><defs><linearGradient id="hero-sun-g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffe14d"/><stop offset=".45" stop-color="#ff7a1a"/><stop offset=".8" stop-color="#ff2bd6"/><stop offset="1" stop-color="#8b2cff"/></linearGradient><radialGradient id="hero-sun-h"><stop offset=".55" stop-color="#ff2bd6" stop-opacity=".55"/><stop offset="1" stop-color="#ff2bd6" stop-opacity="0"/></radialGradient><mask id="hero-sun-m"><rect x="282" y="78" width="236" height="236" fill="#fff"/><rect x="282" y="158.24" width="236" height="2.36" fill="#000"/><rect x="282" y="180.15" width="236" height="3.54" fill="#000"/><rect x="282" y="202.07" width="236" height="4.72" fill="#000"/><rect x="282" y="223.98" width="236" height="5.9" fill="#000"/><rect x="282" y="245.9" width="236" height="7.08" fill="#000"/><rect x="282" y="267.81" width="236" height="8.26" fill="#000"/><rect x="282" y="289.73" width="236" height="9.44" fill="#000"/></mask></defs><path d="M717.23 56.87L718.61 61L722.74 62.38L718.61 63.76L717.23 67.9L715.85 63.76L711.71 62.38L715.85 61Z" fill="#00eaff"/><rect x="446.65" y="153.97" width="2.5" height="2.5" fill="#a8f3ff" opacity="0.94"/><rect x="276.53" y="137.41" width="1.5" height="1.5" fill="#e8eeff" opacity="0.88"/><rect x="90.09" y="122.66" width="1.5" height="1.5" fill="#ffe14d" opacity="0.52"/><rect x="93.46" y="59.86" width="1.5" height="1.5" fill="#a8f3ff" opacity="0.98"/><rect x="123.47" y="106.78" width="1.5" height="1.5" fill="#ff2bd6" opacity="0.55"/><rect x="268.92" y="49.08" width="1.5" height="1.5" fill="#e8eeff" opacity="0.94"/><rect x="57.01" y="67.81" width="2.5" height="2.5" fill="#ffe14d" opacity="0.59"/><rect x="320.71" y="119.81" width="1.5" height="1.5" fill="#ffe14d" opacity="0.62"/><path d="M528.27 103.6L529.23 106.49L532.11 107.45L529.23 108.41L528.27 111.29L527.31 108.41L524.43 107.45L527.31 106.49Z" fill="#ffe14d"/><rect x="243.77" y="75.83" width="1.5" height="1.5" fill="#ffe14d" opacity="0.95"/><rect x="515.97" y="165.68" width="1.5" height="1.5" fill="#ffe14d" opacity="0.68"/><rect x="340.18" y="27.31" width="1.5" height="1.5" fill="#e8eeff" opacity="0.92"/><rect x="569.21" y="32.29" width="1.5" height="1.5" fill="#e8eeff" opacity="0.56"/><rect x="341.3" y="52.26" width="1.5" height="1.5" fill="#ff2bd6" opacity="0.92"/><rect x="157.66" y="91.93" width="1.5" height="1.5" fill="#ff2bd6" opacity="0.68"/><rect x="606.87" y="73.89" width="2.5" height="2.5" fill="#a8f3ff" opacity="0.93"/><rect x="191.97" y="144.97" width="2.5" height="2.5" fill="#a8f3ff" opacity="0.95"/><path d="M414.79 65.7L415.81 68.75L418.85 69.76L415.81 70.78L414.79 73.82L413.78 70.78L410.73 69.76L413.78 68.75Z" fill="#ff2bd6"/><rect x="602.94" y="129.01" width="1.5" height="1.5" fill="#00eaff" opacity="0.57"/><rect x="106.03" y="133.08" width="2.5" height="2.5" fill="#ff2bd6" opacity="0.55"/><rect x="204.24" y="121.21" width="2.5" height="2.5" fill="#a8f3ff" opacity="1"/><rect x="776.36" y="167.48" width="1.5" height="1.5" fill="#ff2bd6" opacity="0.54"/><rect x="780.75" y="78.9" width="2.5" height="2.5" fill="#a8f3ff" opacity="0.59"/><rect x="410.32" y="161.42" width="2.5" height="2.5" fill="#00eaff" opacity="0.65"/><rect x="139.78" y="114.98" width="2.5" height="2.5" fill="#e8eeff" opacity="0.93"/><rect x="216.16" y="87.22" width="1.5" height="1.5" fill="#ffe14d" opacity="0.7"/><path d="M131.31 75.21L132.35 78.34L135.49 79.39L132.35 80.43L131.31 83.57L130.26 80.43L127.13 79.39L130.26 78.34Z" fill="#00eaff"/><rect x="161.34" y="26.01" width="1.5" height="1.5" fill="#ffe14d" opacity="0.98"/><rect x="360.49" y="60.11" width="1.5" height="1.5" fill="#ffe14d" opacity="0.85"/><rect x="182.29" y="14.76" width="1.5" height="1.5" fill="#e8eeff" opacity="0.69"/><rect x="70.54" y="169.35" width="1.5" height="1.5" fill="#ffe14d" opacity="0.95"/><rect x="639.55" y="73.52" width="1.5" height="1.5" fill="#a8f3ff" opacity="0.94"/><rect x="297.3" y="160.27" width="1.5" height="1.5" fill="#e8eeff" opacity="0.76"/><rect x="425.99" y="149.47" width="1.5" height="1.5" fill="#a8f3ff" opacity="0.79"/><rect x="314.03" y="58.44" width="2.5" height="2.5" fill="#ff2bd6" opacity="0.63"/><path d="M713.06 86.95L714.47 91.17L718.69 92.57L714.47 93.98L713.06 98.2L711.66 93.98L707.44 92.57L711.66 91.17Z" fill="#a8f3ff"/><rect x="428.53" y="140.32" width="2.5" height="2.5" fill="#ffe14d" opacity="0.58"/><rect x="277.09" y="79.28" width="2.5" height="2.5" fill="#ffe14d" opacity="0.94"/><rect x="163.95" y="63.56" width="2.5" height="2.5" fill="#ff2bd6" opacity="0.56"/><rect x="414.53" y="161.26" width="2.5" height="2.5" fill="#a8f3ff" opacity="0.7"/><rect x="564.94" y="122.63" width="1.5" height="1.5" fill="#ffe14d" opacity="0.8"/><rect x="292.68" y="164.79" width="1.5" height="1.5" fill="#e8eeff" opacity="0.96"/><rect x="3.37" y="87.2" width="2.5" height="2.5" fill="#ffe14d" opacity="0.62"/><rect x="629.62" y="37.85" width="1.5" height="1.5" fill="#ffe14d" opacity="0.96"/><path d="M367.56 91.29L368.36 93.69L370.76 94.49L368.36 95.29L367.56 97.68L366.76 95.29L364.36 94.49L366.76 93.69Z" fill="#ff2bd6"/><rect x="307.32" y="36.74" width="1.5" height="1.5" fill="#ffe14d" opacity="0.63"/><rect x="360.29" y="87.02" width="1.5" height="1.5" fill="#a8f3ff" opacity="0.97"/><rect x="664.73" y="39.24" width="2.5" height="2.5" fill="#ffe14d" opacity="0.91"/><rect x="371.71" y="54.59" width="1.5" height="1.5" fill="#e8eeff" opacity="0.78"/><rect x="63.57" y="41.36" width="1.5" height="1.5" fill="#e8eeff" opacity="0.93"/><rect x="451.75" y="134.7" width="1.5" height="1.5" fill="#ff2bd6" opacity="0.86"/><rect x="620.06" y="40.98" width="1.5" height="1.5" fill="#ff2bd6" opacity="0.87"/><rect x="779.09" y="101.5" width="1.5" height="1.5" fill="#a8f3ff" opacity="0.92"/><path d="M459.17 52.4L460.09 55.17L462.87 56.09L460.09 57.02L459.17 59.79L458.25 57.02L455.48 56.09L458.25 55.17Z" fill="#a8f3ff"/><rect x="169.13" y="30.82" width="1.5" height="1.5" fill="#ffe14d" opacity="0.54"/><rect x="562.65" y="18" width="1.5" height="1.5" fill="#ff2bd6" opacity="0.59"/><rect x="295.1" y="115.71" width="1.5" height="1.5" fill="#a8f3ff" opacity="0.5"/><rect x="345.83" y="98.2" width="1.5" height="1.5" fill="#e8eeff" opacity="0.63"/><rect x="624.43" y="13.65" width="1.5" height="1.5" fill="#e8eeff" opacity="0.6"/><rect x="160.13" y="116.99" width="1.5" height="1.5" fill="#e8eeff" opacity="0.59"/><rect x="148.13" y="57.82" width="1.5" height="1.5" fill="#e8eeff" opacity="0.83"/><rect x="798.25" y="42.6" width="1.5" height="1.5" fill="#ffe14d" opacity="0.84"/><path d="M230.32 88.07L231.8 92.51L236.23 93.99L231.8 95.46L230.32 99.9L228.84 95.46L224.41 93.99L228.84 92.51Z" fill="#e8eeff"/><rect x="601.33" y="124.23" width="2.5" height="2.5" fill="#ff2bd6" opacity="0.52"/><rect x="139.05" y="137.17" width="2.5" height="2.5" fill="#00eaff" opacity="0.87"/><rect x="87.73" y="158.39" width="1.5" height="1.5" fill="#00eaff" opacity="0.59"/><rect x="681.94" y="54.08" width="1.5" height="1.5" fill="#00eaff" opacity="0.82"/><rect x="567.79" y="8.56" width="1.5" height="1.5" fill="#ffe14d" opacity="0.72"/><rect x="87.67" y="129.3" width="2.5" height="2.5" fill="#00eaff" opacity="0.52"/><circle cx="400" cy="196" r="182.9" fill="url(#hero-sun-h)"/><circle cx="400" cy="196" r="118" fill="url(#hero-sun-g)" mask="url(#hero-sun-m)"/><polygon points="-20,260 15.56,213.7 51.11,203.42 86.67,228.83 122.22,224.35 157.78,218.57 193.33,209.96 228.89,221.39 264.44,237.25 300,260 300,260 -20,260" fill="#1b0870"/><line x1="15.56" y1="213.7" x2="-2.22" y2="260" stroke="#8b2cff" stroke-width="1" opacity=".55"/><line x1="51.11" y1="203.42" x2="33.33" y2="260" stroke="#8b2cff" stroke-width="1" opacity=".55"/><line x1="86.67" y1="228.83" x2="68.89" y2="260" stroke="#8b2cff" stroke-width="1" opacity=".55"/><line x1="122.22" y1="224.35" x2="104.44" y2="260" stroke="#8b2cff" stroke-width="1" opacity=".55"/><line x1="157.78" y1="218.57" x2="140" y2="260" stroke="#8b2cff" stroke-width="1" opacity=".55"/><line x1="193.33" y1="209.96" x2="175.56" y2="260" stroke="#8b2cff" stroke-width="1" opacity=".55"/><line x1="228.89" y1="221.39" x2="211.11" y2="260" stroke="#8b2cff" stroke-width="1" opacity=".55"/><line x1="264.44" y1="237.25" x2="246.67" y2="260" stroke="#8b2cff" stroke-width="1" opacity=".55"/><polyline points="-20,260 15.56,213.7 51.11,203.42 86.67,228.83 122.22,224.35 157.78,218.57 193.33,209.96 228.89,221.39 264.44,237.25 300,260" fill="none" stroke="#8b2cff" stroke-width="2" stroke-linejoin="bevel"/><polygon points="500,260 535.56,206.87 571.11,192.6 606.67,236.08 642.22,236.89 677.78,239.58 713.33,188.96 748.89,210.8 784.44,200.11 820,260 820,260 500,260" fill="#1b0870"/><line x1="535.56" y1="206.87" x2="517.78" y2="260" stroke="#8b2cff" stroke-width="1" opacity=".55"/><line x1="571.11" y1="192.6" x2="553.33" y2="260" stroke="#8b2cff" stroke-width="1" opacity=".55"/><line x1="606.67" y1="236.08" x2="588.89" y2="260" stroke="#8b2cff" stroke-width="1" opacity=".55"/><line x1="642.22" y1="236.89" x2="624.44" y2="260" stroke="#8b2cff" stroke-width="1" opacity=".55"/><line x1="677.78" y1="239.58" x2="660" y2="260" stroke="#8b2cff" stroke-width="1" opacity=".55"/><line x1="713.33" y1="188.96" x2="695.56" y2="260" stroke="#8b2cff" stroke-width="1" opacity=".55"/><line x1="748.89" y1="210.8" x2="731.11" y2="260" stroke="#8b2cff" stroke-width="1" opacity=".55"/><line x1="784.44" y1="200.11" x2="766.67" y2="260" stroke="#8b2cff" stroke-width="1" opacity=".55"/><polyline points="500,260 535.56,206.87 571.11,192.6 606.67,236.08 642.22,236.89 677.78,239.58 713.33,188.96 748.89,210.8 784.44,200.11 820,260" fill="none" stroke="#8b2cff" stroke-width="2" stroke-linejoin="bevel"/><polygon points="150,142 68,260 168.04,260" fill="#8b2cff"/><polygon points="150,142 168.04,260 232,260" fill="#2a0fb0"/><polyline points="68,260 150,142 232,260" fill="none" stroke="#00eaff" stroke-width="2" stroke-linejoin="bevel"/><line x1="150" y1="142" x2="168.04" y2="260" stroke="#00eaff" stroke-width="1" opacity=".6"/><polygon points="250,202 210,260 258.8,260" fill="#ff2bd6"/><polygon points="250,202 258.8,260 290,260" fill="#6d18c9"/><polyline points="210,260 250,202 290,260" fill="none" stroke="#ffe14d" stroke-width="2" stroke-linejoin="bevel"/><line x1="250" y1="202" x2="258.8" y2="260" stroke="#ffe14d" stroke-width="1" opacity=".6"/><polygon points="640,176 584,260 652.32,260" fill="#00b8d4"/><polygon points="640,176 652.32,260 696,260" fill="#2a0fb0"/><polyline points="584,260 640,176 696,260" fill="none" stroke="#ff2bd6" stroke-width="2" stroke-linejoin="bevel"/><line x1="640" y1="176" x2="652.32" y2="260" stroke="#ff2bd6" stroke-width="1" opacity=".6"/><path d="M555 260Q563.6 196 575 132L581 132Q571.4 196 565 260Z" fill="#0a0221" stroke="#ff2bd6" stroke-width="1.5"/><path d="M578 132Q547.93 114.08 520.27 120.44Q547.93 123.08 578 137Z" fill="#0a0221" stroke="#ff2bd6" stroke-width="1.5" stroke-linejoin="bevel"/><path d="M578 132Q562.4 114.08 548.05 108.47Q562.4 123.08 578 137Z" fill="#0a0221" stroke="#ff2bd6" stroke-width="1.5" stroke-linejoin="bevel"/><path d="M578 132Q578 114.08 578 113.41Q578 123.08 578 137Z" fill="#0a0221" stroke="#ff2bd6" stroke-width="1.5" stroke-linejoin="bevel"/><path d="M578 132Q593.6 114.08 607.95 108.47Q593.6 123.08 578 137Z" fill="#0a0221" stroke="#ff2bd6" stroke-width="1.5" stroke-linejoin="bevel"/><path d="M578 132Q608.07 114.08 635.73 120.44Q608.07 123.08 578 137Z" fill="#0a0221" stroke="#ff2bd6" stroke-width="1.5" stroke-linejoin="bevel"/><path d="M578 132Q556.95 114.08 537.59 140.09Q556.95 123.08 578 137Z" fill="#0a0221" stroke="#ff2bd6" stroke-width="1.5" stroke-linejoin="bevel"/><path d="M723 260Q723.6 184 703 108L709 108Q727.4 184 733 260Z" fill="#0a0221" stroke="#00eaff" stroke-width="1.5"/><path d="M706 108Q670.29 86.72 637.44 94.28Q670.29 95.72 706 113Z" fill="#0a0221" stroke="#00eaff" stroke-width="1.5" stroke-linejoin="bevel"/><path d="M706 108Q687.47 86.72 670.43 80.06Q687.47 95.72 706 113Z" fill="#0a0221" stroke="#00eaff" stroke-width="1.5" stroke-linejoin="bevel"/><path d="M706 108Q706 86.72 706 85.93Q706 95.72 706 113Z" fill="#0a0221" stroke="#00eaff" stroke-width="1.5" stroke-linejoin="bevel"/><path d="M706 108Q724.53 86.72 741.57 80.06Q724.53 95.72 706 113Z" fill="#0a0221" stroke="#00eaff" stroke-width="1.5" stroke-linejoin="bevel"/><path d="M706 108Q741.71 86.72 774.56 94.28Q741.71 95.72 706 113Z" fill="#0a0221" stroke="#00eaff" stroke-width="1.5" stroke-linejoin="bevel"/><path d="M706 108Q681 86.72 658.01 117.61Q681 95.72 706 113Z" fill="#0a0221" stroke="#00eaff" stroke-width="1.5" stroke-linejoin="bevel"/><path d="M43 260Q50.8 205 59 150L65 150Q58.2 205 53 260Z" fill="#0a0221" stroke="#ff2bd6" stroke-width="1.5"/><path d="M62 150Q36.16 134.6 12.38 140.07Q36.16 143.6 62 155Z" fill="#0a0221" stroke="#ff2bd6" stroke-width="1.5" stroke-linejoin="bevel"/><path d="M62 150Q48.59 134.6 36.26 129.78Q48.59 143.6 62 155Z" fill="#0a0221" stroke="#ff2bd6" stroke-width="1.5" stroke-linejoin="bevel"/><path d="M62 150Q62 134.6 62 134.03Q62 143.6 62 155Z" fill="#0a0221" stroke="#ff2bd6" stroke-width="1.5" stroke-linejoin="bevel"/><path d="M62 150Q75.41 134.6 87.74 129.78Q75.41 143.6 62 155Z" fill="#0a0221" stroke="#ff2bd6" stroke-width="1.5" stroke-linejoin="bevel"/><path d="M62 150Q87.84 134.6 111.62 140.07Q87.84 143.6 62 155Z" fill="#0a0221" stroke="#ff2bd6" stroke-width="1.5" stroke-linejoin="bevel"/><path d="M62 150Q43.91 134.6 27.27 156.95Q43.91 143.6 62 155Z" fill="#0a0221" stroke="#ff2bd6" stroke-width="1.5" stroke-linejoin="bevel"/></svg></div>
+<div class="floor" aria-hidden="true"><div class="floor-plane"></div></div>
+<div class="hero-text">
+<h1 class="chroma long" data-text="Trader&#39;s Spread 0xe749…f771"><span>Trader&#39;s Spread 0xe749…f771</span></h1>
+</div>
+</header>
+<main id="main">
+<div class="meta" aria-label="Provenance">
+  <span>generated 2026-11-20T10:37:09Z</span>
+  <span>commit <code>ed474831fd4095acae7563ef0a3dc6b18367ed09</code></span>
+  <span>config <code>7c78896071cae241</code></span>
+  <span>data as of 2026-11-20T06:38:25.054240+00:00</span>
+</div>
+<p class="crumbs"><a href="../index.html">home</a> / <a href="index.html">readings</a> / Trader&#39;s Spread</p>
+<div class="box">
+<ul class="chips" aria-label="Reading labels">
+<li class="chip m-data">data mode</li>
+<li class="chip k-label">Trader&#39;s Spread</li>
+<li class="chip k-note">not registered for scoring</li>
+</ul>
+<p>Data mode: the cards are a deterministic mapping from measured facts. They illustrate the data; they are not drawn by chance and do not foretell anything.</p>
+<dl class="seal">
+<dt>Reading</dt><dd><code>traders_spread_v1:data:0xe74995389bfc1c24ca656e6c2502c1fca757f771:20261120T060823761149Z</code></dd>
+<dt>Created</dt><dd>2026-11-20T06:08:23.761149+00:00</dd>
+<dt>Seed commitment (sha256 of the seed, published before the draw)</dt><dd>none: data mode uses no random seed</dd>
+<dt>Seed (revealed after the draw)</dt><dd>none</dd>
+<dt>Deck / dictionary / interpretation</dt><dd><code>rws_v1</code> / <code>v1</code> / <code>interpret_v1</code>; reversal policy <code>none (deterministic data mapping)</code>; redraws 0</dd>
+</dl>
+</div>
+
+<h2>Evidence grade</h2>
+<p class="state">no qualified research result</p>
+
+<h2>The cards</h2>
+<div class="toolbar"><button type="button" class="btn" data-reveal-all>Turn all cards over</button><span class="muted mono">Cards are dealt face down; click one to turn it.</span></div>
+<ol class="deal">
+<li>
+<span class="pos">1. The Past</span>
+<button type="button" class="flip" data-mode="reveal" aria-pressed="false" aria-label="Turn over Eight of Pentacles">
+<span class="flip-inner">
+<span class="side side-a"><img src="../assets/deck/pentacles_08.svg" alt="Eight of Pentacles" width="600" height="1000" loading="lazy" decoding="async"></span>
+<span class="side side-b"><img src="../assets/deck/back.svg" alt="Card back" width="600" height="1000" loading="lazy" decoding="async"></span>
+</span>
+</button>
+<span class="cap"><b>Eight of Pentacles</b>upright &middot; <span class="muted">diligence, craft, mastery</span></span>
+</li>
+<li>
+<span class="pos">2. The Present</span>
+<button type="button" class="flip" data-mode="reveal" aria-pressed="false" aria-label="Turn over Two of Pentacles">
+<span class="flip-inner">
+<span class="side side-a"><img src="../assets/deck/pentacles_02.svg" alt="Two of Pentacles" width="600" height="1000" loading="lazy" decoding="async"></span>
+<span class="side side-b"><img src="../assets/deck/back.svg" alt="Card back" width="600" height="1000" loading="lazy" decoding="async"></span>
+</span>
+</button>
+<span class="cap"><b>Two of Pentacles</b>upright &middot; <span class="muted">balance, adaptability, juggling</span></span>
+</li>
+<li>
+<span class="pos">3. The Habit</span>
+<button type="button" class="flip" data-mode="reveal" aria-pressed="false" aria-label="Turn over The Emperor">
+<span class="flip-inner">
+<span class="side side-a"><img src="../assets/deck/major_04_the_emperor.svg" alt="The Emperor" width="600" height="1000" loading="lazy" decoding="async"></span>
+<span class="side side-b"><img src="../assets/deck/back.svg" alt="Card back" width="600" height="1000" loading="lazy" decoding="async"></span>
+</span>
+</button>
+<span class="cap"><b>The Emperor</b>upright &middot; <span class="muted">authority, structure, control, stability</span></span>
+</li>
+<li>
+<span class="pos">4. The Blind Spot</span>
+<button type="button" class="flip" data-mode="reveal" aria-pressed="false" aria-label="Turn over Eight of Swords">
+<span class="flip-inner">
+<span class="side side-a"><img src="../assets/deck/swords_08.svg" alt="Eight of Swords" width="600" height="1000" loading="lazy" decoding="async"></span>
+<span class="side side-b"><img src="../assets/deck/back.svg" alt="Card back" width="600" height="1000" loading="lazy" decoding="async"></span>
+</span>
+</button>
+<span class="cap"><b>Eight of Swords</b>upright &middot; <span class="muted">restriction, trapped, self-imposed limits</span></span>
+</li>
+<li>
+<span class="pos">5. The Possible Future</span>
+<button type="button" class="flip" data-mode="reveal" aria-pressed="false" aria-label="Turn over Temperance">
+<span class="flip-inner">
+<span class="side side-a"><img src="../assets/deck/major_14_temperance.svg" alt="Temperance" width="600" height="1000" loading="lazy" decoding="async"></span>
+<span class="side side-b"><img src="../assets/deck/back.svg" alt="Card back" width="600" height="1000" loading="lazy" decoding="async"></span>
+</span>
+</button>
+<span class="cap"><b>Temperance</b>upright &middot; <span class="muted">moderation, balance, patience, blending</span></span>
+</li>
+</ol>
+
+<h2>Interpretation</h2>
+<div class="interp">
+<p class="muted mono">The Trader&#39;s Spread (traders_spread_v1)</p><section>
+<ul>
+<li class="k-label"><span class="chip k-label">label</span><span>Mode: Data reading: cards illustrate the market data</span></li>
+<li class="k-label"><span class="chip k-label">label</span><span>Card selection: Deterministic mapping from measured facts</span></li>
+<li class="k-label"><span class="chip k-label">label</span><span>data cards: a deterministic illustration of measured facts, not a draw</span></li>
+</ul>
+</section>
+<section>
+<h3>The Past: What does the observed trading history, category mix and rhythm show?</h3><ul>
+<li class="k-symbolic"><span class="chip k-symbolic">symbolic</span><span>Eight of Pentacles: Diligent, repetitive work: recording, checking, scoring.</span></li>
+<li class="k-rule"><span class="chip k-rule">rule</span><span>placed by past_heavy_eight_pentacles: 1000 or more observed trades</span></li>
+<li class="k-fact"><span class="chip k-fact">fact</span><span>trade_count = 3,087 TRADE rows observed (source: data-api.polymarket.com/v2/activity?user=&lt;wallet&gt; (public) via persisted raw pages data/raw/data_api (9 pages), observed 2026-11-20T06:05:42.182445+00:00)</span></li>
+</ul>
+</section>
+<section>
+<h3>The Present: What open exposure and concentration is visible now, as of when?</h3><ul>
+<li class="k-symbolic"><span class="chip k-symbolic">symbolic</span><span>Two of Pentacles: Juggling: balancing positions, time and attention in a shifting market.</span></li>
+<li class="k-rule"><span class="chip k-rule">rule</span><span>placed by present_many_two_pentacles: 20 or more open positions</span></li>
+<li class="k-fact"><span class="chip k-fact">fact</span><span>open_positions = 44 OPEN positions (source: data-api.polymarket.com/v2/positions?user=&lt;wallet&gt; (public) via persisted raw pages data/raw/data_api (9 pages), observed 2026-11-20T06:05:42.182445+00:00)</span></li>
+</ul>
+</section>
+<section>
+<h3>The Habit: What measurable behaviour repeats (favourites, longshots, horizons)?</h3><ul>
+<li class="k-symbolic"><span class="chip k-symbolic">symbolic</span><span>The Emperor: Structure and rules dominate: a heavy favourite, a clear resolution source, an order that looks settled.</span></li>
+<li class="k-rule"><span class="chip k-rule">rule</span><span>placed by habit_favorites_emperor: half or more of observed buys at price 0.7 or more</span></li>
+<li class="k-fact"><span class="chip k-fact">fact</span><span>favorite_share = 0.919 fraction of 2029 observed BUY trades at price 0.7 or more (source: data-api.polymarket.com/v2/activity?user=&lt;wallet&gt; (public) via persisted raw pages data/raw/data_api (9 pages), observed 2026-11-20T06:05:42.182445+00:00)</span></li>
+</ul>
+</section>
+<section>
+<h3>The Blind Spot: What bounded factual observation might be easy to overlook?</h3><ul>
+<li class="k-symbolic"><span class="chip k-symbolic">symbolic</span><span>Eight of Swords: Feeling trapped by a position. The bindings are often looser than they look.</span></li>
+<li class="k-rule"><span class="chip k-rule">rule</span><span>placed by blind_correlated_eight_swords: two or more open positions share an event</span></li>
+<li class="k-fact"><span class="chip k-fact">fact</span><span>correlated_positions = 15 OPEN positions sharing an event_id with another (3 events) (source: data-api.polymarket.com/v2/positions?user=&lt;wallet&gt; (public) via persisted raw pages data/raw/data_api (9 pages), observed 2026-11-20T06:05:42.182445+00:00)</span></li>
+</ul>
+</section>
+<section>
+<h3>The Possible Future: What one conditional scenario follows, and is a scored forecast elected?</h3><ul>
+<li class="k-symbolic"><span class="chip k-symbolic">symbolic</span><span>Temperance: Moderation: measured sizing, blended evidence, no single input allowed to dominate.</span></li>
+<li class="k-rule"><span class="chip k-rule">rule</span><span>placed by fallback:possible_future: no rule fired for this position; neutral default card</span></li>
+<li class="k-fact"><span class="chip k-fact">fact</span><span>elected_forecast = none elected (the Trader&#39;s Spread registers no prediction) election (source: polyreader.readings.traders_spread, observed 2026-11-20T06:05:42.182445+00:00)</span></li>
+</ul>
+</section>
+<section>
+<h3>Other observed facts (not used to place a card)</h3><ul>
+<li class="k-fact"><span class="chip k-fact">fact</span><span>first_observed_trade_at = 2024-09-15T02:35:06+00:00 UTC, first OBSERVED trade (not necessarily the first ever) (source: data-api.polymarket.com/v2/activity?user=&lt;wallet&gt; (public) via persisted raw pages data/raw/data_api (9 pages), observed 2026-11-20T06:05:42.182445+00:00)</span></li>
+<li class="k-fact"><span class="chip k-fact">fact</span><span>observed_span_days = 795.92 days between first and last observed activity (source: data-api.polymarket.com/v2/activity?user=&lt;wallet&gt; (public) via persisted raw pages data/raw/data_api (9 pages), observed 2026-11-20T06:05:42.182445+00:00)</span></li>
+<li class="k-fact"><span class="chip k-fact">fact</span><span>category_mix = unknown 238/272, Politics 23/272, Economy 3/272, Elections 3/272, Finance 1/272, Geopolitics 1/272, Pop Culture 1/272, Sports 1/272, Tech 1/272 (share of 272 distinct markets) distinct markets by store category (count/total) (source: data-api.polymarket.com/v2/activity?user=&lt;wallet&gt; (public) via persisted raw pages data/raw/data_api (9 pages) + data-api.polymarket.com/v2/positions?user=&lt;wallet&gt; (public) via persisted raw pages data/raw/data_api (9 pages) joined to parquet:markets on condition_id, observed 2026-11-20T06:05:42.182445+00:00)</span></li>
+<li class="k-fact"><span class="chip k-fact">fact</span><span>activity_rhythm = 281 active UTC days; 11.0 trades per active day observed rhythm (source: data-api.polymarket.com/v2/activity?user=&lt;wallet&gt; (public) via persisted raw pages data/raw/data_api (9 pages), observed 2026-11-20T06:05:42.182445+00:00)</span></li>
+<li class="k-fact"><span class="chip k-fact">fact</span><span>open_exposure_usd = 605,327 USD (sum of current_value, OPEN) (source: data-api.polymarket.com/v2/positions?user=&lt;wallet&gt; (public) via persisted raw pages data/raw/data_api (9 pages), observed 2026-11-20T06:05:42.182445+00:00)</span></li>
+<li class="k-fact"><span class="chip k-fact">fact</span><span>concentration = 0.307 largest OPEN position / open exposure (source: data-api.polymarket.com/v2/positions?user=&lt;wallet&gt; (public) via persisted raw pages data/raw/data_api (9 pages), observed 2026-11-20T06:05:42.182445+00:00)</span></li>
+<li class="k-fact"><span class="chip k-fact">fact</span><span>data_as_of = 2026-11-20T06:05:42.182445+00:00 UTC fetch time of the public pages (source: persisted raw pages data/raw/data_api (9 pages), observed 2026-11-20T06:05:42.182445+00:00)</span></li>
+<li class="k-fact"><span class="chip k-fact">fact</span><span>longshot_share = 0.018 fraction of 2029 observed BUY trades at price 0.2 or less (source: data-api.polymarket.com/v2/activity?user=&lt;wallet&gt; (public) via persisted raw pages data/raw/data_api (9 pages), observed 2026-11-20T06:05:42.182445+00:00)</span></li>
+<li class="k-fact"><span class="chip k-fact">fact</span><span>median_horizon_days = 49.616 days from first entry to market end date (median of 283 positions) (source: data-api.polymarket.com/v2/positions?user=&lt;wallet&gt; (public) via persisted raw pages data/raw/data_api (9 pages), observed 2026-11-20T06:05:42.182445+00:00)</span></li>
+<li class="k-fact"><span class="chip k-fact">fact</span><span>resolved_record_count = 0 positions in resolved markets (REDEEMABLE or REDEEMABLE_LOST) (source: data-api.polymarket.com/v2/positions?user=&lt;wallet&gt; (public) via persisted raw pages data/raw/data_api (9 pages), observed 2026-11-20T06:05:42.182445+00:00)</span></li>
+</ul>
+</section>
+<section>
+<h3>Coverage (what these pages can and cannot see)</h3><ul>
+<li class="k-fact"><span class="chip k-fact">fact</span><span>first_observed_activity_at = 2024-09-15T02:35:06+00:00 UTC, first OBSERVED activity of any type (not necessarily the first ever) (source: data-api.polymarket.com/v2/activity?user=&lt;wallet&gt; (public) via persisted raw pages data/raw/data_api (9 pages), observed 2026-11-20T06:05:42.182445+00:00)</span></li>
+<li class="k-fact"><span class="chip k-fact">fact</span><span>coverage_activity_to = 2026-11-20T00:45:22+00:00 UTC, last observed activity (source: data-api.polymarket.com/v2/activity?user=&lt;wallet&gt; (public) via persisted raw pages data/raw/data_api (9 pages), observed 2026-11-20T06:05:42.182445+00:00)</span></li>
+<li class="k-fact"><span class="chip k-fact">fact</span><span>store_matched_markets = 34 of 272 distinct markets found in the local store sample (source: parquet:markets, observed 2026-11-20T06:05:42.182445+00:00)</span></li>
+<li class="k-fact"><span class="chip k-fact">fact</span><span>median_holding_days = 22.315 days first entry to last event (median of 239 CLOSED positions) (source: data-api.polymarket.com/v2/positions?user=&lt;wallet&gt; (public) via persisted raw pages data/raw/data_api (9 pages), observed 2026-11-20T06:05:42.182445+00:00)</span></li>
+<li class="k-fact"><span class="chip k-fact">fact</span><span>resolved_won_count = 0 REDEEMABLE positions (source: data-api.polymarket.com/v2/positions?user=&lt;wallet&gt; (public) via persisted raw pages data/raw/data_api (9 pages), observed 2026-11-20T06:05:42.182445+00:00)</span></li>
+<li class="k-fact"><span class="chip k-fact">fact</span><span>resolved_lost_count = 0 REDEEMABLE_LOST positions (source: data-api.polymarket.com/v2/positions?user=&lt;wallet&gt; (public) via persisted raw pages data/raw/data_api (9 pages), observed 2026-11-20T06:05:42.182445+00:00)</span></li>
+<li class="k-fact"><span class="chip k-fact">fact</span><span>history_complete = False flag: unbounded, untruncated, covers every position (source: persisted raw pages data/raw/data_api (9 pages), observed 2026-11-20T06:05:42.182445+00:00)</span></li>
+<li class="k-fact"><span class="chip k-fact">fact</span><span>coverage_positions_by_status = CLOSED 239, MERGEABLE 2, OPEN 44, REDEEMABLE 0, REDEEMABLE_LOST 0 rows per status request (source: data-api.polymarket.com/v2/positions?user=&lt;wallet&gt; (public) via persisted raw pages data/raw/data_api (9 pages), observed 2026-11-20T06:05:42.182445+00:00)</span></li>
+<li class="k-fact"><span class="chip k-fact">fact</span><span>coverage_activity_rows = 3,766 activity rows observed (source: data-api.polymarket.com/v2/activity?user=&lt;wallet&gt; (public) via persisted raw pages data/raw/data_api (9 pages), observed 2026-11-20T06:05:42.182445+00:00)</span></li>
+<li class="k-fact"><span class="chip k-fact">fact</span><span>coverage_truncated = False flag: more pages existed than were fetched (source: persisted raw pages data/raw/data_api (9 pages), observed 2026-11-20T06:05:42.182445+00:00)</span></li>
+<li class="k-fact"><span class="chip k-fact">fact</span><span>return_not_computed = cost basis incomplete: a position&#39;s token has no observed activity reason (source: persisted raw pages data/raw/data_api (9 pages), observed 2026-11-20T06:05:42.182445+00:00)</span></li>
+</ul>
+</section>
+<section>
+<h3>Not computed</h3><ul>
+<li class="k-note"><span class="chip k-note">note</span><span>profit and return percentages (unless the cost basis is complete)</span></li>
+<li class="k-note"><span class="chip k-note">note</span><span>identity, location, wealth or intent of whoever controls the address</span></li>
+<li class="k-note"><span class="chip k-note">note</span><span>links to any other wallet</span></li>
+<li class="k-note"><span class="chip k-note">note</span><span>skill: a short observed record cannot separate skill from luck</span></li>
+</ul>
+</section>
+<section>
+<h3>Evidence grade</h3><ul>
+<li class="k-note"><span class="chip k-note">note</span><span>strongest qualified research result: no qualified research result</span></li>
+</ul>
+</section>
+<section>
+<h3>Caveats</h3><ul>
+<li class="k-note"><span class="chip k-note">note</span><span>Card meanings are symbolic prompts for reflection, not factual findings and not forecasts.</span></li>
+<li class="k-note"><span class="chip k-note">note</span><span>No numeric forecast is shown: none was supplied by an identified model, and cards cannot produce one.</span></li>
+</ul>
+</section>
+</div>
+
+<h2>Facts</h2>
+<p class="muted">Every factual statement the reading used, with its source and as-of time. Cards never produce these. Source addresses are printed as plain text without their scheme: the site loads and links nothing outside itself.</p>
+<div class="scroll"><table>
+<tr><th>fact</th><th class="n">value</th><th>unit</th><th>kind</th><th>source</th><th>observed</th></tr>
+<tr><td class="mono">trade_count</td><td class="n">3087</td><td>TRADE rows observed</td><td>fact</td><td class="mono">data-api.polymarket.com/v2/activity?user=&lt;wallet&gt; (public) via persisted raw pages data/raw/data_api (9 pages)</td><td class="mono">2026-11-20T06:05:42.182445Z</td></tr>
+<tr><td class="mono">first_observed_trade_at</td><td class="n">2024-09-15T02:35:06+00:00</td><td>UTC, first OBSERVED trade (not necessarily the first ever)</td><td>fact</td><td class="mono">data-api.polymarket.com/v2/activity?user=&lt;wallet&gt; (public) via persisted raw pages data/raw/data_api (9 pages)</td><td class="mono">2026-11-20T06:05:42.182445Z</td></tr>
+<tr><td class="mono">observed_span_days</td><td class="n">795.92</td><td>days between first and last observed activity</td><td>fact</td><td class="mono">data-api.polymarket.com/v2/activity?user=&lt;wallet&gt; (public) via persisted raw pages data/raw/data_api (9 pages)</td><td class="mono">2026-11-20T06:05:42.182445Z</td></tr>
+<tr><td class="mono">category_mix</td><td class="n">unknown 238/272, Politics 23/272, Economy 3/272, Elections 3/272, Finance 1/272, Geopolitics 1/272, Pop Culture 1/272, Sports 1/272, Tech 1/272 (share of 272 distinct markets)</td><td>distinct markets by store category (count/total)</td><td>fact</td><td class="mono">data-api.polymarket.com/v2/activity?user=&lt;wallet&gt; (public) via persisted raw pages data/raw/data_api (9 pages) + data-api.polymarket.com/v2/positions?user=&lt;wallet&gt; (public) via persisted raw pages data/raw/data_api (9 pages) joined to parquet:markets on condition_id</td><td class="mono">2026-11-20T06:05:42.182445Z</td></tr>
+<tr><td class="mono">activity_rhythm</td><td class="n">281 active UTC days; 11.0 trades per active day</td><td>observed rhythm</td><td>fact</td><td class="mono">data-api.polymarket.com/v2/activity?user=&lt;wallet&gt; (public) via persisted raw pages data/raw/data_api (9 pages)</td><td class="mono">2026-11-20T06:05:42.182445Z</td></tr>
+<tr><td class="mono">open_positions</td><td class="n">44</td><td>OPEN positions</td><td>fact</td><td class="mono">data-api.polymarket.com/v2/positions?user=&lt;wallet&gt; (public) via persisted raw pages data/raw/data_api (9 pages)</td><td class="mono">2026-11-20T06:05:42.182445Z</td></tr>
+<tr><td class="mono">open_exposure_usd</td><td class="n">605327</td><td>USD (sum of current_value, OPEN)</td><td>fact</td><td class="mono">data-api.polymarket.com/v2/positions?user=&lt;wallet&gt; (public) via persisted raw pages data/raw/data_api (9 pages)</td><td class="mono">2026-11-20T06:05:42.182445Z</td></tr>
+<tr><td class="mono">concentration</td><td class="n">0.3074</td><td>largest OPEN position / open exposure</td><td>fact</td><td class="mono">data-api.polymarket.com/v2/positions?user=&lt;wallet&gt; (public) via persisted raw pages data/raw/data_api (9 pages)</td><td class="mono">2026-11-20T06:05:42.182445Z</td></tr>
+<tr><td class="mono">data_as_of</td><td class="n">2026-11-20T06:05:42.182445+00:00</td><td>UTC fetch time of the public pages</td><td>fact</td><td class="mono">persisted raw pages data/raw/data_api (9 pages)</td><td class="mono">2026-11-20T06:05:42.182445Z</td></tr>
+<tr><td class="mono">favorite_share</td><td class="n">0.9187</td><td>fraction of 2029 observed BUY trades at price 0.7 or more</td><td>fact</td><td class="mono">data-api.polymarket.com/v2/activity?user=&lt;wallet&gt; (public) via persisted raw pages data/raw/data_api (9 pages)</td><td class="mono">2026-11-20T06:05:42.182445Z</td></tr>
+<tr><td class="mono">longshot_share</td><td class="n">0.0177</td><td>fraction of 2029 observed BUY trades at price 0.2 or less</td><td>fact</td><td class="mono">data-api.polymarket.com/v2/activity?user=&lt;wallet&gt; (public) via persisted raw pages data/raw/data_api (9 pages)</td><td class="mono">2026-11-20T06:05:42.182445Z</td></tr>
+<tr><td class="mono">median_horizon_days</td><td class="n">49.616</td><td>days from first entry to market end date (median of 283 positions)</td><td>fact</td><td class="mono">data-api.polymarket.com/v2/positions?user=&lt;wallet&gt; (public) via persisted raw pages data/raw/data_api (9 pages)</td><td class="mono">2026-11-20T06:05:42.182445Z</td></tr>
+<tr><td class="mono">correlated_positions</td><td class="n">15</td><td>OPEN positions sharing an event_id with another (3 events)</td><td>fact</td><td class="mono">data-api.polymarket.com/v2/positions?user=&lt;wallet&gt; (public) via persisted raw pages data/raw/data_api (9 pages)</td><td class="mono">2026-11-20T06:05:42.182445Z</td></tr>
+<tr><td class="mono">resolved_record_count</td><td class="n">0</td><td>positions in resolved markets (REDEEMABLE or REDEEMABLE_LOST)</td><td>fact</td><td class="mono">data-api.polymarket.com/v2/positions?user=&lt;wallet&gt; (public) via persisted raw pages data/raw/data_api (9 pages)</td><td class="mono">2026-11-20T06:05:42.182445Z</td></tr>
+<tr><td class="mono">elected_forecast</td><td class="n">none elected (the Trader&#39;s Spread registers no prediction)</td><td>election</td><td>fact</td><td class="mono">polyreader.readings.traders_spread</td><td class="mono">2026-11-20T06:05:42.182445Z</td></tr>
+<tr><td class="mono">past_heavy_eight_pentacles</td><td class="n">1000 or more observed trades</td><td></td><td>rule</td><td class="mono">trader_rules_v1</td><td class="mono"></td></tr>
+<tr><td class="mono">present_many_two_pentacles</td><td class="n">20 or more open positions</td><td></td><td>rule</td><td class="mono">trader_rules_v1</td><td class="mono"></td></tr>
+<tr><td class="mono">habit_favorites_emperor</td><td class="n">half or more of observed buys at price 0.7 or more</td><td></td><td>rule</td><td class="mono">trader_rules_v1</td><td class="mono"></td></tr>
+<tr><td class="mono">blind_correlated_eight_swords</td><td class="n">two or more open positions share an event</td><td></td><td>rule</td><td class="mono">trader_rules_v1</td><td class="mono"></td></tr>
+<tr><td class="mono">fallback:possible_future</td><td class="n">no rule fired for this position; neutral default card</td><td></td><td>rule</td><td class="mono">trader_rules_v1</td><td class="mono"></td></tr>
+</table></div>
+
+
+<h2>Subject</h2>
+<table>
+<tr><th>kind</th><td class="mono">public_profile</td></tr><tr><th>wallet</th><td class="mono">0xe74995389bfc1c24ca656e6c2502c1fca757f771</td></tr><tr><th>note</th><td class="mono">pseudonymous public address; no identity inferred</td></tr><tr><th>data_as_of</th><td class="mono">2026-11-20T06:05:42.182445+00:00</td></tr></table>
+
+<h2>Share image</h2>
+<p class="muted">1200 &times; 630, generated with the page: <a href="traders_spread_v1-data-0xe74995389bfc1c24ca656e6c2502c1fca757f771-20261120T060823761149Z.svg">traders_spread_v1-data-0xe74995389bfc1c24ca656e6c2502c1fca757f771-20261120T060823761149Z.svg</a></p>
+<img class="share" src="traders_spread_v1-data-0xe74995389bfc1c24ca656e6c2502c1fca757f771-20261120T060823761149Z.svg" alt="Share image: Trader&#39;s Spread 0xe749…f771" width="1200" height="630" loading="lazy" decoding="async">
+</main>
+<footer class="honesty"><p>Readings are symbolic: cards and charts illustrate measured data and are not forecasts. No experiment in the ledger has shown predictive evidence.</p></footer>
+</body>
+</html>

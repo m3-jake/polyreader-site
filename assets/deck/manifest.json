@@ -1,0 +1,841 @@
+{
+  "engine_version": "art-engine/1.0.0",
+  "deck_version": "rws_v1",
+  "card_count": 78,
+  "fallback_count": 0,
+  "total_bytes": 4089435,
+  "cards": [
+    {
+      "card_id": "major_00_the_fool",
+      "file": "major_00_the_fool.svg",
+      "scene": "majors"
+    },
+    {
+      "card_id": "major_01_the_magician",
+      "file": "major_01_the_magician.svg",
+      "scene": "majors"
+    },
+    {
+      "card_id": "major_02_the_high_priestess",
+      "file": "major_02_the_high_priestess.svg",
+      "scene": "majors"
+    },
+    {
+      "card_id": "major_03_the_empress",
+      "file": "major_03_the_empress.svg",
+      "scene": "majors"
+    },
+    {
+      "card_id": "major_04_the_emperor",
+      "file": "major_04_the_emperor.svg",
+      "scene": "majors"
+    },
+    {
+      "card_id": "major_05_the_hierophant",
+      "file": "major_05_the_hierophant.svg",
+      "scene": "majors"
+    },
+    {
+      "card_id": "major_06_the_lovers",
+      "file": "major_06_the_lovers.svg",
+      "scene": "majors"
+    },
+    {
+      "card_id": "major_07_the_chariot",
+      "file": "major_07_the_chariot.svg",
+      "scene": "majors"
+    },
+    {
+      "card_id": "major_08_strength",
+      "file": "major_08_strength.svg",
+      "scene": "majors"
+    },
+    {
+      "card_id": "major_09_the_hermit",
+      "file": "major_09_the_hermit.svg",
+      "scene": "majors"
+    },
+    {
+      "card_id": "major_10_wheel_of_fortune",
+      "file": "major_10_wheel_of_fortune.svg",
+      "scene": "majors"
+    },
+    {
+      "card_id": "major_11_justice",
+      "file": "major_11_justice.svg",
+      "scene": "majors"
+    },
+    {
+      "card_id": "major_12_the_hanged_man",
+      "file": "major_12_the_hanged_man.svg",
+      "scene": "majors"
+    },
+    {
+      "card_id": "major_13_death",
+      "file": "major_13_death.svg",
+      "scene": "majors"
+    },
+    {
+      "card_id": "major_14_temperance",
+      "file": "major_14_temperance.svg",
+      "scene": "majors"
+    },
+    {
+      "card_id": "major_15_the_devil",
+      "file": "major_15_the_devil.svg",
+      "scene": "majors"
+    },
+    {
+      "card_id": "major_16_the_tower",
+      "file": "major_16_the_tower.svg",
+      "scene": "majors"
+    },
+    {
+      "card_id": "major_17_the_star",
+      "file": "major_17_the_star.svg",
+      "scene": "majors"
+    },
+    {
+      "card_id": "major_18_the_moon",
+      "file": "major_18_the_moon.svg",
+      "scene": "majors"
+    },
+    {
+      "card_id": "major_19_the_sun",
+      "file": "major_19_the_sun.svg",
+      "scene": "majors"
+    },
+    {
+      "card_id": "major_20_judgement",
+      "file": "major_20_judgement.svg",
+      "scene": "majors"
+    },
+    {
+      "card_id": "major_21_the_world",
+      "file": "major_21_the_world.svg",
+      "scene": "majors"
+    },
+    {
+      "card_id": "wands_01",
+      "file": "wands_01.svg",
+      "scene": "pips"
+    },
+    {
+      "card_id": "wands_02",
+      "file": "wands_02.svg",
+      "scene": "pips"
+    },
+    {
+      "card_id": "wands_03",
+      "file": "wands_03.svg",
+      "scene": "pips"
+    },
+    {
+      "card_id": "wands_04",
+      "file": "wands_04.svg",
+      "scene": "pips"
+    },
+    {
+      "card_id": "wands_05",
+      "file": "wands_05.svg",
+      "scene": "pips"
+    },
+    {
+      "card_id": "wands_06",
+      "file": "wands_06.svg",
+      "scene": "pips"
+    },
+    {
+      "card_id": "wands_07",
+      "file": "wands_07.svg",
+      "scene": "pips"
+    },
+    {
+      "card_id": "wands_08",
+      "file": "wands_08.svg",
+      "scene": "pips"
+    },
+    {
+      "card_id": "wands_09",
+      "file": "wands_09.svg",
+      "scene": "pips"
+    },
+    {
+      "card_id": "wands_10",
+      "file": "wands_10.svg",
+      "scene": "pips"
+    },
+    {
+      "card_id": "wands_11",
+      "file": "wands_11.svg",
+      "scene": "courts"
+    },
+    {
+      "card_id": "wands_12",
+      "file": "wands_12.svg",
+      "scene": "courts"
+    },
+    {
+      "card_id": "wands_13",
+      "file": "wands_13.svg",
+      "scene": "courts"
+    },
+    {
+      "card_id": "wands_14",
+      "file": "wands_14.svg",
+      "scene": "courts"
+    },
+    {
+      "card_id": "cups_01",
+      "file": "cups_01.svg",
+      "scene": "pips"
+    },
+    {
+      "card_id": "cups_02",
+      "file": "cups_02.svg",
+      "scene": "pips"
+    },
+    {
+      "card_id": "cups_03",
+      "file": "cups_03.svg",
+      "scene": "pips"
+    },
+    {
+      "card_id": "cups_04",
+      "file": "cups_04.svg",
+      "scene": "pips"
+    },
+    {
+      "card_id": "cups_05",
+      "file": "cups_05.svg",
+      "scene": "pips"
+    },
+    {
+      "card_id": "cups_06",
+      "file": "cups_06.svg",
+      "scene": "pips"
+    },
+    {
+      "card_id": "cups_07",
+      "file": "cups_07.svg",
+      "scene": "pips"
+    },
+    {
+      "card_id": "cups_08",
+      "file": "cups_08.svg",
+      "scene": "pips"
+    },
+    {
+      "card_id": "cups_09",
+      "file": "cups_09.svg",
+      "scene": "pips"
+    },
+    {
+      "card_id": "cups_10",
+      "file": "cups_10.svg",
+      "scene": "pips"
+    },
+    {
+      "card_id": "cups_11",
+      "file": "cups_11.svg",
+      "scene": "courts"
+    },
+    {
+      "card_id": "cups_12",
+      "file": "cups_12.svg",
+      "scene": "courts"
+    },
+    {
+      "card_id": "cups_13",
+      "file": "cups_13.svg",
+      "scene": "courts"
+    },
+    {
+      "card_id": "cups_14",
+      "file": "cups_14.svg",
+      "scene": "courts"
+    },
+    {
+      "card_id": "swords_01",
+      "file": "swords_01.svg",
+      "scene": "pips"
+    },
+    {
+      "card_id": "swords_02",
+      "file": "swords_02.svg",
+      "scene": "pips"
+    },
+    {
+      "card_id": "swords_03",
+      "file": "swords_03.svg",
+      "scene": "pips"
+    },
+    {
+      "card_id": "swords_04",
+      "file": "swords_04.svg",
+      "scene": "pips"
+    },
+    {
+      "card_id": "swords_05",
+      "file": "swords_05.svg",
+      "scene": "pips"
+    },
+    {
+      "card_id": "swords_06",
+      "file": "swords_06.svg",
+      "scene": "pips"
+    },
+    {
+      "card_id": "swords_07",
+      "file": "swords_07.svg",
+      "scene": "pips"
+    },
+    {
+      "card_id": "swords_08",
+      "file": "swords_08.svg",
+      "scene": "pips"
+    },
+    {
+      "card_id": "swords_09",
+      "file": "swords_09.svg",
+      "scene": "pips"
+    },
+    {
+      "card_id": "swords_10",
+      "file": "swords_10.svg",
+      "scene": "pips"
+    },
+    {
+      "card_id": "swords_11",
+      "file": "swords_11.svg",
+      "scene": "courts"
+    },
+    {
+      "card_id": "swords_12",
+      "file": "swords_12.svg",
+      "scene": "courts"
+    },
+    {
+      "card_id": "swords_13",
+      "file": "swords_13.svg",
+      "scene": "courts"
+    },
+    {
+      "card_id": "swords_14",
+      "file": "swords_14.svg",
+      "scene": "courts"
+    },
+    {
+      "card_id": "pentacles_01",
+      "file": "pentacles_01.svg",
+      "scene": "pips"
+    },
+    {
+      "card_id": "pentacles_02",
+      "file": "pentacles_02.svg",
+      "scene": "pips"
+    },
+    {
+      "card_id": "pentacles_03",
+      "file": "pentacles_03.svg",
+      "scene": "pips"
+    },
+    {
+      "card_id": "pentacles_04",
+      "file": "pentacles_04.svg",
+      "scene": "pips"
+    },
+    {
+      "card_id": "pentacles_05",
+      "file": "pentacles_05.svg",
+      "scene": "pips"
+    },
+    {
+      "card_id": "pentacles_06",
+      "file": "pentacles_06.svg",
+      "scene": "pips"
+    },
+    {
+      "card_id": "pentacles_07",
+      "file": "pentacles_07.svg",
+      "scene": "pips"
+    },
+    {
+      "card_id": "pentacles_08",
+      "file": "pentacles_08.svg",
+      "scene": "pips"
+    },
+    {
+      "card_id": "pentacles_09",
+      "file": "pentacles_09.svg",
+      "scene": "pips"
+    },
+    {
+      "card_id": "pentacles_10",
+      "file": "pentacles_10.svg",
+      "scene": "pips"
+    },
+    {
+      "card_id": "pentacles_11",
+      "file": "pentacles_11.svg",
+      "scene": "courts"
+    },
+    {
+      "card_id": "pentacles_12",
+      "file": "pentacles_12.svg",
+      "scene": "courts"
+    },
+    {
+      "card_id": "pentacles_13",
+      "file": "pentacles_13.svg",
+      "scene": "courts"
+    },
+    {
+      "card_id": "pentacles_14",
+      "file": "pentacles_14.svg",
+      "scene": "courts"
+    }
+  ],
+  "files": {
+    "back.svg": {
+      "bytes": 36257,
+      "sha256": "9fd6aa863db1bb604ad29dea26ac3f0960a075116f02e93f8f4748e2b0c030e7"
+    },
+    "cups_01.svg": {
+      "bytes": 42494,
+      "sha256": "e0469f7e86c3268113c120cdb23554c184ef71ebf66895dfe4ff2f72c0ef311e"
+    },
+    "cups_02.svg": {
+      "bytes": 38540,
+      "sha256": "3c645b8ba4665529cfeecc10aa7c9f59dc23a717a9cb93dd9654be84b9d11efd"
+    },
+    "cups_03.svg": {
+      "bytes": 49256,
+      "sha256": "acce6952fe7416e045336ef76cf909c510f2bf507f1656864501109c49c3bc0a"
+    },
+    "cups_04.svg": {
+      "bytes": 64911,
+      "sha256": "76aa87cc55cd63f5566128bc4e6f0897a5dbc5bac7c34cf6f2f849c7dbbf6ad2"
+    },
+    "cups_05.svg": {
+      "bytes": 58898,
+      "sha256": "7f8ac5ad8dea2d3954c6dcd9f1611f15f541e47d5083fade421cac953fe91318"
+    },
+    "cups_06.svg": {
+      "bytes": 57949,
+      "sha256": "c6908b093b1ff9ad30d843f97dd62e28b23be2d00d744748cd2138da93f7cbea"
+    },
+    "cups_07.svg": {
+      "bytes": 74335,
+      "sha256": "d294bb840645db5999fdfbfb2ad494ce9386c65b2af9b02478300c689260e33f"
+    },
+    "cups_08.svg": {
+      "bytes": 56120,
+      "sha256": "ce9414a539238b080113c339df970b3953a7c9ebd5d7a0e99b03ab080749b5a5"
+    },
+    "cups_09.svg": {
+      "bytes": 64288,
+      "sha256": "eaa7623cb4a2803aaeb025e61b7e0324bbd7ea4330f342d1f5308a54ec7749b8"
+    },
+    "cups_10.svg": {
+      "bytes": 78439,
+      "sha256": "849656feb5c1b2f32491cf947ff8ae522328670f814ece7d17f1d4c88c7af979"
+    },
+    "cups_11.svg": {
+      "bytes": 50747,
+      "sha256": "fbe0e1c259a1f524bfb7fe212e61533f91542c0c6fa7c4caa9cc1e75ad6b9115"
+    },
+    "cups_12.svg": {
+      "bytes": 47046,
+      "sha256": "0c8cb5babf09e7dcc16fa764e41a349149ae2516d4b4649281c871089eeb2dae"
+    },
+    "cups_13.svg": {
+      "bytes": 46848,
+      "sha256": "5f66db3fc25385bd8289f7247ea16444484a9cf7e14e7fdbf54abc48256c4e47"
+    },
+    "cups_14.svg": {
+      "bytes": 59852,
+      "sha256": "0fc2a83723247bec7e84fd82013c54806cdf7dc26343262ffbc2031c5e1ae415"
+    },
+    "major_00_the_fool.svg": {
+      "bytes": 37598,
+      "sha256": "b6daf5d650580f20b71259d0f042bf495bcf39ec9cd88a47bddace17c6824805"
+    },
+    "major_01_the_magician.svg": {
+      "bytes": 52265,
+      "sha256": "3d917690b41162d53673f0880eed3370c3720fbf97b32f9bc89e280d19c8acd7"
+    },
+    "major_02_the_high_priestess.svg": {
+      "bytes": 43951,
+      "sha256": "c0ce73676d8cfea1ce3e8ef3fbf2849b983041d41a3422fb90af90a330feef12"
+    },
+    "major_03_the_empress.svg": {
+      "bytes": 63790,
+      "sha256": "24ce4cb19c9bdbc0a04f0f6f11930062e7c2bb35d6b7c62b734815e74246998e"
+    },
+    "major_04_the_emperor.svg": {
+      "bytes": 45075,
+      "sha256": "3c0df5a31dc732999dc785ef0cdd66fe2cf35fd7ea9dc0b6ede6edb96333bdc6"
+    },
+    "major_05_the_hierophant.svg": {
+      "bytes": 55742,
+      "sha256": "bf05e5455ea13d81a69a5185eb8a3c7a0966a2fecad02811335d693d48ce17bd"
+    },
+    "major_06_the_lovers.svg": {
+      "bytes": 48544,
+      "sha256": "714a17baf27ca1d3cc1c6496efdfb2b813db5d45a77392ba37be6fe794fc5bcf"
+    },
+    "major_07_the_chariot.svg": {
+      "bytes": 48370,
+      "sha256": "bda164031fbb7db141cd01434b372175f30c3161aba4c3e7883f7f6c2c9dbef8"
+    },
+    "major_08_strength.svg": {
+      "bytes": 53888,
+      "sha256": "8283be0dc3a52c9090c190c6a85ad4ee09b86a861d9f117452ba9b88d844c2bd"
+    },
+    "major_09_the_hermit.svg": {
+      "bytes": 34132,
+      "sha256": "2b423a8cce7fcee66592a36cbbe0b552226de28a697e73312f30ba34daa04d80"
+    },
+    "major_10_wheel_of_fortune.svg": {
+      "bytes": 49618,
+      "sha256": "47a0e0d5ebece92bf0999630c73825fb05b6966957aa894d638a6a499cc77f3c"
+    },
+    "major_11_justice.svg": {
+      "bytes": 50236,
+      "sha256": "8d131758e18391bde01d7cdc1b4f0c75346363b45b1876c91361d2da3c714f4c"
+    },
+    "major_12_the_hanged_man.svg": {
+      "bytes": 37345,
+      "sha256": "01da131928fb51a5b898589e8e3ca48d2a91689a027e03a721d780deaf4e36d6"
+    },
+    "major_13_death.svg": {
+      "bytes": 37229,
+      "sha256": "1bc328a7177d3a2c09e289cb9a62dcadbcfd78cf78cb6d954766b9d1b1e955aa"
+    },
+    "major_14_temperance.svg": {
+      "bytes": 41567,
+      "sha256": "fdbc80b1428f63e864738ad77af961a02bf46df0bb19336b88e859d404b3c5a6"
+    },
+    "major_15_the_devil.svg": {
+      "bytes": 53471,
+      "sha256": "4ffa97d316aadce2c0a076719ca090ba7cbe0511f92850a5458e7503145d301f"
+    },
+    "major_16_the_tower.svg": {
+      "bytes": 68372,
+      "sha256": "67035fd2e7b99778b9cd5606ecad90fdc60a3e028704e2ab91e8ed4ddea4908d"
+    },
+    "major_17_the_star.svg": {
+      "bytes": 51528,
+      "sha256": "6eb831a1e0e062926e39972558409d31979f7d687633439c28134fc412cce1f6"
+    },
+    "major_18_the_moon.svg": {
+      "bytes": 54184,
+      "sha256": "00f94830b43acf29912cb7ba0864c911d4935bfb58d22060e3ba347f098a6f75"
+    },
+    "major_19_the_sun.svg": {
+      "bytes": 46672,
+      "sha256": "f36da79e3a349b4278f94d3da43d282d0e28c011ad42a82905d0ef4624a5ba37"
+    },
+    "major_20_judgement.svg": {
+      "bytes": 46334,
+      "sha256": "1028642439ab0fa81c20861cbfc909db8b5ffdb85c97a1789e04d161e150d0ef"
+    },
+    "major_21_the_world.svg": {
+      "bytes": 58377,
+      "sha256": "474726c5298c57569ba325c43ccb10ef8f0bb735f776cc9e2f96b0f6ff841877"
+    },
+    "pentacles_01.svg": {
+      "bytes": 45765,
+      "sha256": "be0da7f556c8353421d8ebbc5e5fd675f897803497ba0bb20496593fb653a6e4"
+    },
+    "pentacles_02.svg": {
+      "bytes": 36591,
+      "sha256": "78e51e8ec0314ab75a60c8631b6bb224983615d403184dcb1e90a7369cd066be"
+    },
+    "pentacles_03.svg": {
+      "bytes": 46975,
+      "sha256": "4d3176a8e6fd87952ced19f09f8100a318ec863bfce2fe77a7196edbbe5f992e"
+    },
+    "pentacles_04.svg": {
+      "bytes": 38927,
+      "sha256": "12af69a976cd543cef5e560e8f8a24ddd729818f681ddd18c81ae583f00c7b27"
+    },
+    "pentacles_05.svg": {
+      "bytes": 57966,
+      "sha256": "7a7d3cc82186aba3e620c2d91fe3473d9cda0ce1b352669a0939c0027554b466"
+    },
+    "pentacles_06.svg": {
+      "bytes": 51607,
+      "sha256": "3a15c9ee167c2f9ea778136de26b97a4b07e22375812735ccc23d7cb67c55b2f"
+    },
+    "pentacles_07.svg": {
+      "bytes": 47593,
+      "sha256": "249527fdb99b422e29f9228322b14c4413e516668f960c63cf64fa8b928d9089"
+    },
+    "pentacles_08.svg": {
+      "bytes": 47303,
+      "sha256": "8e53d6c9819794bd614ef615c5d1c83ce3951c47e5472a5f735814b9f9b309b4"
+    },
+    "pentacles_09.svg": {
+      "bytes": 75281,
+      "sha256": "b99bcca2cba3065d16f25d29df6e012834e96a139f847df5831d5ba7d960fbfb"
+    },
+    "pentacles_10.svg": {
+      "bytes": 51371,
+      "sha256": "9173cd58083f8316189546dccc08e8234f0435cbd8c37ee9fd4ae9fc842b6b72"
+    },
+    "pentacles_11.svg": {
+      "bytes": 50158,
+      "sha256": "14e3fa60d8d001c05433aef322c59025be9334454cac492733c37edbaa0b071c"
+    },
+    "pentacles_12.svg": {
+      "bytes": 42440,
+      "sha256": "2a5c674028ef62310b21bec744826475ffeca3eb12588c762b36ebae6e8a400d"
+    },
+    "pentacles_13.svg": {
+      "bytes": 58603,
+      "sha256": "1aada0db02e5992bcf0a94b7f92edd445c724269d0120b3996f2200d3cd470a5"
+    },
+    "pentacles_14.svg": {
+      "bytes": 66200,
+      "sha256": "d4adaeae046f6c314133d165d62ff297ddf52cbe1a67d4ab95f92111de7ea84d"
+    },
+    "sigils/air.svg": {
+      "bytes": 574,
+      "sha256": "9f0f58197b56bb7e117959d629518a65a1004a4694db2c60d60e7417c9b69354"
+    },
+    "sigils/aquarius.svg": {
+      "bytes": 659,
+      "sha256": "9ac71c30fbda546352fdf1a1461e00a2534e7d355343629d4b4917a34c31de1c"
+    },
+    "sigils/aries.svg": {
+      "bytes": 613,
+      "sha256": "4b8602727bea3dd03d27318d54bf3ba99e38b8a308e4378d2d783411dd363f3e"
+    },
+    "sigils/cancer.svg": {
+      "bytes": 783,
+      "sha256": "ec5042acf4ad279aeeb62191f2b03a5478ca6079dacd98d8055dc710085d641f"
+    },
+    "sigils/capricorn.svg": {
+      "bytes": 677,
+      "sha256": "27c76ea3a87edff93c465aa92a5a11c91cf14e958815a758c6b2456f35a63ae6"
+    },
+    "sigils/conjunction.svg": {
+      "bytes": 637,
+      "sha256": "ccdc218779ac474a53fe19fe8936348bcacc68fc31ee21b7738c77aaddb02bdb"
+    },
+    "sigils/earth.svg": {
+      "bytes": 578,
+      "sha256": "b0bcdbd6a384f9b639ef3ff245e491f45909815abba828011db85fb31020f03e"
+    },
+    "sigils/fire.svg": {
+      "bytes": 552,
+      "sha256": "2400a2153df07e22aea5f7ffa8f503379ef6fd3f329578f762989f5cbdf4e4a9"
+    },
+    "sigils/gemini.svg": {
+      "bytes": 659,
+      "sha256": "133aeb398818f5b5ea853e133f8599a73e62be47e24268c07018396897798cd2"
+    },
+    "sigils/jupiter.svg": {
+      "bytes": 611,
+      "sha256": "547afabd5d9b5a226d6bf36540ff226d1b1e5637ebe97f4e70621b8b4f0a67df"
+    },
+    "sigils/leo.svg": {
+      "bytes": 715,
+      "sha256": "dbc92302c86d60a4c4bea090b4ae0a06b9aa2ab870ce31930297d5a0a3a3e3c4"
+    },
+    "sigils/libra.svg": {
+      "bytes": 645,
+      "sha256": "e23cc1a5053de9dc6958a9269bd6de4bc4f95de19c95d4ecaa3426101b786d7f"
+    },
+    "sigils/mars.svg": {
+      "bytes": 659,
+      "sha256": "f24a074da08fc2070eb536bcf18e8dab40195399cb9fb1821227e790bde8df89"
+    },
+    "sigils/mercury.svg": {
+      "bytes": 701,
+      "sha256": "bdd916bf77be0629851b2e6d25469ebf654d0d3f5318476db021f7fc4e4c15e5"
+    },
+    "sigils/moon.svg": {
+      "bytes": 599,
+      "sha256": "8062da45598a9b1f3995e7209a26dacd403c26beb507b156b150531373e40c67"
+    },
+    "sigils/neptune.svg": {
+      "bytes": 723,
+      "sha256": "66b3f80fe10ac8257014979e9c3879ab2041942af9cf077ff9561288803cbae8"
+    },
+    "sigils/opposition.svg": {
+      "bytes": 721,
+      "sha256": "61356e46de6b2145bf1b06775e7f2be0071dfd63d8a6d34aaa17d081b34ded86"
+    },
+    "sigils/pisces.svg": {
+      "bytes": 635,
+      "sha256": "a46570f7b5addbcdd996d961469159935aecb09710b4f5b5c58c43cf5c7d8150"
+    },
+    "sigils/pluto.svg": {
+      "bytes": 697,
+      "sha256": "c6e66f3ba139d746c6256130f2a658b3b2f4bd29958cd51a3afbe3daf428764e"
+    },
+    "sigils/sagittarius.svg": {
+      "bytes": 609,
+      "sha256": "7802ffc05ded8e4a14b9dfcf62afd3a87ce5d49e6dfa1a35e9e0f39ed0515f78"
+    },
+    "sigils/saturn.svg": {
+      "bytes": 649,
+      "sha256": "c324871306a8496adf616cde5699303631932faa984b17468e0756f46112867e"
+    },
+    "sigils/scorpio.svg": {
+      "bytes": 733,
+      "sha256": "8a0e36380d949d0ec2258d67ba860326ada6f64dfe934a2fc7d53355d26052ef"
+    },
+    "sigils/sextile.svg": {
+      "bytes": 591,
+      "sha256": "350ad4f3ad511df262babff50c2a8fa454a0b76c9721c747b485095617140660"
+    },
+    "sigils/square.svg": {
+      "bytes": 567,
+      "sha256": "4a50c83ab87afbbb488c16833f50ace0386b055e7ea5d24f62a5d2746324b9c8"
+    },
+    "sigils/sun.svg": {
+      "bytes": 704,
+      "sha256": "f436f3ece710d9bea80e79db30335b3574f3fc30450273b07fe81e17db0db76b"
+    },
+    "sigils/taurus.svg": {
+      "bytes": 649,
+      "sha256": "e6c4f2975f478f506df8a2872171ec6aff4a2fa1a3133c593c14287e89b3e404"
+    },
+    "sigils/trine.svg": {
+      "bytes": 553,
+      "sha256": "70c19bbccd139d0f6ce7abb701f34532845dc90e1a6b0b55b2996653b4b9dabd"
+    },
+    "sigils/uranus.svg": {
+      "bytes": 806,
+      "sha256": "2767a1d572bc34e430dbe96574922282319cd44e3cfd2e36e7a51186fd6e6b57"
+    },
+    "sigils/venus.svg": {
+      "bytes": 649,
+      "sha256": "565303f9f6b61dff6cbb4766ef979730eaf02f21049f703a456a6ea16a9a015e"
+    },
+    "sigils/virgo.svg": {
+      "bytes": 741,
+      "sha256": "0dbb7d921c04d39ec97d6c955d4ee649d00b45650d4b863a01af6326ea485f73"
+    },
+    "sigils/water.svg": {
+      "bytes": 554,
+      "sha256": "d794a9762304bdf2408e843cced63f679477e885b05ba88c5bf8e4e65b125805"
+    },
+    "swords_01.svg": {
+      "bytes": 45498,
+      "sha256": "fbfeb60a3cbd615cbad59c2b02985b40344bf81b75c530a453200eb5d58e3059"
+    },
+    "swords_02.svg": {
+      "bytes": 39606,
+      "sha256": "c46df237e51b4e00679cd43b649cc684718ee4d904d7abe7f682381f7df1bb51"
+    },
+    "swords_03.svg": {
+      "bytes": 40793,
+      "sha256": "8212e7828ded9f71b389dc488f8aca9a8f00cb52db60acc5782e9927a26e5e62"
+    },
+    "swords_04.svg": {
+      "bytes": 40103,
+      "sha256": "c2b0872075b1e4e9549941c1d6efb533ddaef9b4af14e6623ecefa706422c88c"
+    },
+    "swords_05.svg": {
+      "bytes": 51793,
+      "sha256": "4574cf5fbd0f64efe9a64761b93da0c6efd04700ec6a4a807d5b6781d006d6a7"
+    },
+    "swords_06.svg": {
+      "bytes": 47072,
+      "sha256": "a2aee3d52c4bdaa376cb5ca115530a45f49e7a369a3c5aa0b72034052f56e6f9"
+    },
+    "swords_07.svg": {
+      "bytes": 57084,
+      "sha256": "4966be49977cb8fd66869e6449c8e63f0e2b80c1c8e97b6f150778af57319cdf"
+    },
+    "swords_08.svg": {
+      "bytes": 74532,
+      "sha256": "b8508fbc325d6f4b916795140661694274ee35a12bc2172facd3722a60a0173c"
+    },
+    "swords_09.svg": {
+      "bytes": 65641,
+      "sha256": "11a492fc0e680413513a836d211469496750395ebf753fe8c44e1d5b4c9c206c"
+    },
+    "swords_10.svg": {
+      "bytes": 59026,
+      "sha256": "65fc2780a4eb8c518a8bb9b70be8400c5379ddcf628596ed79d5b3853742165c"
+    },
+    "swords_11.svg": {
+      "bytes": 50447,
+      "sha256": "cffa31f8a0bf7c0e2919a4adb1e03bcf15aa42c68584d1645fc337918b1b71ed"
+    },
+    "swords_12.svg": {
+      "bytes": 60992,
+      "sha256": "ea22a363bad1227346fb593e6ea7c0909ab0980edda152098f1e0f4b9450679d"
+    },
+    "swords_13.svg": {
+      "bytes": 59175,
+      "sha256": "d183a3ab7834d0b1a98e282c5d873250a69369c8d43dff4f3d219df49d489bbc"
+    },
+    "swords_14.svg": {
+      "bytes": 59233,
+      "sha256": "bae472bb4fc1e3ea2dd2209988342de28b0da2bd4320f6784e1d84b74133a55c"
+    },
+    "wands_01.svg": {
+      "bytes": 32387,
+      "sha256": "fbadfa935344945ecb21ddd9b6f3c31b2dbbe9b993790cc3dc1881f26182bf76"
+    },
+    "wands_02.svg": {
+      "bytes": 47490,
+      "sha256": "19cf25d2e47a5f6010f6253b56a1dc79f79d12d8bc0e5ef03d92affd6a2a3c11"
+    },
+    "wands_03.svg": {
+      "bytes": 40684,
+      "sha256": "1aecfb23da843dabe80f8bf12625bc2fea91f6fa79f2e5a2fdb1e84b3e0b96cd"
+    },
+    "wands_04.svg": {
+      "bytes": 58285,
+      "sha256": "c5ec17593a7e890d81ae0e52f03514ea1fa0058dfb8f03e7cec9b96e5052ee3d"
+    },
+    "wands_05.svg": {
+      "bytes": 40534,
+      "sha256": "517d29f73b4e7331dd9000693e5b31acce38d1e78fd92d0ba216480a93cd23fc"
+    },
+    "wands_06.svg": {
+      "bytes": 54344,
+      "sha256": "d079b15cc93a7bcc74f89d7d045b21e41494d21d4c60871b4d4c8d1a39c7ea6c"
+    },
+    "wands_07.svg": {
+      "bytes": 42316,
+      "sha256": "938753a8a2d44ba876fedf1e43f3b09d4dab84d95ff5ea95d6db8be4119e9e4b"
+    },
+    "wands_08.svg": {
+      "bytes": 45945,
+      "sha256": "5df9dc4c9d68fd17fd1e139bcc89e44d2708c6a0989d96f92093225a1969e73b"
+    },
+    "wands_09.svg": {
+      "bytes": 66601,
+      "sha256": "8117301673f58775c4541b878d39b406fd848018ebdceaeede859825f192f11f"
+    },
+    "wands_10.svg": {
+      "bytes": 65261,
+      "sha256": "e5d636c539d89b1e7b248f851f27cb05b717ce93e421b6fe363bbee5586f19bb"
+    },
+    "wands_11.svg": {
+      "bytes": 44154,
+      "sha256": "5f09ee018376b71883ad6b088fe40d08b50d8d34eab96bb04c3c515540f88658"
+    },
+    "wands_12.svg": {
+      "bytes": 48335,
+      "sha256": "20e8e8d6e9a8226c7ebb1fd3e418e830f71dc8847b6b31f67856f27a2ddf6f66"
+    },
+    "wands_13.svg": {
+      "bytes": 62013,
+      "sha256": "dcc45197f809e12c28a20f550d225605ae6afa21b18dbdc13c24aea3898d8af0"
+    },
+    "wands_14.svg": {
+      "bytes": 48800,
+      "sha256": "3da083808ea66cf1010a154d4fd7f4e322c17fae3248ad12a724cb7474b0e2b8"
+    }
+  }
+}

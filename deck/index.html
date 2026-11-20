@@ -1,0 +1,1451 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<title>The deck</title>
+<script>(function(d){d.documentElement.classList.add('js');function P(b,o){b.setAttribute('aria-pressed',o?'true':'false')}d.addEventListener('click',function(e){var t=e.target;if(!t.closest)return;var b=t.closest('button.flip');if(b){var r=b.getAttribute('data-mode')==='reveal';P(b,b.classList.toggle(r?'is-open':'is-flipped'));return}var a=t.closest('[data-reveal-all]');if(a){d.querySelectorAll('.deal .flip').forEach(function(x){x.classList.add('is-open');P(x,1)});return}var f=t.closest('[data-filter]');if(f){var v=f.getAttribute('data-filter'),n=0;d.querySelectorAll('.gallery>li').forEach(function(li){var s=v==='all'||(' '+li.getAttribute('data-group')+' ').indexOf(' '+v+' ')>=0;li.hidden=!s;if(s)n++});d.querySelectorAll('[data-filter]').forEach(function(x){P(x,x===f)});var c=d.getElementById('shown');if(c)c.textContent=n}})})(document);</script>
+<style>
+/* Polyreader Tarot Market theme: hyper-saturated N64 vaporwave. Local only: no web fonts,
+   no external assets. Dark is the default; the light variant follows the OS setting. */
+:root {
+  --void: #0a0221; --deep: #14063f; --ultra: #2a0fb0; --violet: #8b2cff; --magenta: #ff2bd6;
+  --hot: #ff3f7f; --orange: #ff7a1a; --yellow: #ffe14d; --lime: #b8ff2c; --mint: #3dffb5;
+  --cyan: #00eaff; --ice: #a8f3ff; --chrome: #e8eeff;
+  --bg: var(--void); --bg-2: var(--deep); --fg: #f1ecff; --muted: #b9acec; --line: #4b2fb0;
+  --card: #160847; --card-2: #22105f; --accent: var(--cyan); --accent-2: var(--magenta);
+  --head: var(--chrome); --warn: #ffb020; --ok: var(--lime); --scan: rgba(0, 0, 0, .28);
+  --glow: 0 0 6px rgba(255, 43, 214, .75), 0 0 18px rgba(0, 234, 255, .35);
+  --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --glyph: "Apple Symbols", "Segoe UI Symbol", "Noto Sans Symbols 2", "DejaVu Sans", sans-serif;
+  --bevel: 0 0 0 2px var(--void), 0 0 0 4px var(--magenta), 4px 4px 0 4px var(--cyan);
+  --bevel-sm: 0 0 0 2px var(--void), 0 0 0 3px var(--cyan), 3px 3px 0 3px var(--magenta);
+  --t-mag: var(--magenta); --t-cyan: var(--cyan); --t-orange: var(--orange); --t-lime: var(--lime);
+  --t-yellow: var(--yellow);
+  color-scheme: dark;
+}
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    --bg: #fff1fb; --bg-2: #f2e6ff; --fg: #1a0b4d; --muted: #54437f; --line: #c4b0ff;
+    --card: #ffffff; --card-2: #f6eeff; --accent: #0057a8; --accent-2: #b00090; --head: #2a0fb0;
+    --warn: #8a4f00; --ok: #2c6b00; --scan: rgba(42, 15, 176, .07);
+    --glow: 0 0 0 transparent;
+    --bevel: 0 0 0 2px #fff, 0 0 0 4px #c000a0, 4px 4px 0 4px #00a8c8;
+    --bevel-sm: 0 0 0 2px #fff, 0 0 0 3px #00a8c8, 3px 3px 0 3px #c000a0;
+    --t-mag: #b0008f; --t-cyan: #006a9e; --t-orange: #b04a00; --t-lime: #2c6b00;
+    --t-yellow: #7a5a00;
+    color-scheme: light;
+  }
+}
+:root[data-theme="light"] {
+  --bg: #fff1fb; --bg-2: #f2e6ff; --fg: #1a0b4d; --muted: #54437f; --line: #c4b0ff;
+  --card: #ffffff; --card-2: #f6eeff; --accent: #0057a8; --accent-2: #b00090; --head: #2a0fb0;
+  --warn: #8a4f00; --ok: #2c6b00; --scan: rgba(42, 15, 176, .07); --glow: 0 0 0 transparent;
+  --t-mag: #b0008f; --t-cyan: #006a9e; --t-orange: #b04a00; --t-lime: #2c6b00;
+  --t-yellow: #7a5a00;
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; min-height: 100vh; overflow-x: hidden; color: var(--fg);
+  font: 15px/1.55 system-ui, -apple-system, "Segoe UI", sans-serif;
+  background-color: var(--bg);
+  background-image:
+    radial-gradient(1px 1px at 12% 18%, var(--chrome) 50%, transparent 51%),
+    radial-gradient(1px 1px at 68% 9%, var(--ice) 50%, transparent 51%),
+    radial-gradient(2px 2px at 83% 41%, var(--magenta) 50%, transparent 51%),
+    radial-gradient(1px 1px at 36% 63%, var(--chrome) 50%, transparent 51%),
+    radial-gradient(2px 2px at 91% 82%, var(--cyan) 50%, transparent 51%),
+    radial-gradient(1px 1px at 22% 88%, var(--yellow) 50%, transparent 51%),
+    radial-gradient(ellipse 90% 50% at 50% 0%, rgba(139, 44, 255, .35), transparent 70%),
+    linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
+  background-size: 260px 260px, 260px 260px, 260px 260px, 260px 260px, 260px 260px,
+    260px 260px, 100% 100%, 100% 100%;
+  background-attachment: fixed;
+}
+/* CRT: scanlines plus a slow flicker, and a soft vignette. Pointer-transparent. */
+body::after {
+  content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 90;
+  background: repeating-linear-gradient(180deg, var(--scan) 0 1px, transparent 1px 3px);
+  animation: crt-flicker 7s steps(1) infinite;
+}
+body::before {
+  content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 89;
+  background: radial-gradient(ellipse at center, transparent 60%, rgba(10, 2, 33, .45) 100%);
+}
+@media (prefers-color-scheme: light) { body::before { opacity: .15; } }
+@keyframes crt-flicker { 0%, 100% { opacity: 1; } 47% { opacity: .82; } 48% { opacity: 1; }
+  73% { opacity: .9; } 74% { opacity: 1; } }
+
+a { color: var(--accent); text-decoration-thickness: 2px; text-underline-offset: 3px; }
+a:hover { color: var(--accent-2); }
+:focus-visible { outline: 3px solid var(--lime); outline-offset: 3px; border-radius: 2px; }
+code, .mono { font-family: var(--mono); font-size: .86em; overflow-wrap: anywhere; }
+.skip { position: absolute; left: -999px; top: 0; z-index: 100; background: var(--lime);
+  color: #000; padding: 6px 10px; font-family: var(--mono); }
+.skip:focus { left: 16px; }
+
+/* ---------------------------------------------------------------- top bar + nav */
+.topbar { position: relative; z-index: 5; border-bottom: 3px solid var(--magenta);
+  background: linear-gradient(90deg, rgba(42, 15, 176, .85), rgba(139, 44, 255, .55) 50%,
+  rgba(255, 43, 214, .45)); }
+.topbar-in { max-width: 1120px; margin: 0 auto; padding: 8px 16px; display: flex; flex-wrap: wrap;
+  align-items: center; gap: 8px 18px; }
+.brand { font: 800 1rem/1 var(--mono); letter-spacing: .14em; text-transform: uppercase;
+  color: #fff; text-decoration: none; text-shadow: -2px 0 var(--magenta), 2px 0 var(--cyan); }
+.brand b { color: var(--yellow); }
+nav.main { display: flex; flex-wrap: wrap; gap: 6px; }
+nav.main a { font: 700 .74rem/1 var(--mono); letter-spacing: .12em; text-transform: uppercase;
+  color: #fff; text-decoration: none; padding: 7px 10px; background: rgba(10, 2, 33, .55);
+  border: 2px solid var(--cyan); box-shadow: 2px 2px 0 var(--magenta); }
+nav.main a:hover, nav.main a[aria-current="page"] { background: var(--yellow); color: #14063f;
+  border-color: #fff; box-shadow: 2px 2px 0 var(--violet); }
+
+/* ---------------------------------------------------------------- hero: sun + grid floor */
+.hero { position: relative; overflow: hidden; height: clamp(200px, 34vw, 340px);
+  border-bottom: 4px solid var(--magenta);
+  background: linear-gradient(180deg, #07001a 0%, #1b0870 38%, #6d18c9 55%, #ff2bd6 63%,
+  #ff7a1a 64.5%, #14063f 64.6%, #0a0221 100%); }
+.hero-sky { position: absolute; left: 0; right: 0; top: 0; height: 65%; }
+.hero-sky svg { display: block; width: 100%; height: 100%; }
+.floor { position: absolute; left: 0; right: 0; bottom: 0; height: 36%; overflow: hidden;
+  perspective: 220px; perspective-origin: 50% 0%; }
+.floor-plane { position: absolute; left: -60%; right: -60%; top: 0; height: 260%;
+  transform-origin: 50% 0%; transform: rotateX(66deg);
+  background-image: linear-gradient(var(--magenta) 3px, transparent 3px),
+    linear-gradient(90deg, var(--cyan) 3px, transparent 3px);
+  background-size: 56px 56px; background-position: 0 0;
+  -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 18%);
+  mask-image: linear-gradient(180deg, transparent 0%, #000 18%);
+  animation: floor-run 1.8s linear infinite; filter: drop-shadow(0 0 4px var(--magenta)); }
+@keyframes floor-run { to { background-position: 0 56px; } }
+.hero-text { position: absolute; left: 0; right: 0; top: 0; height: 64%; display: flex;
+  flex-direction: column; justify-content: flex-end; align-items: center; text-align: center;
+  padding: 0 16px 10px; }
+.hero-text .tag { font: 700 .72rem/1.3 var(--mono); letter-spacing: .2em; text-transform: uppercase;
+  color: var(--ice); background: rgba(10, 2, 33, .6); padding: 4px 10px; margin-top: 6px;
+  border: 1px solid var(--cyan); }
+.hero.slim { height: clamp(150px, 22vw, 220px); }
+
+/* ---------------------------------------------------------------- chroma headings */
+.chroma { position: relative; display: inline-block; isolation: isolate; margin: 0;
+  font: 900 clamp(1.5rem, 5.4vw, 3.1rem)/1.05 var(--mono); letter-spacing: .04em;
+  text-transform: uppercase; overflow-wrap: anywhere; color: var(--chrome); }
+.chroma > span { color: transparent; -webkit-background-clip: text; background-clip: text;
+  background-image: linear-gradient(180deg, #ffffff 0%, #c9f6ff 30%, #6ad8ff 47%, #2a0fb0 50%,
+  #ff6af0 53%, #ffd0f6 75%, #ffffff 100%); }
+.chroma::before, .chroma::after { content: attr(data-text); position: absolute; inset: 0;
+  z-index: -1; pointer-events: none; }
+.chroma::before { color: var(--magenta); transform: translate(-3px, 1px); }
+.chroma::after { color: var(--cyan); transform: translate(3px, -1px); mix-blend-mode: screen; }
+main { position: relative; z-index: 2; max-width: 1120px; margin: 0 auto; padding: 18px 16px 48px;
+  overflow-wrap: anywhere; }
+main > h1.page { margin: 10px 0 6px; }
+h2 { font: 800 1.08rem/1.25 var(--mono); letter-spacing: .1em; text-transform: uppercase;
+  color: var(--head); margin: 34px 0 12px; padding: 6px 0 6px 12px;
+  border-left: 6px solid var(--magenta); text-shadow: -1.5px 0 rgba(255, 43, 214, .8),
+  1.5px 0 rgba(0, 234, 255, .8);
+  background: linear-gradient(90deg, rgba(139, 44, 255, .28), transparent 70%); }
+h3 { font: 800 .95rem/1.3 var(--mono); letter-spacing: .08em; text-transform: uppercase;
+  color: var(--accent); margin: 18px 0 8px; }
+@media (prefers-color-scheme: light) {
+  h2 { text-shadow: none; }
+
+}
+
+/* ---------------------------------------------------------------- provenance HUD + footer */
+.meta { display: flex; flex-wrap: wrap; gap: 6px 8px; margin: 10px 0 16px; font: .74rem/1.3 var(--mono);
+  color: var(--muted); }
+.meta span { padding: 4px 8px; background: var(--card); border: 1px solid var(--line);
+  border-left: 4px solid var(--cyan); }
+.meta span:nth-child(2) { border-left-color: var(--magenta); }
+.meta span:nth-child(3) { border-left-color: var(--lime); }
+.meta span:nth-child(4) { border-left-color: var(--orange); }
+footer.honesty { position: relative; z-index: 2; max-width: 1120px; margin: 40px auto 0;
+  padding: 0 16px 36px; }
+footer.honesty p { margin: 0; padding: 14px 16px; font: .86rem/1.5 var(--mono); color: var(--fg);
+  background: repeating-linear-gradient(135deg, var(--card) 0 10px, var(--card-2) 10px 20px);
+  border: 2px solid var(--yellow); box-shadow: 4px 4px 0 var(--magenta); }
+footer.honesty p::before { content: "HONESTY // "; color: var(--t-yellow); font-weight: 800; }
+
+/* ---------------------------------------------------------------- boxes, tables, chips */
+.box { position: relative; background: linear-gradient(180deg, var(--card-2), var(--card));
+  padding: 14px 16px; margin: 18px 6px 18px 4px; box-shadow: var(--bevel); }
+.box p:first-child { margin-top: 0; } .box p:last-child { margin-bottom: 0; }
+.note { font: .82rem/1.45 var(--mono); color: var(--warn); border: 1px dashed var(--warn);
+  padding: 6px 10px; margin: 10px 0; }
+.state { display: inline-block; padding: 4px 12px; font: 800 .86rem/1.3 var(--mono);
+  letter-spacing: .06em; text-transform: uppercase; color: #14063f; background: var(--yellow);
+  border: 2px solid #fff; box-shadow: 3px 3px 0 var(--magenta), var(--glow); }
+.warn { color: var(--warn); }
+.ok { color: var(--ok); }
+.muted { color: var(--muted); }
+.scroll { overflow-x: auto; max-width: 100%; }
+table { border-collapse: collapse; width: 100%; font-size: .86rem; background: var(--card); }
+th, td { border-bottom: 1px solid var(--line); padding: 6px 9px; text-align: left; vertical-align: top;
+  overflow-wrap: anywhere; }
+tr:first-child th { background: linear-gradient(180deg, var(--ultra), #1b0878); color: var(--ice);
+  font: 700 .74rem/1.3 var(--mono); letter-spacing: .08em; text-transform: uppercase;
+  border-bottom: 2px solid var(--magenta); }
+table:not(:has(tr:first-child th + th)) th { color: var(--accent); background: transparent;
+  font: 600 .8rem/1.4 var(--mono); text-transform: none; letter-spacing: 0; border-bottom-width: 1px;
+  border-bottom-color: var(--line); width: 34%; }
+tr:nth-child(even) td { background: rgba(139, 44, 255, .08); }
+td.n, th.n { text-align: right; font-variant-numeric: tabular-nums; font-family: var(--mono); }
+pre { white-space: pre-wrap; overflow-wrap: anywhere; background: var(--card); padding: 12px;
+  font: .82rem/1.5 var(--mono); border: 2px solid var(--line); box-shadow: 4px 4px 0 var(--violet); }
+ul { padding-left: 1.3em; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0; padding: 0; list-style: none; }
+.chip { display: inline-block; font: 700 .7rem/1.2 var(--mono); letter-spacing: .08em;
+  text-transform: uppercase; padding: 4px 8px; border: 2px solid currentColor; }
+.chip.k-symbolic, .chip.m-random { color: var(--t-mag); }
+.chip.k-fact, .chip.m-data, .chip.k-chart, .chip.k-sky { color: var(--t-cyan); }
+.chip.k-forecast, .chip.m-hybrid { color: var(--t-orange); }
+.chip.k-note, .chip.k-label, .chip.k-text { color: var(--t-lime); }
+.chip.k-warn { color: var(--warn); }
+.grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+  gap: 12px 22px; }
+
+/* ---------------------------------------------------------------- tiles (index, readings) */
+.tiles { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
+  gap: 22px; margin: 18px 6px 18px 4px; padding: 0; list-style: none; }
+.tile { position: relative; display: block; color: var(--fg); text-decoration: none;
+  background: linear-gradient(180deg, var(--card-2), var(--card)); box-shadow: var(--bevel-sm);
+  transition: transform .15s ease; }
+.tile:hover { transform: translate(-2px, -2px); color: var(--fg); }
+.tile .band { display: flex; justify-content: space-between; gap: 8px; padding: 5px 10px;
+  font: 800 .7rem/1.2 var(--mono); letter-spacing: .12em; text-transform: uppercase; color: #14063f;
+  background: var(--cyan); }
+.tile.s-traders_spread_v1 .band { background: var(--lime); }
+.tile.s-daily_v1 .band { background: var(--magenta); color: #fff; }
+.tile .body { padding: 10px 12px 12px; }
+.tile .title { font: 800 .98rem/1.3 var(--mono); margin: 0 0 6px; color: var(--head); }
+.tile .sub { font: .75rem/1.4 var(--mono); color: var(--muted); margin: 0 0 10px; }
+.thumbs { display: flex; gap: 6px; align-items: flex-end; }
+.thumbs img, .thumbs .fallback { width: 19%; max-width: 64px; aspect-ratio: 3 / 5; height: auto;
+  display: block; border: 1px solid var(--line); background: var(--void); }
+.thumbs .rev { transform: rotate(180deg); }
+.thumbs .fallback { font-size: .5rem; }
+
+/* ---------------------------------------------------------------- card flip (CSS 3-D) */
+.deal { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(46%, 168px), 1fr));
+  gap: 22px 16px; margin: 18px 0; padding: 0; list-style: none; }
+.deal > li { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.pos { font: 800 .7rem/1.2 var(--mono); letter-spacing: .14em; text-transform: uppercase;
+  color: var(--t-yellow); text-align: center; }
+.flip { display: block; width: 100%; padding: 0; margin: 0; border: 0; background: none;
+  cursor: pointer; perspective: 1100px; aspect-ratio: 3 / 5; color: inherit; font: inherit; }
+.flip-inner { position: relative; display: block; width: 100%; height: 100%;
+  transform-style: preserve-3d; transition: transform .75s cubic-bezier(.2, .9, .25, 1.15); }
+.flip.is-flipped .flip-inner, .js .deal .flip:not(.is-open) .flip-inner { transform: rotateY(180deg); }
+.js .deal .flip.is-open .flip-inner { transform: none; }
+.side { position: absolute; inset: 0; display: block; -webkit-backface-visibility: hidden;
+  backface-visibility: hidden; overflow: hidden; background: var(--void);
+  box-shadow: 0 0 0 2px #fff, 0 0 0 4px var(--magenta), 0 10px 26px rgba(0, 234, 255, .3); }
+.side-b { transform: rotateY(180deg); }
+.side img { display: block; width: 100%; height: 100%; object-fit: contain; }
+.side img.rev { transform: rotate(180deg); }
+.flip:hover .side { box-shadow: 0 0 0 2px #fff, 0 0 0 4px var(--cyan), 0 0 26px var(--magenta); }
+.cap { text-align: center; font: .8rem/1.35 var(--mono); }
+.cap b { display: block; color: var(--head); font-size: .86rem; }
+.rev-tag { color: var(--t-orange); font-weight: 800; margin-left: 6px; }
+.dossier { padding: 10% 9%; height: 100%; display: flex; flex-direction: column; gap: 6px;
+  text-align: left; font: .7rem/1.35 var(--mono); color: var(--fg);
+  background: repeating-linear-gradient(0deg, rgba(0, 234, 255, .07) 0 2px, transparent 2px 4px),
+  linear-gradient(160deg, #2a0fb0, #14063f 60%, #3a0a5c); }
+.dossier b { font-size: .85rem; color: var(--yellow); text-transform: uppercase; }
+.dossier i { font-style: normal; color: var(--cyan); }
+.fallback { display: flex; align-items: center; justify-content: center; height: 100%;
+  padding: 8px; text-align: center; font: 800 .78rem/1.2 var(--mono); color: var(--yellow);
+  text-transform: uppercase; background: linear-gradient(180deg, #2a0fb0, #ff2bd6);
+  border: 3px double var(--cyan); }
+.btn { font: 800 .74rem/1 var(--mono); letter-spacing: .1em; text-transform: uppercase;
+  padding: 9px 12px; color: #14063f; background: var(--cyan); border: 2px solid #fff;
+  box-shadow: 3px 3px 0 var(--magenta); cursor: pointer; }
+.btn:hover, .btn[aria-pressed="true"] { background: var(--yellow); }
+.toolbar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 14px 0; }
+.gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(44%, 150px), 1fr));
+  gap: 20px 14px; margin: 16px 0; padding: 0; list-style: none; }
+.gallery > li { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.gallery > li[hidden] { display: none; }
+
+/* ---------------------------------------------------------------- interpretation */
+.interp section { margin: 0 0 16px; }
+.interp h3 { margin-top: 22px; }
+.interp ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 6px; }
+.interp li { display: grid; grid-template-columns: auto 1fr; gap: 10px; align-items: start;
+  padding: 8px 10px; background: var(--card); border-left: 3px solid var(--line); }
+.interp li.k-symbolic { border-left-color: var(--magenta); }
+.interp li.k-fact { border-left-color: var(--cyan); }
+.interp li.k-forecast { border-left-color: var(--orange); }
+.interp li .chip { margin-top: 1px; }
+.seal { font: .8rem/1.5 var(--mono); }
+.seal dt { color: var(--accent); font-weight: 700; }
+.seal dd { margin: 0 0 8px; overflow-wrap: anywhere; }
+
+/* ---------------------------------------------------------------- orrery */
+.orrery-wrap { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 24px;
+  align-items: start; }
+.orrery { width: 100%; max-width: 680px; height: auto; display: block; margin: 0 auto;
+  filter: drop-shadow(0 0 18px rgba(139, 44, 255, .55)); }
+.orrery .glyph, .glyph-u { font-family: var(--glyph); }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 14px; font: .74rem/1.3 var(--mono); }
+.legend i { display: inline-block; width: 18px; height: 3px; vertical-align: middle; margin-right: 6px; }
+@media (max-width: 820px) { .orrery-wrap { grid-template-columns: minmax(0, 1fr); } }
+
+/* ---------------------------------------------------------------- motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .flip-inner { transition: none; }
+  body::after { animation: none; }
+}
+@media (max-width: 520px) {
+  body { font-size: 14px; }
+  .hero-text .tag { letter-spacing: .1em; }
+  .box { padding: 12px; }
+}
+.chroma.long { font-size: clamp(1.05rem, 3.4vw, 2.05rem); letter-spacing: .02em; }
+.crumbs { font: .78rem/1.3 var(--mono); color: var(--muted); margin: 0 0 6px; }
+.tile .body, .tile .title, .tile .sub { display: block; }
+.arcade { grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); }
+.share { display: block; width: 100%; max-width: 720px; height: auto; margin: 10px 0;
+  box-shadow: var(--bevel); }
+.fallback.back { color: #fff; background:
+  repeating-conic-gradient(from 45deg, #2a0fb0 0 25%, #14063f 0 50%) 0 0 / 28px 28px;
+  border-color: var(--magenta); text-shadow: -2px 0 var(--magenta), 2px 0 var(--cyan); }
+.hero-text .chroma { filter: drop-shadow(3px 3px 0 #0a0221) drop-shadow(-1px -1px 0 #0a0221)
+  drop-shadow(0 0 14px rgba(10, 2, 33, .95)); }
+svg.sig { display: inline-block; vertical-align: -4px; overflow: visible; }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="topbar"><div class="topbar-in">
+<a class="brand" href="../index.html">Poly<b>reader</b> &#9670; Tarot Market</a>
+<nav class="main" aria-label="Site">
+<a href="../index.html">Home</a><a href="../readings/index.html">Readings</a><a href="../deck/index.html" aria-current="page">Deck</a><a href="../sky/index.html">Sky</a><a href="../coverage.html">Coverage</a></nav>
+</div></div>
+<header class="hero slim">
+<div class="hero-sky"><svg viewBox="0 0 800 260" preserveAspectRatio="xMidYMax slice" aria-hidden="true" focusable="false"><defs><linearGradient id="hero-sun-g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffe14d"/><stop offset=".45" stop-color="#ff7a1a"/><stop offset=".8" stop-color="#ff2bd6"/><stop offset="1" stop-color="#8b2cff"/></linearGradient><radialGradient id="hero-sun-h"><stop offset=".55" stop-color="#ff2bd6" stop-opacity=".55"/><stop offset="1" stop-color="#ff2bd6" stop-opacity="0"/></radialGradient><mask id="hero-sun-m"><rect x="282" y="78" width="236" height="236" fill="#fff"/><rect x="282" y="158.24" width="236" height="2.36" fill="#000"/><rect x="282" y="180.15" width="236" height="3.54" fill="#000"/><rect x="282" y="202.07" width="236" height="4.72" fill="#000"/><rect x="282" y="223.98" width="236" height="5.9" fill="#000"/><rect x="282" y="245.9" width="236" height="7.08" fill="#000"/><rect x="282" y="267.81" width="236" height="8.26" fill="#000"/><rect x="282" y="289.73" width="236" height="9.44" fill="#000"/></mask></defs><path d="M216.85 53.05L218.22 57.16L222.32 58.52L218.22 59.89L216.85 63.99L215.48 59.89L211.38 58.52L215.48 57.16Z" fill="#ffe14d"/><rect x="32.19" y="133.09" width="1.5" height="1.5" fill="#ff2bd6" opacity="0.95"/><rect x="589.93" y="167.41" width="1.5" height="1.5" fill="#ff2bd6" opacity="0.84"/><rect x="54.75" y="117.07" width="2.5" height="2.5" fill="#ff2bd6" opacity="0.75"/><rect x="392.05" y="130.31" width="2.5" height="2.5" fill="#ff2bd6" opacity="0.98"/><rect x="288.46" y="76.32" width="1.5" height="1.5" fill="#a8f3ff" opacity="0.52"/><rect x="482.64" y="137.28" width="1.5" height="1.5" fill="#ff2bd6" opacity="0.89"/><rect x="433.43" y="48.33" width="1.5" height="1.5" fill="#00eaff" opacity="0.65"/><rect x="366.91" y="79.35" width="2.5" height="2.5" fill="#a8f3ff" opacity="0.88"/><path d="M398.74 -2.27L400.06 1.7L404.02 3.02L400.06 4.34L398.74 8.31L397.41 4.34L393.45 3.02L397.41 1.7Z" fill="#a8f3ff"/><rect x="698.45" y="122.74" width="2.5" height="2.5" fill="#ffe14d" opacity="0.67"/><rect x="235.07" y="156.3" width="2.5" height="2.5" fill="#a8f3ff" opacity="0.6"/><rect x="268.92" y="0.03" width="1.5" height="1.5" fill="#ffe14d" opacity="0.92"/><rect x="134.09" y="157.57" width="2.5" height="2.5" fill="#e8eeff" opacity="0.9"/><rect x="481.2" y="130.68" width="1.5" height="1.5" fill="#ffe14d" opacity="0.73"/><rect x="105.69" y="27.74" width="1.5" height="1.5" fill="#a8f3ff" opacity="0.84"/><rect x="81.83" y="167.69" width="1.5" height="1.5" fill="#ffe14d" opacity="0.6"/><rect x="242.88" y="21.64" width="1.5" height="1.5" fill="#ffe14d" opacity="0.79"/><path d="M335.38 111.12L336.67 114.99L340.54 116.28L336.67 117.57L335.38 121.44L334.09 117.57L330.22 116.28L334.09 114.99Z" fill="#e8eeff"/><rect x="150.86" y="53.43" width="2.5" height="2.5" fill="#a8f3ff" opacity="0.51"/><rect x="489.58" y="167.28" width="1.5" height="1.5" fill="#a8f3ff" opacity="0.51"/><rect x="76.08" y="86.15" width="1.5" height="1.5" fill="#ffe14d" opacity="0.75"/><rect x="16.14" y="107.67" width="1.5" height="1.5" fill="#ff2bd6" opacity="0.6"/><rect x="687.45" y="78" width="2.5" height="2.5" fill="#ffe14d" opacity="0.88"/><rect x="693.53" y="111.71" width="1.5" height="1.5" fill="#ffe14d" opacity="0.85"/><rect x="731.99" y="149.07" width="2.5" height="2.5" fill="#a8f3ff" opacity="0.56"/><rect x="8.93" y="22.43" width="2.5" height="2.5" fill="#a8f3ff" opacity="0.83"/><path d="M401.11 137.61L402.29 141.15L405.83 142.34L402.29 143.52L401.11 147.06L399.93 143.52L396.38 142.34L399.93 141.15Z" fill="#00eaff"/><rect x="467.23" y="81.12" width="1.5" height="1.5" fill="#ffe14d" opacity="0.61"/><rect x="322.84" y="121.01" width="1.5" height="1.5" fill="#ff2bd6" opacity="0.55"/><rect x="190.27" y="72.22" width="1.5" height="1.5" fill="#ffe14d" opacity="0.88"/><rect x="657.48" y="69.69" width="2.5" height="2.5" fill="#ffe14d" opacity="0.53"/><rect x="169.47" y="64.72" width="1.5" height="1.5" fill="#00eaff" opacity="0.96"/><rect x="494.61" y="22.88" width="2.5" height="2.5" fill="#e8eeff" opacity="0.84"/><rect x="247.67" y="143.64" width="2.5" height="2.5" fill="#e8eeff" opacity="0.55"/><rect x="418.98" y="160.38" width="1.5" height="1.5" fill="#a8f3ff" opacity="0.55"/><path d="M699.55 140.15L700.37 142.61L702.82 143.43L700.37 144.24L699.55 146.7L698.73 144.24L696.27 143.43L698.73 142.61Z" fill="#ff2bd6"/><rect x="265.89" y="123.15" width="1.5" height="1.5" fill="#ffe14d" opacity="0.75"/><rect x="777.11" y="162.4" width="1.5" height="1.5" fill="#a8f3ff" opacity="0.85"/><rect x="731.6" y="108.57" width="1.5" height="1.5" fill="#ff2bd6" opacity="0.85"/><rect x="5.83" y="95.9" width="1.5" height="1.5" fill="#ff2bd6" opacity="0.76"/><rect x="67.96" y="87.86" width="1.5" height="1.5" fill="#ffe14d" opacity="0.94"/><rect x="86.52" y="46.17" width="2.5" height="2.5" fill="#a8f3ff" opacity="0.72"/><rect x="33.38" y="107.55" width="1.5" height="1.5" fill="#ffe14d" opacity="0.82"/><rect x="515.32" y="149.41" width="1.5" height="1.5" fill="#e8eeff" opacity="0.9"/><path d="M776.53 47.9L777.53 50.9L780.53 51.9L777.53 52.9L776.53 55.89L775.53 52.9L772.54 51.9L775.53 50.9Z" fill="#e8eeff"/><rect x="308.86" y="126.79" width="1.5" height="1.5" fill="#e8eeff" opacity="0.71"/><rect x="59.55" y="139.26" width="1.5" height="1.5" fill="#a8f3ff" opacity="0.87"/><rect x="774.8" y="160.56" width="1.5" height="1.5" fill="#a8f3ff" opacity="0.67"/><rect x="254.12" y="89.57" width="2.5" height="2.5" fill="#a8f3ff" opacity="0.88"/><rect x="283.13" y="31.75" width="1.5" height="1.5" fill="#e8eeff" opacity="0.72"/><rect x="378.6" y="52.09" width="1.5" height="1.5" fill="#ffe14d" opacity="0.87"/><rect x="334.08" y="100.44" width="1.5" height="1.5" fill="#00eaff" opacity="0.67"/><rect x="578.44" y="69.71" width="1.5" height="1.5" fill="#ffe14d" opacity="0.6"/><path d="M406.04 52.02L407.04 55.01L410.03 56.01L407.04 57.01L406.04 60L405.05 57.01L402.05 56.01L405.05 55.01Z" fill="#a8f3ff"/><rect x="24.89" y="1.06" width="1.5" height="1.5" fill="#ffe14d" opacity="0.67"/><rect x="352.45" y="3.51" width="1.5" height="1.5" fill="#ff2bd6" opacity="0.56"/><rect x="624.52" y="165.25" width="1.5" height="1.5" fill="#e8eeff" opacity="0.68"/><rect x="591.8" y="156.87" width="1.5" height="1.5" fill="#a8f3ff" opacity="0.73"/><rect x="158.56" y="86.97" width="1.5" height="1.5" fill="#a8f3ff" opacity="0.77"/><rect x="668.67" y="46.66" width="1.5" height="1.5" fill="#ff2bd6" opacity="0.88"/><rect x="525.24" y="29.51" width="1.5" height="1.5" fill="#ff2bd6" opacity="0.93"/><rect x="168.88" y="60.51" width="1.5" height="1.5" fill="#a8f3ff" opacity="0.68"/><path d="M97.17 152.21L98.58 156.44L102.82 157.85L98.58 159.26L97.17 163.5L95.76 159.26L91.53 157.85L95.76 156.44Z" fill="#00eaff"/><rect x="666.17" y="42.52" width="2.5" height="2.5" fill="#a8f3ff" opacity="0.59"/><rect x="726.82" y="102.38" width="1.5" height="1.5" fill="#a8f3ff" opacity="0.74"/><rect x="299.74" y="165.25" width="2.5" height="2.5" fill="#e8eeff" opacity="0.64"/><rect x="461.8" y="110.99" width="1.5" height="1.5" fill="#00eaff" opacity="0.7"/><rect x="398.98" y="51.65" width="1.5" height="1.5" fill="#ff2bd6" opacity="0.9"/><rect x="106.24" y="152.89" width="1.5" height="1.5" fill="#ff2bd6" opacity="0.52"/><circle cx="400" cy="196" r="182.9" fill="url(#hero-sun-h)"/><circle cx="400" cy="196" r="118" fill="url(#hero-sun-g)" mask="url(#hero-sun-m)"/><polygon points="-20,260 15.56,218.23 51.11,236.16 86.67,223.78 122.22,235.97 157.78,210.49 193.33,225.48 228.89,237.34 264.44,213.06 300,260 300,260 -20,260" fill="#1b0870"/><line x1="15.56" y1="218.23" x2="-2.22" y2="260" stroke="#8b2cff" stroke-width="1" opacity=".55"/><line x1="51.11" y1="236.16" x2="33.33" y2="260" stroke="#8b2cff" stroke-width="1" opacity=".55"/><line x1="86.67" y1="223.78" x2="68.89" y2="260" stroke="#8b2cff" stroke-width="1" opacity=".55"/><line x1="122.22" y1="235.97" x2="104.44" y2="260" stroke="#8b2cff" stroke-width="1" opacity=".55"/><line x1="157.78" y1="210.49" x2="140" y2="260" stroke="#8b2cff" stroke-width="1" opacity=".55"/><line x1="193.33" y1="225.48" x2="175.56" y2="260" stroke="#8b2cff" stroke-width="1" opacity=".55"/><line x1="228.89" y1="237.34" x2="211.11" y2="260" stroke="#8b2cff" stroke-width="1" opacity=".55"/><line x1="264.44" y1="213.06" x2="246.67" y2="260" stroke="#8b2cff" stroke-width="1" opacity=".55"/><polyline points="-20,260 15.56,218.23 51.11,236.16 86.67,223.78 122.22,235.97 157.78,210.49 193.33,225.48 228.89,237.34 264.44,213.06 300,260" fill="none" stroke="#8b2cff" stroke-width="2" stroke-linejoin="bevel"/><polygon points="500,260 535.56,230.71 571.11,192.03 606.67,186.19 642.22,212 677.78,208.65 713.33,208.5 748.89,196.5 784.44,230.94 820,260 820,260 500,260" fill="#1b0870"/><line x1="535.56" y1="230.71" x2="517.78" y2="260" stroke="#8b2cff" stroke-width="1" opacity=".55"/><line x1="571.11" y1="192.03" x2="553.33" y2="260" stroke="#8b2cff" stroke-width="1" opacity=".55"/><line x1="606.67" y1="186.19" x2="588.89" y2="260" stroke="#8b2cff" stroke-width="1" opacity=".55"/><line x1="642.22" y1="212" x2="624.44" y2="260" stroke="#8b2cff" stroke-width="1" opacity=".55"/><line x1="677.78" y1="208.65" x2="660" y2="260" stroke="#8b2cff" stroke-width="1" opacity=".55"/><line x1="713.33" y1="208.5" x2="695.56" y2="260" stroke="#8b2cff" stroke-width="1" opacity=".55"/><line x1="748.89" y1="196.5" x2="731.11" y2="260" stroke="#8b2cff" stroke-width="1" opacity=".55"/><line x1="784.44" y1="230.94" x2="766.67" y2="260" stroke="#8b2cff" stroke-width="1" opacity=".55"/><polyline points="500,260 535.56,230.71 571.11,192.03 606.67,186.19 642.22,212 677.78,208.65 713.33,208.5 748.89,196.5 784.44,230.94 820,260" fill="none" stroke="#8b2cff" stroke-width="2" stroke-linejoin="bevel"/><polygon points="150,142 68,260 168.04,260" fill="#8b2cff"/><polygon points="150,142 168.04,260 232,260" fill="#2a0fb0"/><polyline points="68,260 150,142 232,260" fill="none" stroke="#00eaff" stroke-width="2" stroke-linejoin="bevel"/><line x1="150" y1="142" x2="168.04" y2="260" stroke="#00eaff" stroke-width="1" opacity=".6"/><polygon points="250,202 210,260 258.8,260" fill="#ff2bd6"/><polygon points="250,202 258.8,260 290,260" fill="#6d18c9"/><polyline points="210,260 250,202 290,260" fill="none" stroke="#ffe14d" stroke-width="2" stroke-linejoin="bevel"/><line x1="250" y1="202" x2="258.8" y2="260" stroke="#ffe14d" stroke-width="1" opacity=".6"/><polygon points="640,176 584,260 652.32,260" fill="#00b8d4"/><polygon points="640,176 652.32,260 696,260" fill="#2a0fb0"/><polyline points="584,260 640,176 696,260" fill="none" stroke="#ff2bd6" stroke-width="2" stroke-linejoin="bevel"/><line x1="640" y1="176" x2="652.32" y2="260" stroke="#ff2bd6" stroke-width="1" opacity=".6"/><path d="M555 260Q563.6 196 575 132L581 132Q571.4 196 565 260Z" fill="#0a0221" stroke="#ff2bd6" stroke-width="1.5"/><path d="M578 132Q547.93 114.08 520.27 120.44Q547.93 123.08 578 137Z" fill="#0a0221" stroke="#ff2bd6" stroke-width="1.5" stroke-linejoin="bevel"/><path d="M578 132Q562.4 114.08 548.05 108.47Q562.4 123.08 578 137Z" fill="#0a0221" stroke="#ff2bd6" stroke-width="1.5" stroke-linejoin="bevel"/><path d="M578 132Q578 114.08 578 113.41Q578 123.08 578 137Z" fill="#0a0221" stroke="#ff2bd6" stroke-width="1.5" stroke-linejoin="bevel"/><path d="M578 132Q593.6 114.08 607.95 108.47Q593.6 123.08 578 137Z" fill="#0a0221" stroke="#ff2bd6" stroke-width="1.5" stroke-linejoin="bevel"/><path d="M578 132Q608.07 114.08 635.73 120.44Q608.07 123.08 578 137Z" fill="#0a0221" stroke="#ff2bd6" stroke-width="1.5" stroke-linejoin="bevel"/><path d="M578 132Q556.95 114.08 537.59 140.09Q556.95 123.08 578 137Z" fill="#0a0221" stroke="#ff2bd6" stroke-width="1.5" stroke-linejoin="bevel"/><path d="M723 260Q723.6 184 703 108L709 108Q727.4 184 733 260Z" fill="#0a0221" stroke="#00eaff" stroke-width="1.5"/><path d="M706 108Q670.29 86.72 637.44 94.28Q670.29 95.72 706 113Z" fill="#0a0221" stroke="#00eaff" stroke-width="1.5" stroke-linejoin="bevel"/><path d="M706 108Q687.47 86.72 670.43 80.06Q687.47 95.72 706 113Z" fill="#0a0221" stroke="#00eaff" stroke-width="1.5" stroke-linejoin="bevel"/><path d="M706 108Q706 86.72 706 85.93Q706 95.72 706 113Z" fill="#0a0221" stroke="#00eaff" stroke-width="1.5" stroke-linejoin="bevel"/><path d="M706 108Q724.53 86.72 741.57 80.06Q724.53 95.72 706 113Z" fill="#0a0221" stroke="#00eaff" stroke-width="1.5" stroke-linejoin="bevel"/><path d="M706 108Q741.71 86.72 774.56 94.28Q741.71 95.72 706 113Z" fill="#0a0221" stroke="#00eaff" stroke-width="1.5" stroke-linejoin="bevel"/><path d="M706 108Q681 86.72 658.01 117.61Q681 95.72 706 113Z" fill="#0a0221" stroke="#00eaff" stroke-width="1.5" stroke-linejoin="bevel"/><path d="M43 260Q50.8 205 59 150L65 150Q58.2 205 53 260Z" fill="#0a0221" stroke="#ff2bd6" stroke-width="1.5"/><path d="M62 150Q36.16 134.6 12.38 140.07Q36.16 143.6 62 155Z" fill="#0a0221" stroke="#ff2bd6" stroke-width="1.5" stroke-linejoin="bevel"/><path d="M62 150Q48.59 134.6 36.26 129.78Q48.59 143.6 62 155Z" fill="#0a0221" stroke="#ff2bd6" stroke-width="1.5" stroke-linejoin="bevel"/><path d="M62 150Q62 134.6 62 134.03Q62 143.6 62 155Z" fill="#0a0221" stroke="#ff2bd6" stroke-width="1.5" stroke-linejoin="bevel"/><path d="M62 150Q75.41 134.6 87.74 129.78Q75.41 143.6 62 155Z" fill="#0a0221" stroke="#ff2bd6" stroke-width="1.5" stroke-linejoin="bevel"/><path d="M62 150Q87.84 134.6 111.62 140.07Q87.84 143.6 62 155Z" fill="#0a0221" stroke="#ff2bd6" stroke-width="1.5" stroke-linejoin="bevel"/><path d="M62 150Q43.91 134.6 27.27 156.95Q43.91 143.6 62 155Z" fill="#0a0221" stroke="#ff2bd6" stroke-width="1.5" stroke-linejoin="bevel"/></svg></div>
+<div class="floor" aria-hidden="true"><div class="floor-plane"></div></div>
+<div class="hero-text">
+<h1 class="chroma" data-text="The deck"><span>The deck</span></h1>
+</div>
+</header>
+<main id="main">
+<div class="meta" aria-label="Provenance">
+  <span>generated 2026-11-20T10:37:09Z</span>
+  <span>commit <code>ed474831fd4095acae7563ef0a3dc6b18367ed09</code></span>
+  <span>config <code>7c78896071cae241</code></span>
+  <span>data as of 2026-11-20T06:38:25.054240+00:00</span>
+</div>
+<p class="crumbs"><a href="../index.html">home</a> / deck</p>
+<p>78 cards plus the back, drawn in code from the <code>rws_v1</code> deck structure
+(Rider-Waite-Smith (1909); Public domain (artwork by Pamela Colman Smith, text by A. E. Waite, 1909-1910)). The art carries the card name and keywords only; it makes no claim.
+Click a card to turn it over for its keywords.</p>
+<p class="muted mono">Art manifest: engine_version art-engine/1.0.0 &middot; deck_version rws_v1 &middot; card_count 78 &middot; fallback_count 0 &middot; total_bytes 4089435</p><div class="toolbar" role="group" aria-label="Filter the deck">
+<button type="button" class="btn" data-filter="all" aria-pressed="true">All 78</button><button type="button" class="btn" data-filter="major" aria-pressed="false">Major 22</button><button type="button" class="btn" data-filter="wands" aria-pressed="false">Wands 14</button><button type="button" class="btn" data-filter="cups" aria-pressed="false">Cups 14</button><button type="button" class="btn" data-filter="swords" aria-pressed="false">Swords 14</button><button type="button" class="btn" data-filter="pentacles" aria-pressed="false">Pentacles 14</button><span class="muted mono" aria-live="polite">showing <span id="shown">79</span></span>
+</div>
+<ul class="gallery">
+<li data-group="back"><span class="pos">Card back</span>
+<div class="flip"><span class="flip-inner"><span class="side side-a"><img src="../assets/deck/back.svg" alt="Card back" width="600" height="1000" loading="lazy" decoding="async"></span></span></div>
+<span class="cap"><b>The back</b>symmetric, any orientation</span></li>
+<li data-group="major " id="major_00_the_fool">
+<span class="pos">0</span>
+<button type="button" class="flip" aria-pressed="false" aria-label="Turn over The Fool">
+<span class="flip-inner">
+<span class="side side-a"><img src="../assets/deck/major_00_the_fool.svg" alt="The Fool" width="600" height="1000" loading="lazy" decoding="async"></span>
+<span class="side side-b"><span class="dossier"><b>The Fool</b>
+<span>major &middot; air</span>
+<span><i>upright</i> beginnings, leap, spontaneity, innocence</span>
+<span><i>reversed</i> recklessness, carelessness, hesitation</span>
+<span class="muted">major_00_the_fool</span></span></span>
+</span>
+</button>
+<span class="cap"><b>The Fool</b></span>
+</li>
+<li data-group="major " id="major_01_the_magician">
+<span class="pos">I</span>
+<button type="button" class="flip" aria-pressed="false" aria-label="Turn over The Magician">
+<span class="flip-inner">
+<span class="side side-a"><img src="../assets/deck/major_01_the_magician.svg" alt="The Magician" width="600" height="1000" loading="lazy" decoding="async"></span>
+<span class="side side-b"><span class="dossier"><b>The Magician</b>
+<span>major &middot; air &middot; mercury</span>
+<span><i>upright</i> skill, will, resourcefulness, action</span>
+<span><i>reversed</i> manipulation, trickery, unused talent</span>
+<span class="muted">major_01_the_magician</span></span></span>
+</span>
+</button>
+<span class="cap"><b>The Magician</b></span>
+</li>
+<li data-group="major " id="major_02_the_high_priestess">
+<span class="pos">II</span>
+<button type="button" class="flip" aria-pressed="false" aria-label="Turn over The High Priestess">
+<span class="flip-inner">
+<span class="side side-a"><img src="../assets/deck/major_02_the_high_priestess.svg" alt="The High Priestess" width="600" height="1000" loading="lazy" decoding="async"></span>
+<span class="side side-b"><span class="dossier"><b>The High Priestess</b>
+<span>major &middot; water &middot; moon</span>
+<span><i>upright</i> intuition, hidden knowledge, mystery, stillness</span>
+<span><i>reversed</i> secrets, withdrawal, ignored intuition</span>
+<span class="muted">major_02_the_high_priestess</span></span></span>
+</span>
+</button>
+<span class="cap"><b>The High Priestess</b></span>
+</li>
+<li data-group="major " id="major_03_the_empress">
+<span class="pos">III</span>
+<button type="button" class="flip" aria-pressed="false" aria-label="Turn over The Empress">
+<span class="flip-inner">
+<span class="side side-a"><img src="../assets/deck/major_03_the_empress.svg" alt="The Empress" width="600" height="1000" loading="lazy" decoding="async"></span>
+<span class="side side-b"><span class="dossier"><b>The Empress</b>
+<span>major &middot; earth &middot; venus</span>
+<span><i>upright</i> abundance, growth, nurture, fertility</span>
+<span><i>reversed</i> stagnation, dependence, smothering</span>
+<span class="muted">major_03_the_empress</span></span></span>
+</span>
+</button>
+<span class="cap"><b>The Empress</b></span>
+</li>
+<li data-group="major " id="major_04_the_emperor">
+<span class="pos">IV</span>
+<button type="button" class="flip" aria-pressed="false" aria-label="Turn over The Emperor">
+<span class="flip-inner">
+<span class="side side-a"><img src="../assets/deck/major_04_the_emperor.svg" alt="The Emperor" width="600" height="1000" loading="lazy" decoding="async"></span>
+<span class="side side-b"><span class="dossier"><b>The Emperor</b>
+<span>major &middot; fire &middot; aries</span>
+<span><i>upright</i> authority, structure, control, stability</span>
+<span><i>reversed</i> rigidity, domination, loss of control</span>
+<span class="muted">major_04_the_emperor</span></span></span>
+</span>
+</button>
+<span class="cap"><b>The Emperor</b></span>
+</li>
+<li data-group="major " id="major_05_the_hierophant">
+<span class="pos">V</span>
+<button type="button" class="flip" aria-pressed="false" aria-label="Turn over The Hierophant">
+<span class="flip-inner">
+<span class="side side-a"><img src="../assets/deck/major_05_the_hierophant.svg" alt="The Hierophant" width="600" height="1000" loading="lazy" decoding="async"></span>
+<span class="side side-b"><span class="dossier"><b>The Hierophant</b>
+<span>major &middot; earth &middot; taurus</span>
+<span><i>upright</i> tradition, convention, institutions, teaching</span>
+<span><i>reversed</i> rebellion, unconventionality, challenging rules</span>
+<span class="muted">major_05_the_hierophant</span></span></span>
+</span>
+</button>
+<span class="cap"><b>The Hierophant</b></span>
+</li>
+<li data-group="major " id="major_06_the_lovers">
+<span class="pos">VI</span>
+<button type="button" class="flip" aria-pressed="false" aria-label="Turn over The Lovers">
+<span class="flip-inner">
+<span class="side side-a"><img src="../assets/deck/major_06_the_lovers.svg" alt="The Lovers" width="600" height="1000" loading="lazy" decoding="async"></span>
+<span class="side side-b"><span class="dossier"><b>The Lovers</b>
+<span>major &middot; air &middot; gemini</span>
+<span><i>upright</i> choice, alignment, union, values</span>
+<span><i>reversed</i> misalignment, imbalance, indecision</span>
+<span class="muted">major_06_the_lovers</span></span></span>
+</span>
+</button>
+<span class="cap"><b>The Lovers</b></span>
+</li>
+<li data-group="major " id="major_07_the_chariot">
+<span class="pos">VII</span>
+<button type="button" class="flip" aria-pressed="false" aria-label="Turn over The Chariot">
+<span class="flip-inner">
+<span class="side side-a"><img src="../assets/deck/major_07_the_chariot.svg" alt="The Chariot" width="600" height="1000" loading="lazy" decoding="async"></span>
+<span class="side side-b"><span class="dossier"><b>The Chariot</b>
+<span>major &middot; water &middot; cancer</span>
+<span><i>upright</i> momentum, willpower, victory, direction</span>
+<span><i>reversed</i> loss of direction, stalling, aggression</span>
+<span class="muted">major_07_the_chariot</span></span></span>
+</span>
+</button>
+<span class="cap"><b>The Chariot</b></span>
+</li>
+<li data-group="major " id="major_08_strength">
+<span class="pos">VIII</span>
+<button type="button" class="flip" aria-pressed="false" aria-label="Turn over Strength">
+<span class="flip-inner">
+<span class="side side-a"><img src="../assets/deck/major_08_strength.svg" alt="Strength" width="600" height="1000" loading="lazy" decoding="async"></span>
+<span class="side side-b"><span class="dossier"><b>Strength</b>
+<span>major &middot; fire &middot; leo</span>
+<span><i>upright</i> courage, patience, composure, inner strength</span>
+<span><i>reversed</i> self-doubt, impulsiveness, weakness</span>
+<span class="muted">major_08_strength</span></span></span>
+</span>
+</button>
+<span class="cap"><b>Strength</b></span>
+</li>
+<li data-group="major " id="major_09_the_hermit">
+<span class="pos">IX</span>
+<button type="button" class="flip" aria-pressed="false" aria-label="Turn over The Hermit">
+<span class="flip-inner">
+<span class="side side-a"><img src="../assets/deck/major_09_the_hermit.svg" alt="The Hermit" width="600" height="1000" loading="lazy" decoding="async"></span>
+<span class="side side-b"><span class="dossier"><b>The Hermit</b>
+<span>major &middot; earth &middot; virgo</span>
+<span><i>upright</i> introspection, solitude, guidance, search</span>
+<span><i>reversed</i> isolation, withdrawal, refusal of counsel</span>
+<span class="muted">major_09_the_hermit</span></span></span>
+</span>
+</button>
+<span class="cap"><b>The Hermit</b></span>
+</li>
+<li data-group="major " id="major_10_wheel_of_fortune">
+<span class="pos">X</span>
+<button type="button" class="flip" aria-pressed="false" aria-label="Turn over Wheel of Fortune">
+<span class="flip-inner">
+<span class="side side-a"><img src="../assets/deck/major_10_wheel_of_fortune.svg" alt="Wheel of Fortune" width="600" height="1000" loading="lazy" decoding="async"></span>
+<span class="side side-b"><span class="dossier"><b>Wheel of Fortune</b>
+<span>major &middot; fire &middot; jupiter</span>
+<span><i>upright</i> cycles, change, fate, turning point</span>
+<span><i>reversed</i> bad luck, resistance to change, broken cycle</span>
+<span class="muted">major_10_wheel_of_fortune</span></span></span>
+</span>
+</button>
+<span class="cap"><b>Wheel of Fortune</b></span>
+</li>
+<li data-group="major " id="major_11_justice">
+<span class="pos">XI</span>
+<button type="button" class="flip" aria-pressed="false" aria-label="Turn over Justice">
+<span class="flip-inner">
+<span class="side side-a"><img src="../assets/deck/major_11_justice.svg" alt="Justice" width="600" height="1000" loading="lazy" decoding="async"></span>
+<span class="side side-b"><span class="dossier"><b>Justice</b>
+<span>major &middot; air &middot; libra</span>
+<span><i>upright</i> fairness, balance, truth, accountability</span>
+<span><i>reversed</i> unfairness, dishonesty, imbalance</span>
+<span class="muted">major_11_justice</span></span></span>
+</span>
+</button>
+<span class="cap"><b>Justice</b></span>
+</li>
+<li data-group="major " id="major_12_the_hanged_man">
+<span class="pos">XII</span>
+<button type="button" class="flip" aria-pressed="false" aria-label="Turn over The Hanged Man">
+<span class="flip-inner">
+<span class="side side-a"><img src="../assets/deck/major_12_the_hanged_man.svg" alt="The Hanged Man" width="600" height="1000" loading="lazy" decoding="async"></span>
+<span class="side side-b"><span class="dossier"><b>The Hanged Man</b>
+<span>major &middot; water</span>
+<span><i>upright</i> pause, surrender, new perspective, waiting</span>
+<span><i>reversed</i> stalling, needless sacrifice, indecision</span>
+<span class="muted">major_12_the_hanged_man</span></span></span>
+</span>
+</button>
+<span class="cap"><b>The Hanged Man</b></span>
+</li>
+<li data-group="major " id="major_13_death">
+<span class="pos">XIII</span>
+<button type="button" class="flip" aria-pressed="false" aria-label="Turn over Death">
+<span class="flip-inner">
+<span class="side side-a"><img src="../assets/deck/major_13_death.svg" alt="Death" width="600" height="1000" loading="lazy" decoding="async"></span>
+<span class="side side-b"><span class="dossier"><b>Death</b>
+<span>major &middot; water &middot; scorpio</span>
+<span><i>upright</i> endings, transformation, transition, release</span>
+<span><i>reversed</i> resistance to change, stagnation, lingering</span>
+<span class="muted">major_13_death</span></span></span>
+</span>
+</button>
+<span class="cap"><b>Death</b></span>
+</li>
+<li data-group="major " id="major_14_temperance">
+<span class="pos">XIV</span>
+<button type="button" class="flip" aria-pressed="false" aria-label="Turn over Temperance">
+<span class="flip-inner">
+<span class="side side-a"><img src="../assets/deck/major_14_temperance.svg" alt="Temperance" width="600" height="1000" loading="lazy" decoding="async"></span>
+<span class="side side-b"><span class="dossier"><b>Temperance</b>
+<span>major &middot; fire &middot; sagittarius</span>
+<span><i>upright</i> moderation, balance, patience, blending</span>
+<span><i>reversed</i> excess, imbalance, haste</span>
+<span class="muted">major_14_temperance</span></span></span>
+</span>
+</button>
+<span class="cap"><b>Temperance</b></span>
+</li>
+<li data-group="major " id="major_15_the_devil">
+<span class="pos">XV</span>
+<button type="button" class="flip" aria-pressed="false" aria-label="Turn over The Devil">
+<span class="flip-inner">
+<span class="side side-a"><img src="../assets/deck/major_15_the_devil.svg" alt="The Devil" width="600" height="1000" loading="lazy" decoding="async"></span>
+<span class="side side-b"><span class="dossier"><b>The Devil</b>
+<span>major &middot; earth &middot; capricorn</span>
+<span><i>upright</i> attachment, compulsion, bondage, temptation</span>
+<span><i>reversed</i> release, breaking free, detachment</span>
+<span class="muted">major_15_the_devil</span></span></span>
+</span>
+</button>
+<span class="cap"><b>The Devil</b></span>
+</li>
+<li data-group="major " id="major_16_the_tower">
+<span class="pos">XVI</span>
+<button type="button" class="flip" aria-pressed="false" aria-label="Turn over The Tower">
+<span class="flip-inner">
+<span class="side side-a"><img src="../assets/deck/major_16_the_tower.svg" alt="The Tower" width="600" height="1000" loading="lazy" decoding="async"></span>
+<span class="side side-b"><span class="dossier"><b>The Tower</b>
+<span>major &middot; fire &middot; mars</span>
+<span><i>upright</i> upheaval, sudden change, revelation, collapse</span>
+<span><i>reversed</i> averted disaster, fear of change, delayed reckoning</span>
+<span class="muted">major_16_the_tower</span></span></span>
+</span>
+</button>
+<span class="cap"><b>The Tower</b></span>
+</li>
+<li data-group="major " id="major_17_the_star">
+<span class="pos">XVII</span>
+<button type="button" class="flip" aria-pressed="false" aria-label="Turn over The Star">
+<span class="flip-inner">
+<span class="side side-a"><img src="../assets/deck/major_17_the_star.svg" alt="The Star" width="600" height="1000" loading="lazy" decoding="async"></span>
+<span class="side side-b"><span class="dossier"><b>The Star</b>
+<span>major &middot; air &middot; aquarius</span>
+<span><i>upright</i> hope, renewal, inspiration, serenity</span>
+<span><i>reversed</i> despair, lost faith, disconnection</span>
+<span class="muted">major_17_the_star</span></span></span>
+</span>
+</button>
+<span class="cap"><b>The Star</b></span>
+</li>
+<li data-group="major " id="major_18_the_moon">
+<span class="pos">XVIII</span>
+<button type="button" class="flip" aria-pressed="false" aria-label="Turn over The Moon">
+<span class="flip-inner">
+<span class="side side-a"><img src="../assets/deck/major_18_the_moon.svg" alt="The Moon" width="600" height="1000" loading="lazy" decoding="async"></span>
+<span class="side side-b"><span class="dossier"><b>The Moon</b>
+<span>major &middot; water &middot; pisces</span>
+<span><i>upright</i> uncertainty, illusion, intuition, the unknown</span>
+<span><i>reversed</i> clarity returning, confusion lifting, exposed illusion</span>
+<span class="muted">major_18_the_moon</span></span></span>
+</span>
+</button>
+<span class="cap"><b>The Moon</b></span>
+</li>
+<li data-group="major " id="major_19_the_sun">
+<span class="pos">XIX</span>
+<button type="button" class="flip" aria-pressed="false" aria-label="Turn over The Sun">
+<span class="flip-inner">
+<span class="side side-a"><img src="../assets/deck/major_19_the_sun.svg" alt="The Sun" width="600" height="1000" loading="lazy" decoding="async"></span>
+<span class="side side-b"><span class="dossier"><b>The Sun</b>
+<span>major &middot; fire &middot; sun</span>
+<span><i>upright</i> success, clarity, optimism, vitality</span>
+<span><i>reversed</i> overconfidence, dimmed joy, excess optimism</span>
+<span class="muted">major_19_the_sun</span></span></span>
+</span>
+</button>
+<span class="cap"><b>The Sun</b></span>
+</li>
+<li data-group="major " id="major_20_judgement">
+<span class="pos">XX</span>
+<button type="button" class="flip" aria-pressed="false" aria-label="Turn over Judgement">
+<span class="flip-inner">
+<span class="side side-a"><img src="../assets/deck/major_20_judgement.svg" alt="Judgement" width="600" height="1000" loading="lazy" decoding="async"></span>
+<span class="side side-b"><span class="dossier"><b>Judgement</b>
+<span>major &middot; fire</span>
+<span><i>upright</i> reckoning, awakening, evaluation, calling</span>
+<span><i>reversed</i> self-doubt, avoided review, harsh judgement</span>
+<span class="muted">major_20_judgement</span></span></span>
+</span>
+</button>
+<span class="cap"><b>Judgement</b></span>
+</li>
+<li data-group="major " id="major_21_the_world">
+<span class="pos">XXI</span>
+<button type="button" class="flip" aria-pressed="false" aria-label="Turn over The World">
+<span class="flip-inner">
+<span class="side side-a"><img src="../assets/deck/major_21_the_world.svg" alt="The World" width="600" height="1000" loading="lazy" decoding="async"></span>
+<span class="side side-b"><span class="dossier"><b>The World</b>
+<span>major &middot; earth &middot; saturn</span>
+<span><i>upright</i> completion, integration, fulfilment, wholeness</span>
+<span><i>reversed</i> incompletion, loose ends, delays</span>
+<span class="muted">major_21_the_world</span></span></span>
+</span>
+</button>
+<span class="cap"><b>The World</b></span>
+</li>
+<li data-group="minor wands" id="wands_01">
+<span class="pos">wands ace</span>
+<button type="button" class="flip" aria-pressed="false" aria-label="Turn over Ace of Wands">
+<span class="flip-inner">
+<span class="side side-a"><img src="../assets/deck/wands_01.svg" alt="Ace of Wands" width="600" height="1000" loading="lazy" decoding="async"></span>
+<span class="side side-b"><span class="dossier"><b>Ace of Wands</b>
+<span>minor &middot; wands &middot; fire</span>
+<span><i>upright</i> inspiration, new venture, spark</span>
+<span><i>reversed</i> delay, false start, lack of drive</span>
+<span class="muted">wands_01</span></span></span>
+</span>
+</button>
+<span class="cap"><b>Ace of Wands</b></span>
+</li>
+<li data-group="minor wands" id="wands_02">
+<span class="pos">wands two</span>
+<button type="button" class="flip" aria-pressed="false" aria-label="Turn over Two of Wands">
+<span class="flip-inner">
+<span class="side side-a"><img src="../assets/deck/wands_02.svg" alt="Two of Wands" width="600" height="1000" loading="lazy" decoding="async"></span>
+<span class="side side-b"><span class="dossier"><b>Two of Wands</b>
+<span>minor &middot; wands &middot; fire</span>
+<span><i>upright</i> planning, decision, future vision</span>
+<span><i>reversed</i> fear of the unknown, poor planning</span>
+<span class="muted">wands_02</span></span></span>
+</span>
+</button>
+<span class="cap"><b>Two of Wands</b></span>
+</li>
+<li data-group="minor wands" id="wands_03">
+<span class="pos">wands three</span>
+<button type="button" class="flip" aria-pressed="false" aria-label="Turn over Three of Wands">
+<span class="flip-inner">
+<span class="side side-a"><img src="../assets/deck/wands_03.svg" alt="Three of Wands" width="600" height="1000" loading="lazy" decoding="async"></span>
+<span class="side side-b"><span class="dossier"><b>Three of Wands</b>
+<span>minor &middot; wands &middot; fire</span>
+<span><i>upright</i> expansion, foresight, progress</span>
+<span><i>reversed</i> obstacles, delays, frustration</span>
+<span class="muted">wands_03</span></span></span>
+</span>
+</button>
+<span class="cap"><b>Three of Wands</b></span>
+</li>
+<li data-group="minor wands" id="wands_04">
+<span class="pos">wands four</span>
+<button type="button" class="flip" aria-pressed="false" aria-label="Turn over Four of Wands">
+<span class="flip-inner">
+<span class="side side-a"><img src="../assets/deck/wands_04.svg" alt="Four of Wands" width="600" height="1000" loading="lazy" decoding="async"></span>
+<span class="side side-b"><span class="dossier"><b>Four of Wands</b>
+<span>minor &middot; wands &middot; fire</span>
+<span><i>upright</i> celebration, stability, milestone</span>
+<span><i>reversed</i> instability, transition, cancelled plans</span>
+<span class="muted">wands_04</span></span></span>
+</span>
+</button>
+<span class="cap"><b>Four of Wands</b></span>
+</li>
+<li data-group="minor wands" id="wands_05">
+<span class="pos">wands five</span>
+<button type="button" class="flip" aria-pressed="false" aria-label="Turn over Five of Wands">
+<span class="flip-inner">
+<span class="side side-a"><img src="../assets/deck/wands_05.svg" alt="Five of Wands" width="600" height="1000" loading="lazy" decoding="async"></span>
+<span class="side side-b"><span class="dossier"><b>Five of Wands</b>
+<span>minor &middot; wands &middot; fire</span>
+<span><i>upright</i> competition, conflict, rivalry</span>
+<span><i>reversed</i> avoidance, resolution of conflict</span>
+<span class="muted">wands_05</span></span></span>
+</span>
+</button>
+<span class="cap"><b>Five of Wands</b></span>
+</li>
+<li data-group="minor wands" id="wands_06">
+<span class="pos">wands six</span>
+<button type="button" class="flip" aria-pressed="false" aria-label="Turn over Six of Wands">
+<span class="flip-inner">
+<span class="side side-a"><img src="../assets/deck/wands_06.svg" alt="Six of Wands" width="600" height="1000" loading="lazy" decoding="async"></span>
+<span class="side side-b"><span class="dossier"><b>Six of Wands</b>
+<span>minor &middot; wands &middot; fire</span>
+<span><i>upright</i> victory, recognition, confidence</span>
+<span><i>reversed</i> fall from grace, ego, lack of recognition</span>
+<span class="muted">wands_06</span></span></span>
+</span>
+</button>
+<span class="cap"><b>Six of Wands</b></span>
+</li>
+<li data-group="minor wands" id="wands_07">
+<span class="pos">wands seven</span>
+<button type="button" class="flip" aria-pressed="false" aria-label="Turn over Seven of Wands">
+<span class="flip-inner">
+<span class="side side-a"><img src="../assets/deck/wands_07.svg" alt="Seven of Wands" width="600" height="1000" loading="lazy" decoding="async"></span>
+<span class="side side-b"><span class="dossier"><b>Seven of Wands</b>
+<span>minor &middot; wands &middot; fire</span>
+<span><i>upright</i> defence, perseverance, standing firm</span>
+<span><i>reversed</i> exhaustion, giving up, overwhelm</span>
+<span class="muted">wands_07</span></span></span>
+</span>
+</button>
+<span class="cap"><b>Seven of Wands</b></span>
+</li>
+<li data-group="minor wands" id="wands_08">
+<span class="pos">wands eight</span>
+<button type="button" class="flip" aria-pressed="false" aria-label="Turn over Eight of Wands">
+<span class="flip-inner">
+<span class="side side-a"><img src="../assets/deck/wands_08.svg" alt="Eight of Wands" width="600" height="1000" loading="lazy" decoding="async"></span>
+<span class="side side-b"><span class="dossier"><b>Eight of Wands</b>
+<span>minor &middot; wands &middot; fire</span>
+<span><i>upright</i> speed, swift action, movement</span>
+<span><i>reversed</i> haste, delays, frustration</span>
+<span class="muted">wands_08</span></span></span>
+</span>
+</button>
+<span class="cap"><b>Eight of Wands</b></span>
+</li>
+<li data-group="minor wands" id="wands_09">
+<span class="pos">wands nine</span>
+<button type="button" class="flip" aria-pressed="false" aria-label="Turn over Nine of Wands">
+<span class="flip-inner">
+<span class="side side-a"><img src="../assets/deck/wands_09.svg" alt="Nine of Wands" width="600" height="1000" loading="lazy" decoding="async"></span>
+<span class="side side-b"><span class="dossier"><b>Nine of Wands</b>
+<span>minor &middot; wands &middot; fire</span>
+<span><i>upright</i> resilience, persistence, last stand</span>
+<span><i>reversed</i> paranoia, fatigue, defensiveness</span>
+<span class="muted">wands_09</span></span></span>
+</span>
+</button>
+<span class="cap"><b>Nine of Wands</b></span>
+</li>
+<li data-group="minor wands" id="wands_10">
+<span class="pos">wands ten</span>
+<button type="button" class="flip" aria-pressed="false" aria-label="Turn over Ten of Wands">
+<span class="flip-inner">
+<span class="side side-a"><img src="../assets/deck/wands_10.svg" alt="Ten of Wands" width="600" height="1000" loading="lazy" decoding="async"></span>
+<span class="side side-b"><span class="dossier"><b>Ten of Wands</b>
+<span>minor &middot; wands &middot; fire</span>
+<span><i>upright</i> burden, responsibility, overload</span>
+<span><i>reversed</i> release, delegation, collapse under weight</span>
+<span class="muted">wands_10</span></span></span>
+</span>
+</button>
+<span class="cap"><b>Ten of Wands</b></span>
+</li>
+<li data-group="minor wands" id="wands_11">
+<span class="pos">wands page</span>
+<button type="button" class="flip" aria-pressed="false" aria-label="Turn over Page of Wands">
+<span class="flip-inner">
+<span class="side side-a"><img src="../assets/deck/wands_11.svg" alt="Page of Wands" width="600" height="1000" loading="lazy" decoding="async"></span>
+<span class="side side-b"><span class="dossier"><b>Page of Wands</b>
+<span>minor &middot; wands &middot; fire</span>
+<span><i>upright</i> curiosity, exploration, news</span>
+<span><i>reversed</i> impatience, distraction, bad news</span>
+<span class="muted">wands_11</span></span></span>
+</span>
+</button>
+<span class="cap"><b>Page of Wands</b></span>
+</li>
+<li data-group="minor wands" id="wands_12">
+<span class="pos">wands knight</span>
+<button type="button" class="flip" aria-pressed="false" aria-label="Turn over Knight of Wands">
+<span class="flip-inner">
+<span class="side side-a"><img src="../assets/deck/wands_12.svg" alt="Knight of Wands" width="600" height="1000" loading="lazy" decoding="async"></span>
+<span class="side side-b"><span class="dossier"><b>Knight of Wands</b>
+<span>minor &middot; wands &middot; fire</span>
+<span><i>upright</i> action, boldness, adventure</span>
+<span><i>reversed</i> recklessness, impulsiveness, scattered energy</span>
+<span class="muted">wands_12</span></span></span>
+</span>
+</button>
+<span class="cap"><b>Knight of Wands</b></span>
+</li>
+<li data-group="minor wands" id="wands_13">
+<span class="pos">wands queen</span>
+<button type="button" class="flip" aria-pressed="false" aria-label="Turn over Queen of Wands">
+<span class="flip-inner">
+<span class="side side-a"><img src="../assets/deck/wands_13.svg" alt="Queen of Wands" width="600" height="1000" loading="lazy" decoding="async"></span>
+<span class="side side-b"><span class="dossier"><b>Queen of Wands</b>
+<span>minor &middot; wands &middot; fire</span>
+<span><i>upright</i> confidence, determination, warmth</span>
+<span><i>reversed</i> jealousy, insecurity, demanding</span>
+<span class="muted">wands_13</span></span></span>
+</span>
+</button>
+<span class="cap"><b>Queen of Wands</b></span>
+</li>
+<li data-group="minor wands" id="wands_14">
+<span class="pos">wands king</span>
+<button type="button" class="flip" aria-pressed="false" aria-label="Turn over King of Wands">
+<span class="flip-inner">
+<span class="side side-a"><img src="../assets/deck/wands_14.svg" alt="King of Wands" width="600" height="1000" loading="lazy" decoding="async"></span>
+<span class="side side-b"><span class="dossier"><b>King of Wands</b>
+<span>minor &middot; wands &middot; fire</span>
+<span><i>upright</i> leadership, vision, entrepreneurship</span>
+<span><i>reversed</i> impulsiveness, overbearing, high expectations</span>
+<span class="muted">wands_14</span></span></span>
+</span>
+</button>
+<span class="cap"><b>King of Wands</b></span>
+</li>
+<li data-group="minor cups" id="cups_01">
+<span class="pos">cups ace</span>
+<button type="button" class="flip" aria-pressed="false" aria-label="Turn over Ace of Cups">
+<span class="flip-inner">
+<span class="side side-a"><img src="../assets/deck/cups_01.svg" alt="Ace of Cups" width="600" height="1000" loading="lazy" decoding="async"></span>
+<span class="side side-b"><span class="dossier"><b>Ace of Cups</b>
+<span>minor &middot; cups &middot; water</span>
+<span><i>upright</i> new feelings, openness, receptivity</span>
+<span><i>reversed</i> blocked emotion, emptiness</span>
+<span class="muted">cups_01</span></span></span>
+</span>
+</button>
+<span class="cap"><b>Ace of Cups</b></span>
+</li>
+<li data-group="minor cups" id="cups_02">
+<span class="pos">cups two</span>
+<button type="button" class="flip" aria-pressed="false" aria-label="Turn over Two of Cups">
+<span class="flip-inner">
+<span class="side side-a"><img src="../assets/deck/cups_02.svg" alt="Two of Cups" width="600" height="1000" loading="lazy" decoding="async"></span>
+<span class="side side-b"><span class="dossier"><b>Two of Cups</b>
+<span>minor &middot; cups &middot; water</span>
+<span><i>upright</i> partnership, mutual attraction, connection</span>
+<span><i>reversed</i> imbalance, broken communication</span>
+<span class="muted">cups_02</span></span></span>
+</span>
+</button>
+<span class="cap"><b>Two of Cups</b></span>
+</li>
+<li data-group="minor cups" id="cups_03">
+<span class="pos">cups three</span>
+<button type="button" class="flip" aria-pressed="false" aria-label="Turn over Three of Cups">
+<span class="flip-inner">
+<span class="side side-a"><img src="../assets/deck/cups_03.svg" alt="Three of Cups" width="600" height="1000" loading="lazy" decoding="async"></span>
+<span class="side side-b"><span class="dossier"><b>Three of Cups</b>
+<span>minor &middot; cups &middot; water</span>
+<span><i>upright</i> celebration, community, friendship</span>
+<span><i>reversed</i> overindulgence, gossip, isolation</span>
+<span class="muted">cups_03</span></span></span>
+</span>
+</button>
+<span class="cap"><b>Three of Cups</b></span>
+</li>
+<li data-group="minor cups" id="cups_04">
+<span class="pos">cups four</span>
+<button type="button" class="flip" aria-pressed="false" aria-label="Turn over Four of Cups">
+<span class="flip-inner">
+<span class="side side-a"><img src="../assets/deck/cups_04.svg" alt="Four of Cups" width="600" height="1000" loading="lazy" decoding="async"></span>
+<span class="side side-b"><span class="dossier"><b>Four of Cups</b>
+<span>minor &middot; cups &middot; water</span>
+<span><i>upright</i> apathy, contemplation, reevaluation</span>
+<span><i>reversed</i> renewed interest, acceptance</span>
+<span class="muted">cups_04</span></span></span>
+</span>
+</button>
+<span class="cap"><b>Four of Cups</b></span>
+</li>
+<li data-group="minor cups" id="cups_05">
+<span class="pos">cups five</span>
+<button type="button" class="flip" aria-pressed="false" aria-label="Turn over Five of Cups">
+<span class="flip-inner">
+<span class="side side-a"><img src="../assets/deck/cups_05.svg" alt="Five of Cups" width="600" height="1000" loading="lazy" decoding="async"></span>
+<span class="side side-b"><span class="dossier"><b>Five of Cups</b>
+<span>minor &middot; cups &middot; water</span>
+<span><i>upright</i> loss, regret, disappointment</span>
+<span><i>reversed</i> acceptance, moving on, recovery</span>
+<span class="muted">cups_05</span></span></span>
+</span>
+</button>
+<span class="cap"><b>Five of Cups</b></span>
+</li>
+<li data-group="minor cups" id="cups_06">
+<span class="pos">cups six</span>
+<button type="button" class="flip" aria-pressed="false" aria-label="Turn over Six of Cups">
+<span class="flip-inner">
+<span class="side side-a"><img src="../assets/deck/cups_06.svg" alt="Six of Cups" width="600" height="1000" loading="lazy" decoding="async"></span>
+<span class="side side-b"><span class="dossier"><b>Six of Cups</b>
+<span>minor &middot; cups &middot; water</span>
+<span><i>upright</i> nostalgia, memories, innocence</span>
+<span><i>reversed</i> living in the past, unrealistic memories</span>
+<span class="muted">cups_06</span></span></span>
+</span>
+</button>
+<span class="cap"><b>Six of Cups</b></span>
+</li>
+<li data-group="minor cups" id="cups_07">
+<span class="pos">cups seven</span>
+<button type="button" class="flip" aria-pressed="false" aria-label="Turn over Seven of Cups">
+<span class="flip-inner">
+<span class="side side-a"><img src="../assets/deck/cups_07.svg" alt="Seven of Cups" width="600" height="1000" loading="lazy" decoding="async"></span>
+<span class="side side-b"><span class="dossier"><b>Seven of Cups</b>
+<span>minor &middot; cups &middot; water</span>
+<span><i>upright</i> choices, illusion, fantasy</span>
+<span><i>reversed</i> clarity, decisiveness</span>
+<span class="muted">cups_07</span></span></span>
+</span>
+</button>
+<span class="cap"><b>Seven of Cups</b></span>
+</li>
+<li data-group="minor cups" id="cups_08">
+<span class="pos">cups eight</span>
+<button type="button" class="flip" aria-pressed="false" aria-label="Turn over Eight of Cups">
+<span class="flip-inner">
+<span class="side side-a"><img src="../assets/deck/cups_08.svg" alt="Eight of Cups" width="600" height="1000" loading="lazy" decoding="async"></span>
+<span class="side side-b"><span class="dossier"><b>Eight of Cups</b>
+<span>minor &middot; cups &middot; water</span>
+<span><i>upright</i> walking away, disillusionment, seeking more</span>
+<span><i>reversed</i> fear of change, aimless drifting</span>
+<span class="muted">cups_08</span></span></span>
+</span>
+</button>
+<span class="cap"><b>Eight of Cups</b></span>
+</li>
+<li data-group="minor cups" id="cups_09">
+<span class="pos">cups nine</span>
+<button type="button" class="flip" aria-pressed="false" aria-label="Turn over Nine of Cups">
+<span class="flip-inner">
+<span class="side side-a"><img src="../assets/deck/cups_09.svg" alt="Nine of Cups" width="600" height="1000" loading="lazy" decoding="async"></span>
+<span class="side side-b"><span class="dossier"><b>Nine of Cups</b>
+<span>minor &middot; cups &middot; water</span>
+<span><i>upright</i> satisfaction, contentment, wish fulfilled</span>
+<span><i>reversed</i> smugness, dissatisfaction, greed</span>
+<span class="muted">cups_09</span></span></span>
+</span>
+</button>
+<span class="cap"><b>Nine of Cups</b></span>
+</li>
+<li data-group="minor cups" id="cups_10">
+<span class="pos">cups ten</span>
+<button type="button" class="flip" aria-pressed="false" aria-label="Turn over Ten of Cups">
+<span class="flip-inner">
+<span class="side side-a"><img src="../assets/deck/cups_10.svg" alt="Ten of Cups" width="600" height="1000" loading="lazy" decoding="async"></span>
+<span class="side side-b"><span class="dossier"><b>Ten of Cups</b>
+<span>minor &middot; cups &middot; water</span>
+<span><i>upright</i> harmony, fulfilment, alignment</span>
+<span><i>reversed</i> broken harmony, misalignment</span>
+<span class="muted">cups_10</span></span></span>
+</span>
+</button>
+<span class="cap"><b>Ten of Cups</b></span>
+</li>
+<li data-group="minor cups" id="cups_11">
+<span class="pos">cups page</span>
+<button type="button" class="flip" aria-pressed="false" aria-label="Turn over Page of Cups">
+<span class="flip-inner">
+<span class="side side-a"><img src="../assets/deck/cups_11.svg" alt="Page of Cups" width="600" height="1000" loading="lazy" decoding="async"></span>
+<span class="side side-b"><span class="dossier"><b>Page of Cups</b>
+<span>minor &middot; cups &middot; water</span>
+<span><i>upright</i> creative opportunity, intuitive message, curiosity</span>
+<span><i>reversed</i> emotional immaturity, creative block</span>
+<span class="muted">cups_11</span></span></span>
+</span>
+</button>
+<span class="cap"><b>Page of Cups</b></span>
+</li>
+<li data-group="minor cups" id="cups_12">
+<span class="pos">cups knight</span>
+<button type="button" class="flip" aria-pressed="false" aria-label="Turn over Knight of Cups">
+<span class="flip-inner">
+<span class="side side-a"><img src="../assets/deck/cups_12.svg" alt="Knight of Cups" width="600" height="1000" loading="lazy" decoding="async"></span>
+<span class="side side-b"><span class="dossier"><b>Knight of Cups</b>
+<span>minor &middot; cups &middot; water</span>
+<span><i>upright</i> romance, charm, following the heart</span>
+<span><i>reversed</i> moodiness, unrealistic, disappointment</span>
+<span class="muted">cups_12</span></span></span>
+</span>
+</button>
+<span class="cap"><b>Knight of Cups</b></span>
+</li>
+<li data-group="minor cups" id="cups_13">
+<span class="pos">cups queen</span>
+<button type="button" class="flip" aria-pressed="false" aria-label="Turn over Queen of Cups">
+<span class="flip-inner">
+<span class="side side-a"><img src="../assets/deck/cups_13.svg" alt="Queen of Cups" width="600" height="1000" loading="lazy" decoding="async"></span>
+<span class="side side-b"><span class="dossier"><b>Queen of Cups</b>
+<span>minor &middot; cups &middot; water</span>
+<span><i>upright</i> compassion, intuition, calm</span>
+<span><i>reversed</i> insecurity, emotional dependence</span>
+<span class="muted">cups_13</span></span></span>
+</span>
+</button>
+<span class="cap"><b>Queen of Cups</b></span>
+</li>
+<li data-group="minor cups" id="cups_14">
+<span class="pos">cups king</span>
+<button type="button" class="flip" aria-pressed="false" aria-label="Turn over King of Cups">
+<span class="flip-inner">
+<span class="side side-a"><img src="../assets/deck/cups_14.svg" alt="King of Cups" width="600" height="1000" loading="lazy" decoding="async"></span>
+<span class="side side-b"><span class="dossier"><b>King of Cups</b>
+<span>minor &middot; cups &middot; water</span>
+<span><i>upright</i> emotional balance, diplomacy, control</span>
+<span><i>reversed</i> volatility, manipulation, moodiness</span>
+<span class="muted">cups_14</span></span></span>
+</span>
+</button>
+<span class="cap"><b>King of Cups</b></span>
+</li>
+<li data-group="minor swords" id="swords_01">
+<span class="pos">swords ace</span>
+<button type="button" class="flip" aria-pressed="false" aria-label="Turn over Ace of Swords">
+<span class="flip-inner">
+<span class="side side-a"><img src="../assets/deck/swords_01.svg" alt="Ace of Swords" width="600" height="1000" loading="lazy" decoding="async"></span>
+<span class="side side-b"><span class="dossier"><b>Ace of Swords</b>
+<span>minor &middot; swords &middot; air</span>
+<span><i>upright</i> clarity, breakthrough, truth</span>
+<span><i>reversed</i> confusion, chaos, misinformation</span>
+<span class="muted">swords_01</span></span></span>
+</span>
+</button>
+<span class="cap"><b>Ace of Swords</b></span>
+</li>
+<li data-group="minor swords" id="swords_02">
+<span class="pos">swords two</span>
+<button type="button" class="flip" aria-pressed="false" aria-label="Turn over Two of Swords">
+<span class="flip-inner">
+<span class="side side-a"><img src="../assets/deck/swords_02.svg" alt="Two of Swords" width="600" height="1000" loading="lazy" decoding="async"></span>
+<span class="side side-b"><span class="dossier"><b>Two of Swords</b>
+<span>minor &middot; swords &middot; air</span>
+<span><i>upright</i> indecision, stalemate, difficult choice</span>
+<span><i>reversed</i> information overload, release of tension</span>
+<span class="muted">swords_02</span></span></span>
+</span>
+</button>
+<span class="cap"><b>Two of Swords</b></span>
+</li>
+<li data-group="minor swords" id="swords_03">
+<span class="pos">swords three</span>
+<button type="button" class="flip" aria-pressed="false" aria-label="Turn over Three of Swords">
+<span class="flip-inner">
+<span class="side side-a"><img src="../assets/deck/swords_03.svg" alt="Three of Swords" width="600" height="1000" loading="lazy" decoding="async"></span>
+<span class="side side-b"><span class="dossier"><b>Three of Swords</b>
+<span>minor &middot; swords &middot; air</span>
+<span><i>upright</i> heartbreak, grief, painful truth</span>
+<span><i>reversed</i> recovery, forgiveness, release of pain</span>
+<span class="muted">swords_03</span></span></span>
+</span>
+</button>
+<span class="cap"><b>Three of Swords</b></span>
+</li>
+<li data-group="minor swords" id="swords_04">
+<span class="pos">swords four</span>
+<button type="button" class="flip" aria-pressed="false" aria-label="Turn over Four of Swords">
+<span class="flip-inner">
+<span class="side side-a"><img src="../assets/deck/swords_04.svg" alt="Four of Swords" width="600" height="1000" loading="lazy" decoding="async"></span>
+<span class="side side-b"><span class="dossier"><b>Four of Swords</b>
+<span>minor &middot; swords &middot; air</span>
+<span><i>upright</i> rest, recovery, contemplation</span>
+<span><i>reversed</i> restlessness, burnout, stagnation</span>
+<span class="muted">swords_04</span></span></span>
+</span>
+</button>
+<span class="cap"><b>Four of Swords</b></span>
+</li>
+<li data-group="minor swords" id="swords_05">
+<span class="pos">swords five</span>
+<button type="button" class="flip" aria-pressed="false" aria-label="Turn over Five of Swords">
+<span class="flip-inner">
+<span class="side side-a"><img src="../assets/deck/swords_05.svg" alt="Five of Swords" width="600" height="1000" loading="lazy" decoding="async"></span>
+<span class="side side-b"><span class="dossier"><b>Five of Swords</b>
+<span>minor &middot; swords &middot; air</span>
+<span><i>upright</i> conflict, hollow victory, self-interest</span>
+<span><i>reversed</i> reconciliation, regret</span>
+<span class="muted">swords_05</span></span></span>
+</span>
+</button>
+<span class="cap"><b>Five of Swords</b></span>
+</li>
+<li data-group="minor swords" id="swords_06">
+<span class="pos">swords six</span>
+<button type="button" class="flip" aria-pressed="false" aria-label="Turn over Six of Swords">
+<span class="flip-inner">
+<span class="side side-a"><img src="../assets/deck/swords_06.svg" alt="Six of Swords" width="600" height="1000" loading="lazy" decoding="async"></span>
+<span class="side side-b"><span class="dossier"><b>Six of Swords</b>
+<span>minor &middot; swords &middot; air</span>
+<span><i>upright</i> transition, moving on, passage</span>
+<span><i>reversed</i> resistance, unfinished business</span>
+<span class="muted">swords_06</span></span></span>
+</span>
+</button>
+<span class="cap"><b>Six of Swords</b></span>
+</li>
+<li data-group="minor swords" id="swords_07">
+<span class="pos">swords seven</span>
+<button type="button" class="flip" aria-pressed="false" aria-label="Turn over Seven of Swords">
+<span class="flip-inner">
+<span class="side side-a"><img src="../assets/deck/swords_07.svg" alt="Seven of Swords" width="600" height="1000" loading="lazy" decoding="async"></span>
+<span class="side side-b"><span class="dossier"><b>Seven of Swords</b>
+<span>minor &middot; swords &middot; air</span>
+<span><i>upright</i> deception, strategy, stealth</span>
+<span><i>reversed</i> confession, conscience, getting caught</span>
+<span class="muted">swords_07</span></span></span>
+</span>
+</button>
+<span class="cap"><b>Seven of Swords</b></span>
+</li>
+<li data-group="minor swords" id="swords_08">
+<span class="pos">swords eight</span>
+<button type="button" class="flip" aria-pressed="false" aria-label="Turn over Eight of Swords">
+<span class="flip-inner">
+<span class="side side-a"><img src="../assets/deck/swords_08.svg" alt="Eight of Swords" width="600" height="1000" loading="lazy" decoding="async"></span>
+<span class="side side-b"><span class="dossier"><b>Eight of Swords</b>
+<span>minor &middot; swords &middot; air</span>
+<span><i>upright</i> restriction, trapped, self-imposed limits</span>
+<span><i>reversed</i> release, new perspective</span>
+<span class="muted">swords_08</span></span></span>
+</span>
+</button>
+<span class="cap"><b>Eight of Swords</b></span>
+</li>
+<li data-group="minor swords" id="swords_09">
+<span class="pos">swords nine</span>
+<button type="button" class="flip" aria-pressed="false" aria-label="Turn over Nine of Swords">
+<span class="flip-inner">
+<span class="side side-a"><img src="../assets/deck/swords_09.svg" alt="Nine of Swords" width="600" height="1000" loading="lazy" decoding="async"></span>
+<span class="side side-b"><span class="dossier"><b>Nine of Swords</b>
+<span>minor &middot; swords &middot; air</span>
+<span><i>upright</i> anxiety, worry, sleeplessness</span>
+<span><i>reversed</i> hope, reaching out, despair lifting</span>
+<span class="muted">swords_09</span></span></span>
+</span>
+</button>
+<span class="cap"><b>Nine of Swords</b></span>
+</li>
+<li data-group="minor swords" id="swords_10">
+<span class="pos">swords ten</span>
+<button type="button" class="flip" aria-pressed="false" aria-label="Turn over Ten of Swords">
+<span class="flip-inner">
+<span class="side side-a"><img src="../assets/deck/swords_10.svg" alt="Ten of Swords" width="600" height="1000" loading="lazy" decoding="async"></span>
+<span class="side side-b"><span class="dossier"><b>Ten of Swords</b>
+<span>minor &middot; swords &middot; air</span>
+<span><i>upright</i> painful ending, rock bottom, defeat</span>
+<span><i>reversed</i> recovery, regeneration, resisting an ending</span>
+<span class="muted">swords_10</span></span></span>
+</span>
+</button>
+<span class="cap"><b>Ten of Swords</b></span>
+</li>
+<li data-group="minor swords" id="swords_11">
+<span class="pos">swords page</span>
+<button type="button" class="flip" aria-pressed="false" aria-label="Turn over Page of Swords">
+<span class="flip-inner">
+<span class="side side-a"><img src="../assets/deck/swords_11.svg" alt="Page of Swords" width="600" height="1000" loading="lazy" decoding="async"></span>
+<span class="side side-b"><span class="dossier"><b>Page of Swords</b>
+<span>minor &middot; swords &middot; air</span>
+<span><i>upright</i> curiosity, vigilance, new ideas</span>
+<span><i>reversed</i> deception, haste, all talk</span>
+<span class="muted">swords_11</span></span></span>
+</span>
+</button>
+<span class="cap"><b>Page of Swords</b></span>
+</li>
+<li data-group="minor swords" id="swords_12">
+<span class="pos">swords knight</span>
+<button type="button" class="flip" aria-pressed="false" aria-label="Turn over Knight of Swords">
+<span class="flip-inner">
+<span class="side side-a"><img src="../assets/deck/swords_12.svg" alt="Knight of Swords" width="600" height="1000" loading="lazy" decoding="async"></span>
+<span class="side side-b"><span class="dossier"><b>Knight of Swords</b>
+<span>minor &middot; swords &middot; air</span>
+<span><i>upright</i> ambition, fast thinking, action</span>
+<span><i>reversed</i> recklessness, unfocused, burnout</span>
+<span class="muted">swords_12</span></span></span>
+</span>
+</button>
+<span class="cap"><b>Knight of Swords</b></span>
+</li>
+<li data-group="minor swords" id="swords_13">
+<span class="pos">swords queen</span>
+<button type="button" class="flip" aria-pressed="false" aria-label="Turn over Queen of Swords">
+<span class="flip-inner">
+<span class="side side-a"><img src="../assets/deck/swords_13.svg" alt="Queen of Swords" width="600" height="1000" loading="lazy" decoding="async"></span>
+<span class="side side-b"><span class="dossier"><b>Queen of Swords</b>
+<span>minor &middot; swords &middot; air</span>
+<span><i>upright</i> independence, clear boundaries, direct communication</span>
+<span><i>reversed</i> coldness, cruelty, bitterness</span>
+<span class="muted">swords_13</span></span></span>
+</span>
+</button>
+<span class="cap"><b>Queen of Swords</b></span>
+</li>
+<li data-group="minor swords" id="swords_14">
+<span class="pos">swords king</span>
+<button type="button" class="flip" aria-pressed="false" aria-label="Turn over King of Swords">
+<span class="flip-inner">
+<span class="side side-a"><img src="../assets/deck/swords_14.svg" alt="King of Swords" width="600" height="1000" loading="lazy" decoding="async"></span>
+<span class="side side-b"><span class="dossier"><b>King of Swords</b>
+<span>minor &middot; swords &middot; air</span>
+<span><i>upright</i> intellectual authority, truth, clarity of mind</span>
+<span><i>reversed</i> manipulation, abuse of power</span>
+<span class="muted">swords_14</span></span></span>
+</span>
+</button>
+<span class="cap"><b>King of Swords</b></span>
+</li>
+<li data-group="minor pentacles" id="pentacles_01">
+<span class="pos">pentacles ace</span>
+<button type="button" class="flip" aria-pressed="false" aria-label="Turn over Ace of Pentacles">
+<span class="flip-inner">
+<span class="side side-a"><img src="../assets/deck/pentacles_01.svg" alt="Ace of Pentacles" width="600" height="1000" loading="lazy" decoding="async"></span>
+<span class="side side-b"><span class="dossier"><b>Ace of Pentacles</b>
+<span>minor &middot; pentacles &middot; earth</span>
+<span><i>upright</i> opportunity, prosperity, new venture</span>
+<span><i>reversed</i> lost opportunity, poor planning</span>
+<span class="muted">pentacles_01</span></span></span>
+</span>
+</button>
+<span class="cap"><b>Ace of Pentacles</b></span>
+</li>
+<li data-group="minor pentacles" id="pentacles_02">
+<span class="pos">pentacles two</span>
+<button type="button" class="flip" aria-pressed="false" aria-label="Turn over Two of Pentacles">
+<span class="flip-inner">
+<span class="side side-a"><img src="../assets/deck/pentacles_02.svg" alt="Two of Pentacles" width="600" height="1000" loading="lazy" decoding="async"></span>
+<span class="side side-b"><span class="dossier"><b>Two of Pentacles</b>
+<span>minor &middot; pentacles &middot; earth</span>
+<span><i>upright</i> balance, adaptability, juggling</span>
+<span><i>reversed</i> overcommitment, disorganisation</span>
+<span class="muted">pentacles_02</span></span></span>
+</span>
+</button>
+<span class="cap"><b>Two of Pentacles</b></span>
+</li>
+<li data-group="minor pentacles" id="pentacles_03">
+<span class="pos">pentacles three</span>
+<button type="button" class="flip" aria-pressed="false" aria-label="Turn over Three of Pentacles">
+<span class="flip-inner">
+<span class="side side-a"><img src="../assets/deck/pentacles_03.svg" alt="Three of Pentacles" width="600" height="1000" loading="lazy" decoding="async"></span>
+<span class="side side-b"><span class="dossier"><b>Three of Pentacles</b>
+<span>minor &middot; pentacles &middot; earth</span>
+<span><i>upright</i> teamwork, collaboration, skill</span>
+<span><i>reversed</i> lack of teamwork, disregard for skill</span>
+<span class="muted">pentacles_03</span></span></span>
+</span>
+</button>
+<span class="cap"><b>Three of Pentacles</b></span>
+</li>
+<li data-group="minor pentacles" id="pentacles_04">
+<span class="pos">pentacles four</span>
+<button type="button" class="flip" aria-pressed="false" aria-label="Turn over Four of Pentacles">
+<span class="flip-inner">
+<span class="side side-a"><img src="../assets/deck/pentacles_04.svg" alt="Four of Pentacles" width="600" height="1000" loading="lazy" decoding="async"></span>
+<span class="side side-b"><span class="dossier"><b>Four of Pentacles</b>
+<span>minor &middot; pentacles &middot; earth</span>
+<span><i>upright</i> conservation, security, control</span>
+<span><i>reversed</i> greed, hoarding, materialism</span>
+<span class="muted">pentacles_04</span></span></span>
+</span>
+</button>
+<span class="cap"><b>Four of Pentacles</b></span>
+</li>
+<li data-group="minor pentacles" id="pentacles_05">
+<span class="pos">pentacles five</span>
+<button type="button" class="flip" aria-pressed="false" aria-label="Turn over Five of Pentacles">
+<span class="flip-inner">
+<span class="side side-a"><img src="../assets/deck/pentacles_05.svg" alt="Five of Pentacles" width="600" height="1000" loading="lazy" decoding="async"></span>
+<span class="side side-b"><span class="dossier"><b>Five of Pentacles</b>
+<span>minor &middot; pentacles &middot; earth</span>
+<span><i>upright</i> hardship, scarcity, exclusion</span>
+<span><i>reversed</i> recovery, improvement</span>
+<span class="muted">pentacles_05</span></span></span>
+</span>
+</button>
+<span class="cap"><b>Five of Pentacles</b></span>
+</li>
+<li data-group="minor pentacles" id="pentacles_06">
+<span class="pos">pentacles six</span>
+<button type="button" class="flip" aria-pressed="false" aria-label="Turn over Six of Pentacles">
+<span class="flip-inner">
+<span class="side side-a"><img src="../assets/deck/pentacles_06.svg" alt="Six of Pentacles" width="600" height="1000" loading="lazy" decoding="async"></span>
+<span class="side side-b"><span class="dossier"><b>Six of Pentacles</b>
+<span>minor &middot; pentacles &middot; earth</span>
+<span><i>upright</i> generosity, fair exchange, sharing</span>
+<span><i>reversed</i> debt, one-sided exchange, strings attached</span>
+<span class="muted">pentacles_06</span></span></span>
+</span>
+</button>
+<span class="cap"><b>Six of Pentacles</b></span>
+</li>
+<li data-group="minor pentacles" id="pentacles_07">
+<span class="pos">pentacles seven</span>
+<button type="button" class="flip" aria-pressed="false" aria-label="Turn over Seven of Pentacles">
+<span class="flip-inner">
+<span class="side side-a"><img src="../assets/deck/pentacles_07.svg" alt="Seven of Pentacles" width="600" height="1000" loading="lazy" decoding="async"></span>
+<span class="side side-b"><span class="dossier"><b>Seven of Pentacles</b>
+<span>minor &middot; pentacles &middot; earth</span>
+<span><i>upright</i> patience, long-term view, investment</span>
+<span><i>reversed</i> impatience, lack of reward</span>
+<span class="muted">pentacles_07</span></span></span>
+</span>
+</button>
+<span class="cap"><b>Seven of Pentacles</b></span>
+</li>
+<li data-group="minor pentacles" id="pentacles_08">
+<span class="pos">pentacles eight</span>
+<button type="button" class="flip" aria-pressed="false" aria-label="Turn over Eight of Pentacles">
+<span class="flip-inner">
+<span class="side side-a"><img src="../assets/deck/pentacles_08.svg" alt="Eight of Pentacles" width="600" height="1000" loading="lazy" decoding="async"></span>
+<span class="side side-b"><span class="dossier"><b>Eight of Pentacles</b>
+<span>minor &middot; pentacles &middot; earth</span>
+<span><i>upright</i> diligence, craft, mastery</span>
+<span><i>reversed</i> perfectionism, lack of focus</span>
+<span class="muted">pentacles_08</span></span></span>
+</span>
+</button>
+<span class="cap"><b>Eight of Pentacles</b></span>
+</li>
+<li data-group="minor pentacles" id="pentacles_09">
+<span class="pos">pentacles nine</span>
+<button type="button" class="flip" aria-pressed="false" aria-label="Turn over Nine of Pentacles">
+<span class="flip-inner">
+<span class="side side-a"><img src="../assets/deck/pentacles_09.svg" alt="Nine of Pentacles" width="600" height="1000" loading="lazy" decoding="async"></span>
+<span class="side side-b"><span class="dossier"><b>Nine of Pentacles</b>
+<span>minor &middot; pentacles &middot; earth</span>
+<span><i>upright</i> self-sufficiency, abundance, independence</span>
+<span><i>reversed</i> over-investment in work, hustling</span>
+<span class="muted">pentacles_09</span></span></span>
+</span>
+</button>
+<span class="cap"><b>Nine of Pentacles</b></span>
+</li>
+<li data-group="minor pentacles" id="pentacles_10">
+<span class="pos">pentacles ten</span>
+<button type="button" class="flip" aria-pressed="false" aria-label="Turn over Ten of Pentacles">
+<span class="flip-inner">
+<span class="side side-a"><img src="../assets/deck/pentacles_10.svg" alt="Ten of Pentacles" width="600" height="1000" loading="lazy" decoding="async"></span>
+<span class="side side-b"><span class="dossier"><b>Ten of Pentacles</b>
+<span>minor &middot; pentacles &middot; earth</span>
+<span><i>upright</i> legacy, long-term wealth, establishment</span>
+<span><i>reversed</i> financial failure, loss of legacy</span>
+<span class="muted">pentacles_10</span></span></span>
+</span>
+</button>
+<span class="cap"><b>Ten of Pentacles</b></span>
+</li>
+<li data-group="minor pentacles" id="pentacles_11">
+<span class="pos">pentacles page</span>
+<button type="button" class="flip" aria-pressed="false" aria-label="Turn over Page of Pentacles">
+<span class="flip-inner">
+<span class="side side-a"><img src="../assets/deck/pentacles_11.svg" alt="Page of Pentacles" width="600" height="1000" loading="lazy" decoding="async"></span>
+<span class="side side-b"><span class="dossier"><b>Page of Pentacles</b>
+<span>minor &middot; pentacles &middot; earth</span>
+<span><i>upright</i> study, new skill, manifestation</span>
+<span><i>reversed</i> procrastination, lack of progress</span>
+<span class="muted">pentacles_11</span></span></span>
+</span>
+</button>
+<span class="cap"><b>Page of Pentacles</b></span>
+</li>
+<li data-group="minor pentacles" id="pentacles_12">
+<span class="pos">pentacles knight</span>
+<button type="button" class="flip" aria-pressed="false" aria-label="Turn over Knight of Pentacles">
+<span class="flip-inner">
+<span class="side side-a"><img src="../assets/deck/pentacles_12.svg" alt="Knight of Pentacles" width="600" height="1000" loading="lazy" decoding="async"></span>
+<span class="side side-b"><span class="dossier"><b>Knight of Pentacles</b>
+<span>minor &middot; pentacles &middot; earth</span>
+<span><i>upright</i> routine, reliability, methodical</span>
+<span><i>reversed</i> boredom, stagnation, laziness</span>
+<span class="muted">pentacles_12</span></span></span>
+</span>
+</button>
+<span class="cap"><b>Knight of Pentacles</b></span>
+</li>
+<li data-group="minor pentacles" id="pentacles_13">
+<span class="pos">pentacles queen</span>
+<button type="button" class="flip" aria-pressed="false" aria-label="Turn over Queen of Pentacles">
+<span class="flip-inner">
+<span class="side side-a"><img src="../assets/deck/pentacles_13.svg" alt="Queen of Pentacles" width="600" height="1000" loading="lazy" decoding="async"></span>
+<span class="side side-b"><span class="dossier"><b>Queen of Pentacles</b>
+<span>minor &middot; pentacles &middot; earth</span>
+<span><i>upright</i> practicality, security, nurturing</span>
+<span><i>reversed</i> self-neglect, imbalance</span>
+<span class="muted">pentacles_13</span></span></span>
+</span>
+</button>
+<span class="cap"><b>Queen of Pentacles</b></span>
+</li>
+<li data-group="minor pentacles" id="pentacles_14">
+<span class="pos">pentacles king</span>
+<button type="button" class="flip" aria-pressed="false" aria-label="Turn over King of Pentacles">
+<span class="flip-inner">
+<span class="side side-a"><img src="../assets/deck/pentacles_14.svg" alt="King of Pentacles" width="600" height="1000" loading="lazy" decoding="async"></span>
+<span class="side side-b"><span class="dossier"><b>King of Pentacles</b>
+<span>minor &middot; pentacles &middot; earth</span>
+<span><i>upright</i> wealth, discipline, security</span>
+<span><i>reversed</i> greed, indulgence, stubbornness</span>
+<span class="muted">pentacles_14</span></span></span>
+</span>
+</button>
+<span class="cap"><b>King of Pentacles</b></span>
+</li>
+</ul>
+</main>
+<footer class="honesty"><p>Readings are symbolic: cards and charts illustrate measured data and are not forecasts. No experiment in the ledger has shown predictive evidence.</p></footer>
+</body>
+</html>
